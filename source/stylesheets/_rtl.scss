@@ -134,6 +134,25 @@ aside {
 }
 
 @media (max-width: $phone-width) {
+    .site-header {
+        height: 75px;
+        position: static;
+    }
+
+    .site-logo {
+        margin-right: 0px;
+    }
+
+    .site-nav {
+        float: right;
+        text-align: right;
+
+        a {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+    }
+
     %left-col {
         margin-#{left}: 0;
     }

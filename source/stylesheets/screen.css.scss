@@ -36,6 +36,57 @@ html, body {
   -webkit-text-size-adjust: none; /* Never autoresize text */
 }
 
+.site-header {
+  box-sizing: border-box;
+  padding: 15px 10px 10px 10px;
+  background-color: white;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: $top-nav-height;
+
+  border-bottom: 1px solid #EBEBEC;
+}
+
+.site-logo {
+  display: block;
+  float: left;
+  text-align: right;
+  margin-right: 50px;
+  margin-left: 20px;
+
+  img {
+    height: 35px;
+    margin-right: 5px;
+    display: inline-block;
+  }
+}
+
+.site-nav {
+  float: left;
+  vertical-align: middle;
+  margin-top: 7px;
+
+  a {
+    color: #a2a5a6;
+    margin-right: 2em;
+    font-size: 14px;
+    font-weight: normal;
+    text-decoration: none;
+
+    &:hover {
+      color: #474746;
+    }
+  }
+
+  &.index {
+    a.link-index {
+      color: #474746;
+      cursor: default;
+    }
+  }
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // TABLE OF CONTENTS
 ////////////////////////////////////////////////////////////////////////////////

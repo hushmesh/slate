@@ -44,6 +44,16 @@ under the License.
   </head>
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
+
+    <header class="site-header">
+      <a href="/" class="site-logo">
+        <%= image_tag "logo.png" %>
+      </a>
+      <nav class="site-nav <%= page_classes %>">
+        <a href="https://developer.hushmesh.com/">Manage your apps</a>
+      </nav>
+    </header>
+
     <a href="#" id="nav-button">
       <span>
         NAV
