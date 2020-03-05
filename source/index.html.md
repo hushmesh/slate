@@ -1,67 +1,25 @@
 ---
 title: Twist API Reference
 
-toc_footers:
-  - <a href='https://twistapp.com/integrations/create'>Create your oAuth2 app</a>
-
 includes:
-  - errors
   - authentication
-  - batch
-  - users
-  - workspaces
-  - groups
-  - channels
-  - threads
-  - comments
-  - conversations
-  - conversation_messages
-  - attachments
-  - reactions
-  - inbox
-  - search
-  - notifications
-  - notification_settings
-  - url_join
-  - loop_in
-  - integration_types
-  - integration_rest_hooks
-  - integration_ws
-  - integration_configure_url
-  - integration_automatic_reports
+  - user
 
 search: true
 ---
 
 # Introduction
 
-Add extra functionality for your own teams or build integrations to share with others.
-
-This is the official documentation of the Twist API.
+This is the official documentation of the HushMesh API.
 
 
-## Authentication
+## What is the Mesh?
 
-Login and signup are done via `/api/v2/users/login` and `/api/v2/users/register`. For public integrations you must use our oAuth 2 authentication.
-
-
-## Temporary ids
-
-Temporary ids are negative and can be used when adding, updating or deleting items.
+The mesh is the "trust network". Much like social networks, the mesh enables digital interactions between people and organizations. But unlike traditional social networks, the mesh does not target a specific application or mode of communication. Rather, it is designed from the ground up as a neutral platform to enable digital trust and privacy as a service to all other applications, websites, services and devices, for everyone and every organization.
 
 
-## Return results and error handling
+## What you can do as a developer?
 
-A response is always a JSON object which can be following:
+You can create applications in the portal and use the mesh for your usecases.
 
-- On successful return: JSON data
-- On an error return, HTTP error code followed by: `{ “error”: [error_code, error_string], **kwargs }`
-
-
-## Dates
-For dates we use ISO 8601. The formatting we can have inside the system:
-- Date time: `%Y-%m-%d %H:%M:%S`
-- Date only: `%Y-%m-%d`
-- With timezone info: `%Y-%m-%d %H:%M:%S +00:00`
-
-The current API should only return `%Y-%m-%d %H:%M:%S`, where the time zone is implicit set to `UTC`.
+Examples: ...
