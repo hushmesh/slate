@@ -6,6 +6,7 @@ includes:
   - meshin
   - user
   - storage
+  - app_example
 
 search: true
 ---
