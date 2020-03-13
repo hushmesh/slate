@@ -208,7 +208,7 @@
         <img src="images/logo-6e2835f0.png" alt="Logo" />
       </a>
       <nav class="site-nav index">
-        <a href="https://developer.hushmesh.com/">Manage your apps</a>
+        <a href="https://developer.hushmesh.com/relying-party-registration">Manage your apps</a>
       </nav>
     </header>
 
@@ -308,6 +308,9 @@
                   <li>
                     <a href="#fetch-and-delete-data" class="toc-h2 toc-link" data-title="Fetch and Delete data">Fetch and Delete data</a>
                   </li>
+                  <li>
+                    <a href="#get-object-ids-available-to-user" class="toc-h2 toc-link" data-title="Get Object Ids available to user">Get Object Ids available to user</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -326,7 +329,7 @@
 <h1 id='authentication'>Authentication</h1>
 <p>In order to make authorized calls to the Mesh, you must first obtain an access token. This section describes how to obtain such a token.</p>
 <h2 id='auth'>Auth</h2>
-<p>Before getting started, you need to <a href="http://developer.hushmesh.com/">create an app</a> and configure a valid redirect URL. A registered HushMesh integration is assigned a unique Client ID and Client Secret which are needed for the OAuth2 flow.</p>
+<p>Before getting started, you need to <a href="http://developer.hushmesh.com/relying-party-registration">create an app</a> and configure a valid redirect URL. A registered HushMesh integration is assigned a unique Client ID and Client Secret which are needed for the OAuth2 flow.</p>
 <h3 id='the-authorization-request'>The authorization request</h3>
 <p>Redirect users to the authorization URL at the endpoint <code>https://api.hshm.sh/v0/init</code>, with the specified request parameters. After successful authorization, an access_token going to be available as a query parameter and should be used to make API calls to other Mesh endpoints</p>
 
@@ -392,13 +395,13 @@
 </tr>
 </tbody></table>
 <h1 id='meshin'>Meshin</h1>
-<p>Before getting started, you need to <a href="http://developer.hushmesh.com/">create an app</a> and configure a valid redirect URL. A registered HushMesh integration is assigned a unique Client ID and Client Secret which are needed for the OAuth2 flow.</p>
+<p>Before getting started, you need to <a href="http://developer.hushmesh.com/relying-party-registration">create an app</a> and configure a valid redirect URL. A registered HushMesh integration is assigned a unique Client ID and Client Secret which are needed for the OAuth2 flow.</p>
 
 <p>To autorize user to the mesh as a developer you have two options: use API endpoint directly as explained in authentication section or use our meshin button.</p>
 
 <p>If you&#39;re going to use meshin button, you&#39;re going to have better mobile device meshin experience out of the box (direct Meshin application opening on mobile devices instead of QR code)</p>
 <h2 id='meshin-button'>Meshin button</h2>
-<p>You can find generated button code for your application on your application page on <a href="http://developer.hushmesh.com/">https://developer.hushmesh.com</a></p>
+<p>You can find generated button code for your application on <a href="http://developer.hushmesh.com/relying-party-registration">your application page</a></p>
 
 <blockquote>
 <p>First part:</p>
@@ -412,7 +415,7 @@
 <blockquote>
 <p>Second part:</p>
 </blockquote>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://developer.hushmesh.com/meshlib.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://developer.hushmesh.com/relying-party-registration/meshlib.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre>
 <p>Second part includes tiny meshin library to your application</p>
 
@@ -441,7 +444,7 @@
 </code></pre>
 <p>If you are using any modern JavaScript framework, you may want to use slightly different approach.</p>
 
-<p>You can create meshin button component and inside the component include and initialize meshin library</p>
+<p>You can create meshin button component and inside the component include and initialize meshin library. You can <a href="https://developer.hushmesh.com/relying-party-registration/meshlib.js">download meshlib</a> and include it in your project.</p>
 
 <blockquote>
 <p>Inside handler:</p>
@@ -595,7 +598,7 @@
 * Vuex as state management
 * axios to make API calls</p>
 <h2 id='app-registration'>App registration</h2>
-<p>First step for any mesh application should be app registration in <a href="http://developer.hushmesh.com/relying-parties">relying parties tool</a>. Meshin in the tool and you&#39;re going be able to create and manage your applications.</p>
+<p>First step for any mesh application should be app registration in <a href="http://developer.hushmesh.com/relying-party-registration">relying parties tool</a>. Meshin in the tool and you&#39;re going be able to create and manage your applications.</p>
 <h2 id='meshin-button'>Meshin button</h2>
 <blockquote>
 <p>Example:</p>
@@ -610,7 +613,7 @@
 <span class="c1">// Inside click handler</span>
 <span class="nx">meshApi</span><span class="p">.</span><span class="nx">meshin</span><span class="p">()</span>
 </code></pre>
-<p>After successful app registration we can copy Meshin button code from our application page in <a href="http://developer.hushmesh.com/relying-parties">relying parties tool</a></p>
+<p>After successful app registration we can copy Meshin button code from our application page in <a href="http://developer.hushmesh.com/relying-party-registration">relying parties tool</a></p>
 
 <p>You can find all information about meshin button in <a href="http://developer.hushmesh.com/#meshin">meshin section</a></p>
 
@@ -765,7 +768,7 @@ As you can see, our data is encrypted with crypto.js</p>
 <code>https://api.hshm.sh/v0/storage/keycards</code></p>
 
 <p><a href="http://developer.hushmesh.com/#storage">Storage api docs</a></p>
-
+<h2 id='get-object-ids-available-to-user'>Get Object Ids available to user</h2>
       </div>
       <div class="dark-box">
       </div>
