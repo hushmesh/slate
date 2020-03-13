@@ -196,7 +196,7 @@
   color: #f92672;
 }
     </style>
-    <link href="stylesheets/screen-cc29d98d.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-0c100073.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-e3e96727.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-c5541673.js"></script>
   </head>
@@ -219,7 +219,6 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-6e2835f0.png" class="logo" alt="Logo" />
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -237,17 +236,6 @@
               </ul>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#auth" class="toc-h2 toc-link" data-title="Auth">Auth</a>
-                  </li>
-                  <li>
-                    <a href="#response-types" class="toc-h2 toc-link" data-title="Response types">Response types</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#meshin" class="toc-h1 toc-link" data-title="Meshin">Meshin</a>
               <ul class="toc-list-h2">
                   <li>
@@ -256,25 +244,8 @@
                   <li>
                     <a href="#javascript-frameworks-compatibility" class="toc-h2 toc-link" data-title="JavaScript frameworks compatibility">JavaScript frameworks compatibility</a>
                   </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#user-info" class="toc-h1 toc-link" data-title="User info">User info</a>
-          </li>
-          <li>
-            <a href="#storage-api" class="toc-h1 toc-link" data-title="Storage API">Storage API</a>
-              <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-object-ids" class="toc-h2 toc-link" data-title="Get Object Ids">Get Object Ids</a>
-                  </li>
-                  <li>
-                    <a href="#store-data" class="toc-h2 toc-link" data-title="Store data">Store data</a>
-                  </li>
-                  <li>
-                    <a href="#get-stored-data" class="toc-h2 toc-link" data-title="Get stored data">Get stored data</a>
-                  </li>
-                  <li>
-                    <a href="#delete-stored-data" class="toc-h2 toc-link" data-title="Delete stored data">Delete stored data</a>
+                    <a href="#the-authorization-request" class="toc-h2 toc-link" data-title="The authorization request">The authorization request</a>
                   </li>
               </ul>
           </li>
@@ -309,9 +280,32 @@
                     <a href="#fetch-and-delete-data" class="toc-h2 toc-link" data-title="Fetch and Delete data">Fetch and Delete data</a>
                   </li>
                   <li>
-                    <a href="#get-object-ids-available-to-user" class="toc-h2 toc-link" data-title="Get Object Ids available to user">Get Object Ids available to user</a>
+                    <a href="#object-ids-available-to-user" class="toc-h2 toc-link" data-title="Object Ids available to user">Object Ids available to user</a>
                   </li>
               </ul>
+          </li>
+          <li>
+            <a href="#storage-api" class="toc-h1 toc-link" data-title="Storage API">Storage API</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-object-ids" class="toc-h2 toc-link" data-title="Get Object Ids">Get Object Ids</a>
+                  </li>
+                  <li>
+                    <a href="#store-data" class="toc-h2 toc-link" data-title="Store data">Store data</a>
+                  </li>
+                  <li>
+                    <a href="#get-stored-data" class="toc-h2 toc-link" data-title="Get stored data">Get stored data</a>
+                  </li>
+                  <li>
+                    <a href="#delete-stored-data" class="toc-h2 toc-link" data-title="Delete stored data">Delete stored data</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#user-info" class="toc-h1 toc-link" data-title="User info">User info</a>
+          </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
     </div>
@@ -326,75 +320,9 @@
 <p>You can create applications in the portal and use the mesh for your usecases.</p>
 
 <p>Examples: ...</p>
-<h1 id='authentication'>Authentication</h1>
-<p>In order to make authorized calls to the Mesh, you must first obtain an access token. This section describes how to obtain such a token.</p>
-<h2 id='auth'>Auth</h2>
-<p>Before getting started, you need to <a href="http://developer.hushmesh.com/relying-party-registration">create an app</a> and configure a valid redirect URL. A registered HushMesh integration is assigned a unique Client ID and Client Secret which are needed for the OAuth2 flow.</p>
-<h3 id='the-authorization-request'>The authorization request</h3>
-<p>Redirect users to the authorization URL at the endpoint <code>https://api.hshm.sh/v0/init</code>, with the specified request parameters. After successful authorization, an access_token going to be available as a query parameter and should be used to make API calls to other Mesh endpoints</p>
-
-<p>Here follow the required parameters:</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>client_id</td>
-<td>The unique Client ID of the Mesh integration that you registered.</td>
-</tr>
-<tr>
-<td>response_type</td>
-<td>A comma separated list of permissions that you would like the users to grant to your integration. See below a table with more details about this.</td>
-</tr>
-<tr>
-<td>redirect_uri</td>
-<td>A unique and unguessable string. It is used to protect you against cross-site request forgery attacks.</td>
-</tr>
-</tbody></table>
-
-<p>And here are some common errors that you may encounter (you will find more info in <code>error.error_message</code>):</p>
-
-<table><thead>
-<tr>
-<th>Error</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>FORBIDDEN</td>
-<td>A permissions issue happened</td>
-</tr>
-<tr>
-<td>BAD_REQUEST</td>
-<td>The request was badly formatted, for example, if you supply an invalid <code>response_type</code></td>
-</tr>
-</tbody></table>
-<h2 id='response-types'>Response types</h2>
-<p>These are the response types available for your integration:</p>
-
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>code</td>
-<td>Code</td>
-</tr>
-<tr>
-<td>token</td>
-<td>Token</td>
-</tr>
-<tr>
-<td>id_token</td>
-<td>id_token</td>
-</tr>
-</tbody></table>
 <h1 id='meshin'>Meshin</h1>
+<p>In order to make authorized calls to the Mesh, you must first obtain an access token. This section describes how to obtain such a token.</p>
+
 <p>Before getting started, you need to <a href="http://developer.hushmesh.com/relying-party-registration">create an app</a> and configure a valid redirect URL. A registered HushMesh integration is assigned a unique Client ID and Client Secret which are needed for the OAuth2 flow.</p>
 
 <p>To autorize user to the mesh as a developer you have two options: use API endpoint directly as explained in authentication section or use our meshin button.</p>
@@ -452,139 +380,30 @@
 <pre class="highlight javascript tab-javascript"><code><span class="nx">meshApi</span><span class="p">.</span><span class="nx">meshin</span><span class="p">()</span>
 </code></pre>
 <p>After that you just need to use meshin method inside your on click handler:</p>
-<h1 id='user-info'>User info</h1>
-<blockquote>
-<p>Example</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>  https://api.hshm.sh/v0/userinfo
-</code></pre>
-<p><code>GET api.hshm.sh/v0/userinfo</code></p>
+<h2 id='the-authorization-request'>The authorization request</h2>
+<p>In case you don&#39;t want to use our meshin button, you can implement meshin experience by yourself.</p>
 
-<p>Retrieves user info for the access token</p>
+<p>Redirect users to the authorization URL at the endpoint <code>https://api.hshm.sh/v0/init</code>, with the specified request parameters. After successful authorization, an access_token going to be available as a query parameter and should be used to make API calls to other Mesh endpoints</p>
 
-<blockquote>
-<p>Return object</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice@hushmesh.net"</span><span class="w">
-</span><span class="p">}</span><span class="w">
+<p>Here follow the required parameters:</p>
 
-</span></code></pre><h1 id='storage-api'>Storage API</h1><h2 id='get-object-ids'>Get Object Ids</h2>
-<blockquote>
-<p>Example</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>  GET https://api.hshm.sh/v0/storage
-</code></pre>
-<p><code>GET api.hshm.sh/v0/storage</code></p>
-
-<p>Lists object ids for the meshed in user</p>
-
-<blockquote>
-<p>Return object</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"statusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"objectIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"id1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id2"</span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h2 id='store-data'>Store data</h2>
-<blockquote>
-<p>Example</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>  POST https://api.hshm.sh/v0/storage/some_id
-  body: <span class="o">{</span><span class="s2">"title"</span>: <span class="s2">"data"</span><span class="o">}</span>
-</code></pre>
-<p><code>POST api.hshm.sh/v0/storage/{object_id}</code></p>
-
-<p>Store arbitrary data for the meshed in user</p>
-
-<blockquote>
-<p>Return object</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"statusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='parameters'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Name</th>
-<th>Type</th>
-<th>Required</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>object_id</td>
-<td>String</td>
-<td>Yes</td>
-<td>The id of the stored data</td>
+<td>client_id</td>
+<td>The unique Client ID of the Mesh integration that you registered.</td>
 </tr>
-</tbody></table>
-<h2 id='get-stored-data'>Get stored data</h2>
-<blockquote>
-<p>Example</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>  GET https://api.hshm.sh/v0/storage/some_id
-</code></pre>
-<p><code>GET api.hshm.sh/v0/storage/{object_id}</code></p>
-
-<p>Fetch data that was stored for the meshed in user</p>
-
-<blockquote>
-<p>Return object</p>
-</blockquote>
-
-<p>The data in the same format user stored previously</p>
-<h3 id='parameters-2'>Parameters</h3>
-<table><thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
+<td>response_type</td>
+<td>A comma separated list of permissions that you would like the users to grant to your integration. See below a table with more details about this.</td>
 </tr>
-</thead><tbody>
 <tr>
-<td>object_id</td>
-<td>String</td>
-<td>Yes</td>
-<td>The id of the stored data</td>
-</tr>
-</tbody></table>
-<h2 id='delete-stored-data'>Delete stored data</h2>
-<blockquote>
-<p>Example</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>  DELETE https://api.hshm.sh/v0/storage/some_id
-</code></pre>
-<p><code>DELETE api.hshm.sh/v0/storage/{object_id}</code></p>
-
-<p>Delete data that was stored for the meshed in user.</p>
-
-<blockquote>
-<p>Return object</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-   </span><span class="s2">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"statusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='parameters-3'>Parameters</h3>
-<table><thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>object_id</td>
-<td>String</td>
-<td>Yes</td>
-<td>The id of the stored data</td>
+<td>redirect_uri</td>
+<td>A unique and unguessable string. It is used to protect you against cross-site request forgery attacks.</td>
 </tr>
 </tbody></table>
 <h1 id='alpplication-example'>Alpplication example</h1>
@@ -768,7 +587,189 @@ As you can see, our data is encrypted with crypto.js</p>
 <code>https://api.hshm.sh/v0/storage/keycards</code></p>
 
 <p><a href="http://developer.hushmesh.com/#storage">Storage api docs</a></p>
-<h2 id='get-object-ids-available-to-user'>Get Object Ids available to user</h2>
+<h2 id='object-ids-available-to-user'>Object Ids available to user</h2>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  GET https://api.hshm.sh/v0/storage
+</code></pre>
+<p>In case you want to get all object ids meshedin user has an access, you can do it by sending request to</p>
+
+<p><code>GET api.hshm.sh/v0/storage</code></p>
+<h1 id='storage-api'>Storage API</h1><h2 id='get-object-ids'>Get Object Ids</h2>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  GET https://api.hshm.sh/v0/storage
+</code></pre>
+<p><code>GET api.hshm.sh/v0/storage</code></p>
+
+<p>Lists object ids for the meshed in user</p>
+
+<blockquote>
+<p>Return object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"statusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"objectIds"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"id1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"id2"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='store-data'>Store data</h2>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  POST https://api.hshm.sh/v0/storage/some_id
+  body: <span class="o">{</span><span class="s2">"title"</span>: <span class="s2">"data"</span><span class="o">}</span>
+</code></pre>
+<p><code>POST api.hshm.sh/v0/storage/{object_id}</code></p>
+
+<p>Store arbitrary data for the meshed in user</p>
+
+<blockquote>
+<p>Return object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"statusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>object_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>The id of the stored data</td>
+</tr>
+</tbody></table>
+<h2 id='get-stored-data'>Get stored data</h2>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  GET https://api.hshm.sh/v0/storage/some_id
+</code></pre>
+<p><code>GET api.hshm.sh/v0/storage/{object_id}</code></p>
+
+<p>Fetch data that was stored for the meshed in user</p>
+
+<blockquote>
+<p>Return object</p>
+</blockquote>
+
+<p>The data in the same format user stored previously</p>
+<h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>object_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>The id of the stored data</td>
+</tr>
+</tbody></table>
+<h2 id='delete-stored-data'>Delete stored data</h2>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  DELETE https://api.hshm.sh/v0/storage/some_id
+</code></pre>
+<p><code>DELETE api.hshm.sh/v0/storage/{object_id}</code></p>
+
+<p>Delete data that was stored for the meshed in user.</p>
+
+<blockquote>
+<p>Return object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"statusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-3'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>object_id</td>
+<td>String</td>
+<td>Yes</td>
+<td>The id of the stored data</td>
+</tr>
+</tbody></table>
+<h1 id='user-info'>User info</h1>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  https://api.hshm.sh/v0/userinfo
+</code></pre>
+<p><code>GET api.hshm.sh/v0/userinfo</code></p>
+
+<p>Retrieves user info for the access token</p>
+
+<blockquote>
+<p>Return object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"sub"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Alice"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice@hushmesh.net"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h1 id='errors'>Errors</h1>
+<p>The HTTP error codes returned:</p>
+
+<table><thead>
+<tr>
+<th>Status code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Missing/Invalid fields in the request</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized, additional credentials needed</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Permission Denied</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Resource Not Found</td>
+</tr>
+<tr>
+<td>406</td>
+<td>Unhandled message type</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Conflict</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error</td>
+</tr>
+</tbody></table>
+
       </div>
       <div class="dark-box">
       </div>
