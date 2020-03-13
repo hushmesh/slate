@@ -2,11 +2,11 @@
 title: Twist API Reference
 
 includes:
-  - authentication
   - meshin
-  - user
-  - storage
   - app_example
+  - storage
+  - user
+  - errors
 
 search: true
 ---
