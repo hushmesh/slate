@@ -1,5 +1,7 @@
 # Meshin
 
+In order to make authorized calls to the Mesh, you must first obtain an access token. This section describes how to obtain such a token.
+
 Before getting started, you need to [create an app](http://developer.hushmesh.com/relying-party-registration) and configure a valid redirect URL. A registered HushMesh integration is assigned a unique Client ID and Client Secret which are needed for the OAuth2 flow.
 
 To autorize user to the mesh as a developer you have two options: use API endpoint directly as explained in authentication section or use our meshin button.
@@ -66,3 +68,17 @@ meshApi.meshin()
 ```
 
 After that you just need to use meshin method inside your on click handler:
+
+## The authorization request
+
+In case you don't want to use our meshin button, you can implement meshin experience by yourself.
+
+Redirect users to the authorization URL at the endpoint `https://api.hshm.sh/v0/init`, with the specified request parameters. After successful authorization, an access_token going to be available as a query parameter and should be used to make API calls to other Mesh endpoints
+
+Here follow the required parameters:
+
+| Name | Description |
+| --- | --- |
+| client_id | The unique Client ID of the Mesh integration that you registered. |
+| response_type | A comma separated list of permissions that you would like the users to grant to your integration. See below a table with more details about this. |
+| redirect_uri | A unique and unguessable string. It is used to protect you against cross-site request forgery attacks. |

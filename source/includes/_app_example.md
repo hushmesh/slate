@@ -206,3 +206,15 @@ To fetch data back we're going to use the same endpoint but GET request, to dele
 `https://api.hshm.sh/v0/storage/keycards`
 
 [Storage api docs](http://developer.hushmesh.com/#storage)
+
+## Object Ids available to user
+
+> Example
+
+```shell
+  GET https://api.hshm.sh/v0/storage
+```
+
+In case you want to get all object ids meshedin user has an access, you can do it by sending request to
+
+`GET api.hshm.sh/v0/storage`
