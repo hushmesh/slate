@@ -1,6 +1,6 @@
 # Meshin
 
-Before getting started, you need to [create an app](http://developer.hushmesh.com/) and configure a valid redirect URL. A registered HushMesh integration is assigned a unique Client ID and Client Secret which are needed for the OAuth2 flow.
+Before getting started, you need to [create an app](http://developer.hushmesh.com/relying-party-registration) and configure a valid redirect URL. A registered HushMesh integration is assigned a unique Client ID and Client Secret which are needed for the OAuth2 flow.
 
 To autorize user to the mesh as a developer you have two options: use API endpoint directly as explained in authentication section or use our meshin button.
 
@@ -8,7 +8,7 @@ If you're going to use meshin button, you're going to have better mobile device 
 
 ## Meshin button
 
-You can find generated button code for your application on your application page on [https://developer.hushmesh.com](http://developer.hushmesh.com/)
+You can find generated button code for your application on [your application page](http://developer.hushmesh.com/relying-party-registration)
 
 > First part:
 
@@ -23,7 +23,7 @@ First part is HTML for your button. You can add your own CSS or apply any CSS cl
 > Second part:
 
 ```html
-<script src="https://developer.hushmesh.com/meshlib.js"></script>
+<script src="https://developer.hushmesh.com/relying-party-registration/meshlib.js"></script>
 ```
 
 Second part includes tiny meshin library to your application
@@ -57,7 +57,7 @@ const meshApi = new Meshlib({
 
 If you are using any modern JavaScript framework, you may want to use slightly different approach.
 
-You can create meshin button component and inside the component include and initialize meshin library
+You can create meshin button component and inside the component include and initialize meshin library. You can [download meshlib](https://developer.hushmesh.com/relying-party-registration/meshlib.js) and include it in your project.
 
 > Inside handler:
 

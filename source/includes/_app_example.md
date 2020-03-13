@@ -14,7 +14,7 @@ Hushsafe is single page application, stack we are using:
 
 ## App registration
 
-First step for any mesh application should be app registration in [relying parties tool](http://developer.hushmesh.com/relying-parties). Meshin in the tool and you're going be able to create and manage your applications.
+First step for any mesh application should be app registration in [relying parties tool](http://developer.hushmesh.com/relying-party-registration). Meshin in the tool and you're going be able to create and manage your applications.
 
 ## Meshin button
 
@@ -32,7 +32,7 @@ const meshApi = new Meshlib({
 meshApi.meshin()
 ```
 
-After successful app registration we can copy Meshin button code from our application page in [relying parties tool](http://developer.hushmesh.com/relying-parties)
+After successful app registration we can copy Meshin button code from our application page in [relying parties tool](http://developer.hushmesh.com/relying-party-registration)
 
 You can find all information about meshin button in [meshin section](http://developer.hushmesh.com/#meshin)
 

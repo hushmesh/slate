@@ -5,7 +5,7 @@ In order to make authorized calls to the Mesh, you must first obtain an access t
 
 ## Auth
 
-Before getting started, you need to [create an app](http://developer.hushmesh.com/) and configure a valid redirect URL. A registered HushMesh integration is assigned a unique Client ID and Client Secret which are needed for the OAuth2 flow.
+Before getting started, you need to [create an app](http://developer.hushmesh.com/relying-party-registration) and configure a valid redirect URL. A registered HushMesh integration is assigned a unique Client ID and Client Secret which are needed for the OAuth2 flow.
 
 
 ### The authorization request
