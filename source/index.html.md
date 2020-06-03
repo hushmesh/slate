@@ -6,6 +6,7 @@ includes:
   - app_example
   - storage
   - user
+  - meshout
   - errors
 
 search: true
