@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Twist API Reference</title>
+    <title>HusmMesh API Documentation</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -243,10 +243,24 @@
                     <a href="#meshin-button" class="toc-h2 toc-link" data-title="Meshin button">Meshin button</a>
                   </li>
                   <li>
+                    <a href="#how-to-generate-code-challenge-and-code-verifier" class="toc-h2 toc-link" data-title="How to generate code challenge and code verifier">How to generate code challenge and code verifier</a>
+                  </li>
+                  <li>
+                    <a href="#exchange-code-to-oauth-tokens" class="toc-h2 toc-link" data-title="Exchange code to oauth tokens">Exchange code to oauth tokens</a>
+                  </li>
+                  <li>
                     <a href="#javascript-frameworks-compatibility" class="toc-h2 toc-link" data-title="JavaScript frameworks compatibility">JavaScript frameworks compatibility</a>
                   </li>
                   <li>
-                    <a href="#the-authorization-request" class="toc-h2 toc-link" data-title="The authorization request">The authorization request</a>
+                    <a href="#meshin-without-meshlib" class="toc-h2 toc-link" data-title="Meshin without meshlib">Meshin without meshlib</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#oauth-tokens" class="toc-h1 toc-link" data-title="Oauth tokens">Oauth tokens</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#how-to-parse-masterkey-from-id_token" class="toc-h2 toc-link" data-title="How to parse masterKey from id_token:">How to parse masterKey from id_token:</a>
                   </li>
               </ul>
           </li>
@@ -263,7 +277,10 @@
                     <a href="#meshin-button" class="toc-h2 toc-link" data-title="Meshin button">Meshin button</a>
                   </li>
                   <li>
-                    <a href="#redirect-page" class="toc-h2 toc-link" data-title="Redirect page">Redirect page</a>
+                    <a href="#callback-page" class="toc-h2 toc-link" data-title="Callback page">Callback page</a>
+                  </li>
+                  <li>
+                    <a href="#auth-page" class="toc-h2 toc-link" data-title="Auth page">Auth page</a>
                   </li>
                   <li>
                     <a href="#getting-user-39-s-info" class="toc-h2 toc-link" data-title="Getting user's info">Getting user's info</a>
@@ -306,6 +323,25 @@
             <a href="#user-info" class="toc-h1 toc-link" data-title="User info">User info</a>
           </li>
           <li>
+            <a href="#meshout" class="toc-h1 toc-link" data-title="Meshout">Meshout</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#meshout-api" class="toc-h2 toc-link" data-title="Meshout API">Meshout API</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#browser-extension" class="toc-h1 toc-link" data-title="Browser extension">Browser extension</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#meshin-browser-extension" class="toc-h2 toc-link" data-title="Meshin browser extension">Meshin browser extension</a>
+                  </li>
+                  <li>
+                    <a href="#caveats" class="toc-h2 toc-link" data-title="Caveats">Caveats</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -319,8 +355,6 @@
 <p>The mesh is the &quot;trust network&quot;. Much like social networks, the mesh enables digital interactions between people and organizations. But unlike traditional social networks, the mesh does not target a specific application or mode of communication. Rather, it is designed from the ground up as a neutral platform to enable digital trust and privacy as a service to all other applications, websites, services and devices, for everyone and every organization.</p>
 <h2 id='what-you-can-do-as-a-developer'>What you can do as a developer?</h2>
 <p>You can create applications in the portal and use the mesh for your usecases.</p>
-
-<p>Examples: ...</p>
 <h1 id='meshin'>Meshin</h1>
 <p>In order to make authorized calls to the Mesh, you must first obtain an access token. This section describes how to obtain such a token.</p>
 
@@ -328,7 +362,7 @@
 
 <p>To autorize user to the mesh as a developer you have two options: use API endpoint directly as explained in authentication section or use our meshin button.</p>
 
-<p>If you&#39;re going to use meshin button, you&#39;re going to have better mobile device meshin experience out of the box (direct Meshin application opening on mobile devices instead of QR code)</p>
+<p>If you&#39;re going to use meshlib, you&#39;re going to have better mobile device meshin experience out of the box (direct Meshin application opening on mobile devices instead of QR code)</p>
 <h2 id='meshin-button'>Meshin button</h2>
 <p>You can find generated button code for your application on <a href="http://developer.hushmesh.com/relying-party-registration">your application page</a></p>
 
@@ -344,7 +378,7 @@
 <blockquote>
 <p>Second part:</p>
 </blockquote>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://developer.hushmesh.com/relying-party-registration/meshlib.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://developer.hushmesh.com/relying-party-registration/meshlib-pkce.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre>
 <p>Second part includes tiny meshin library to your application</p>
 
@@ -352,28 +386,95 @@
 <p>Third part:</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
-  <span class="nb">window</span><span class="p">.</span><span class="nx">Meshlib</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Meshlib</span><span class="p">({</span>
-    <span class="na">clientId</span><span class="p">:</span> <span class="s1">'demo'</span><span class="p">,</span>
-    <span class="na">responseType</span><span class="p">:</span> <span class="s1">'token_id_token'</span><span class="p">,</span>
-    <span class="na">redirectUri</span><span class="p">:</span> <span class="s1">'https://beta.hushsafe.com/auth'</span>
-  <span class="p">}).</span><span class="nx">init</span><span class="p">()</span>
+  <span class="kr">const</span> <span class="nx">meshApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Meshlib</span><span class="p">({</span>
+    <span class="na">clientId</span><span class="p">:</span> <span class="s1">'YOUR_CLIENT_ID'</span><span class="p">,</span>
+    <span class="na">responseType</span><span class="p">:</span> <span class="s1">'code'</span><span class="p">,</span>
+    <span class="na">redirectUri</span><span class="p">:</span> <span class="s1">'https://beta.hushsafe.com/auth'</span><span class="p">,</span>
+    <span class="nx">codeChallenge</span><span class="p">,</span>
+    <span class="na">codeChallengeMethod</span><span class="p">:</span> <span class="s1">'S256'</span><span class="p">,</span>
+  <span class="p">})</span>
+  <span class="kr">const</span> <span class="nx">meshinButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'meshin-button'</span><span class="p">)</span>
+  <span class="nx">meshinButton</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">meshApi</span><span class="p">.</span><span class="nx">meshin</span><span class="p">()</span>
+  <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
 </span></code></pre>
 <p>Third part is library initialization with your application parameters</p>
-<h2 id='javascript-frameworks-compatibility'>JavaScript frameworks compatibility</h2>
+<h2 id='how-to-generate-code-challenge-and-code-verifier'>How to generate code challenge and code verifier</h2>
+<p>In order to get user tokens first you have to obtain the authorization code. Next you can exchange your authorization code and code verifier for tokens.</p>
+
+<blockquote>
+<p>Generate challenge data example</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="nx">CryptoJS</span> <span class="nx">from</span> <span class="s1">'crypto-js'</span>
+
+<span class="kr">const</span> <span class="nx">generateChallengeData</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">codeVerifier</span> <span class="o">=</span> <span class="nx">CryptoJS</span><span class="p">.</span><span class="nx">lib</span><span class="p">.</span><span class="nx">WordArray</span><span class="p">.</span><span class="nx">random</span><span class="p">(</span><span class="mi">128</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="nx">CryptoJS</span><span class="p">.</span><span class="nx">enc</span><span class="p">.</span><span class="nx">Base64</span><span class="p">)</span>
+  <span class="kr">const</span> <span class="nx">codeChallenge</span> <span class="o">=</span> <span class="nx">CryptoJS</span><span class="p">.</span><span class="nx">enc</span><span class="p">.</span><span class="nx">Base64</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">sha256</span><span class="p">(</span><span class="nx">codeVerifier</span><span class="p">)).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/=/g</span><span class="p">,</span> <span class="s1">''</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\+</span><span class="sr">/g</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\/</span><span class="sr">/g</span><span class="p">,</span> <span class="s1">'_'</span><span class="p">)</span>
+  <span class="k">return</span> <span class="p">{</span> <span class="nx">codeVerifier</span><span class="p">,</span> <span class="nx">codeChallenge</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre><h2 id='exchange-code-to-oauth-tokens'>Exchange code to oauth tokens</h2>
+<p>The last step is to exchange the code which you&#39;re going to get back as query parameter in the url and your initial code verifier to oauth tokens</p>
+
+<blockquote>
+<p>Token service example</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">'axios'</span>
+
+<span class="kr">const</span> <span class="nx">BASE_URL</span> <span class="o">=</span> <span class="s1">'https://api.hshm.sh/v0/getToken'</span>
+<span class="kr">const</span> <span class="nx">CLIENT_ID</span> <span class="o">=</span> <span class="s1">'YOUR_CLIENT_ID'</span>
+<span class="kr">const</span> <span class="nx">REDIRECT_URI</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span>
+
+<span class="kr">const</span> <span class="nx">getTokens</span> <span class="o">=</span> <span class="p">(</span><span class="nx">payload</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="p">{</span> <span class="nx">code</span><span class="p">,</span> <span class="nx">codeVerifier</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">payload</span>
+
+  <span class="kr">const</span> <span class="nx">params</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">URLSearchParams</span><span class="p">()</span>
+  <span class="nx">params</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">'client_id'</span><span class="p">,</span> <span class="nx">CLIENT_ID</span><span class="p">)</span>
+  <span class="nx">params</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">'code_verifier'</span><span class="p">,</span> <span class="nx">codeVerifier</span><span class="p">)</span>
+  <span class="nx">params</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">'grant_type'</span><span class="p">,</span> <span class="s1">'authorization_code'</span><span class="p">)</span>
+  <span class="nx">params</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">'code'</span><span class="p">,</span> <span class="nx">code</span><span class="p">)</span>
+  <span class="nx">params</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">'redirect_uri'</span><span class="p">,</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">REDIRECT_URI</span><span class="p">))</span>
+
+  <span class="k">return</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="nx">BASE_URL</span><span class="p">,</span> <span class="nx">params</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="nx">getTokens</span>
+<span class="p">}</span>
+</code></pre>
+<blockquote>
+<p>Use token service</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">tokenService</span><span class="p">.</span><span class="nx">getTokens</span><span class="p">(</span><span class="nx">payload</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">accessToken</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">access_token</span>
+  <span class="kr">const</span> <span class="nx">jwt</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">id_token</span>
+  <span class="kd">let</span> <span class="nx">masterKey</span> <span class="o">=</span> <span class="s1">''</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">jwt</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">tokens</span> <span class="o">=</span> <span class="nx">jwt</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span>
+    <span class="kr">const</span> <span class="nx">jwtObj</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">atob</span><span class="p">(</span><span class="nx">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="nx">masterKey</span> <span class="o">=</span> <span class="nx">jwtObj</span><span class="p">.</span><span class="nx">masterKey</span>
+  <span class="p">}</span>
+  <span class="c1">// At this point you have accessToken</span>
+  <span class="c1">// which should be used in Bearer authorization header</span>
+  <span class="c1">// to access other Mesh API endpoints</span>
+<span class="p">})</span>
+</code></pre><h2 id='javascript-frameworks-compatibility'>JavaScript frameworks compatibility</h2>
 <blockquote>
 <p>Include an init:</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="nx">Meshlib</span> <span class="nx">from</span> <span class="s1">'@/assets/js/meshlib'</span>
 <span class="kr">const</span> <span class="nx">meshApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Meshlib</span><span class="p">({</span>
-  <span class="na">clientId</span><span class="p">:</span> <span class="s1">'demo'</span><span class="p">,</span>
-  <span class="na">responseType</span><span class="p">:</span> <span class="s1">'token_id_token'</span><span class="p">,</span>
-  <span class="na">redirectUri</span><span class="p">:</span> <span class="s1">'https://beta.hushsafe.com/auth'</span>
+  <span class="na">clientId</span><span class="p">:</span> <span class="s1">'YOUR_CLIENT_ID'</span><span class="p">,</span>
+  <span class="na">responseType</span><span class="p">:</span> <span class="s1">'code'</span><span class="p">,</span>
+  <span class="na">redirectUri</span><span class="p">:</span> <span class="s1">'https://beta.hushsafe.com/auth'</span><span class="p">,</span>
+  <span class="nx">codeChallenge</span><span class="p">,</span>
+  <span class="na">codeChallengeMethod</span><span class="p">:</span> <span class="s1">'S256'</span><span class="p">,</span>
 <span class="p">})</span>
 </code></pre>
 <p>If you are using any modern JavaScript framework, you may want to use slightly different approach.</p>
 
-<p>You can create meshin button component and inside the component include and initialize meshin library. You can <a href="https://developer.hushmesh.com/relying-party-registration/meshlib.js">download meshlib</a> and include it in your project.</p>
+<p>You can create meshin button component and inside the component include and initialize meshin library. You can <a href="https://developer.hushmesh.com/relying-party-registration/meshlib-pkce.js">download meshlib</a> and include it in your project.</p>
 
 <blockquote>
 <p>Inside handler:</p>
@@ -381,33 +482,71 @@
 <pre class="highlight javascript tab-javascript"><code><span class="nx">meshApi</span><span class="p">.</span><span class="nx">meshin</span><span class="p">()</span>
 </code></pre>
 <p>After that you just need to use meshin method inside your on click handler:</p>
-<h2 id='the-authorization-request'>The authorization request</h2>
-<p>In case you don&#39;t want to use our meshin button, you can implement meshin experience by yourself.</p>
+<h2 id='meshin-without-meshlib'>Meshin without meshlib</h2>
+<p>In case you don&#39;t want to use our meshlib library, you can implement meshin experience by yourself.</p>
 
-<p>Redirect users to the authorization URL at the endpoint <code>https://api.hshm.sh/v0/init</code>, with the specified request parameters. After successful authorization, an access_token going to be available as a query parameter and should be used to make API calls to other Mesh endpoints</p>
+<p>As an additional step first you&#39;re going to need to redirect users to <code>https://api.hshm.sh/v0/authorize</code>, with the specified request parameters. After successful callback the flow is the same as per ususal Meshin experience</p>
 
-<p>Here follow the required parameters:</p>
+<p>For code examples see <a href="https://developer.hushmesh.com/relying-party-registration/meshlib-pkce.js">meshlib source code</a></p>
+<h1 id='oauth-tokens'>Oauth tokens</h1>
+<p>After the exchange your authorization code and code verifier for tokens you&#39;re going to receive an object with few fields:</p>
 
 <table><thead>
 <tr>
-<th>Name</th>
+<th>Field</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>client_id</td>
-<td>The unique Client ID of the Mesh integration that you registered.</td>
+<td>access_token</td>
+<td>Access token to use to access Mesh API</td>
 </tr>
 <tr>
-<td>response_type</td>
-<td>A comma separated list of permissions that you would like the users to grant to your integration. See below a table with more details about this.</td>
+<td>expires_in</td>
+<td>When current token going to be expired</td>
 </tr>
 <tr>
-<td>redirect_uri</td>
-<td>A unique and unguessable string. It is used to protect you against cross-site request forgery attacks.</td>
+<td>id_token</td>
+<td>JWT token which contains your masterKey</td>
+</tr>
+<tr>
+<td>refresh_token</td>
+<td>Refresh token can be used for tokens update without additional login</td>
+</tr>
+<tr>
+<td>token_type</td>
+<td>Token type. Currently Bearer only.</td>
 </tr>
 </tbody></table>
-<h1 id='alpplication-example'>Alpplication example</h1>
+
+<blockquote>
+<p>Return object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c8b6935c7e864315beeb959f0043a08d"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expires_in"</span><span class="p">:</span><span class="w"> </span><span class="mi">86364</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJhbGciOiJFUzM4NCIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiOWgyZmhmVVZ1UzlqWjh1VmJoVjN2QzVBV1gzOUlWVVciXSwiZXhwIjoxNTkxMjc1ODQzLCJpYXQiOjE1OTEyNTc1ODMsImlzcyI6Imh0dHBzOi8vYXBpLmhzaG0uc2giLCJqdGkiOiI5aDJmaGZVVnVTOWpaOHVWYmhWM3ZDNUFXWDM5SVZVVy0wZXRyYmx2OE1rdUQ5VDk4QUtja1pnejdRcGhWRHFwUyIsIm1hc3RlcktleSI6IlFRT1kyQ25vRmlknnZ4aWVRbzh0azdBZFlCbmdMb2I0Iiwic3ViIjoiOWgyZmhmVVZ1UzlqWjh1VmJoVjN2QzVBV1gzOUlWVVctMGV0cmJsdjhNa3VEOVQ5OEFLY2taZ3o3UXBoVkRxcFMifQ._OhQZUnsN-vd31COikcqWr_YlyPhQju4wEZLRgd_QS8EqvdTPTaMI0Ww-aNVhuTKQ09fY41jiwVNgm979t0RTkelR1gM1fFmKhyFVp3uoUUDOg95SmqQS69QzSzNGPym"</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"333a5730763f447594e08869401ffe22"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"scope"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"token_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Two most important pieces of information here are:</p>
+
+<ul>
+<li><p>access_token - token which you have to use to access any Mesh API in the authorization header (without it you&#39;re going to have 401 error - anautorized)</p></li>
+<li><p>id_token - it&#39;s JWT token, which contains information in it&#39;s body. The most important part is unique masterKey, which can be used for different usecases (for example, as a key for your encryption/decryption process). To learn more about id_token structure you may want to take a look at our <a href="https://developer.hushmesh.com/token-viewer">token viewer</a></p></li>
+</ul>
+<h2 id='how-to-parse-masterkey-from-id_token'>How to parse masterKey from id_token:</h2>
+<blockquote>
+<p>parse masterKey</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">idToken</span> <span class="o">=</span> <span class="s1">'your_id_token_here'</span>
+<span class="kr">const</span> <span class="nx">parts</span> <span class="o">=</span> <span class="nx">idToken</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span>
+<span class="kr">const</span> <span class="nx">jwtObj</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">atob</span><span class="p">(</span><span class="nx">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+<span class="kr">const</span> <span class="nx">masterKey</span> <span class="o">=</span> <span class="nx">jwtObj</span><span class="p">.</span><span class="nx">masterKey</span>
+</code></pre><h1 id='alpplication-example'>Alpplication example</h1>
 <p>In this section we are going to explore simple application  <a href="https://hushsafe.com/">hushsafe.com</a> that demonstrates the unique security capabilities enabled by the mesh.</p>
 
 <p>We are going to use meshin button and auth experience, getting user&#39;s data and to use storage API.</p>
@@ -423,54 +562,71 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="nx">Meshlib</span> <span class="nx">from</span> <span class="s1">'@/assets/js/meshlib'</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="nx">Meshlib</span> <span class="nx">from</span> <span class="s1">'@/assets/js/meshlib-pkce'</span>
+<span class="kr">import</span> <span class="nx">crypto</span> <span class="nx">from</span> <span class="s1">'@/services/crypto'</span>
+
+<span class="kr">const</span> <span class="p">{</span> <span class="nx">codeChallenge</span><span class="p">,</span> <span class="nx">codeVerifier</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">generateChallengeData</span><span class="p">()</span>
+
 <span class="kr">const</span> <span class="nx">meshApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Meshlib</span><span class="p">({</span>
-  <span class="na">clientId</span><span class="p">:</span> <span class="s1">'demo'</span><span class="p">,</span>
-  <span class="na">responseType</span><span class="p">:</span> <span class="s1">'token_id_token'</span><span class="p">,</span>
-  <span class="na">redirectUri</span><span class="p">:</span> <span class="s1">'https://beta.hushsafe.com/auth'</span>
+  <span class="na">clientId</span><span class="p">:</span> <span class="s1">'9h2fhfUVuS9jZ8uVbhV3vC5AWX39IVUW'</span><span class="p">,</span>
+  <span class="na">responseType</span><span class="p">:</span> <span class="s1">'code'</span><span class="p">,</span>
+  <span class="na">redirectUri</span><span class="p">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span> <span class="o">+</span> <span class="s1">'/callback'</span><span class="p">,</span>
+  <span class="nx">codeChallenge</span><span class="p">,</span>
+  <span class="na">codeChallengeMethod</span><span class="p">:</span> <span class="s1">'S256'</span><span class="p">,</span>
+  <span class="na">isPopup</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">})</span>
 
 <span class="c1">// Inside click handler</span>
 <span class="nx">meshApi</span><span class="p">.</span><span class="nx">meshin</span><span class="p">()</span>
 </code></pre>
-<p>After successful app registration we can copy Meshin button code from our application page in <a href="http://developer.hushmesh.com/relying-party-registration">relying parties tool</a></p>
+<p>After successful app registration we can copy Meshin button code from our application page in <a href="https://developer.hushmesh.com/relying-party-registration">relying parties tool</a></p>
 
 <p>You can find all information about meshin button in <a href="http://developer.hushmesh.com/#meshin">meshin section</a></p>
 
-<p>On Hushsafe.com we are using approach from &quot;JavaScript frameworks compatibility&quot; section</p>
-<h2 id='redirect-page'>Redirect page</h2>
+<p>On Hushsafe.com we are using exactly the approach from the meshin section</p>
+<h2 id='callback-page'>Callback page</h2>
 <blockquote>
 <p>Example</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">mounted</span> <span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// getting tokens data</span>
-  <span class="kr">const</span> <span class="nx">accessToken</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$route</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">access_token</span>
-  <span class="kr">const</span> <span class="nx">jwt</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$route</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">id_token</span>
-
-  <span class="k">if</span> <span class="p">(</span><span class="nx">accessToken</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">isLoading</span> <span class="o">=</span> <span class="kc">true</span>
-    <span class="c1">// save access token</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="s1">'user/setAccessToken'</span><span class="p">,</span> <span class="nx">accessToken</span><span class="p">)</span>
-    <span class="c1">// now with the token we can get user data</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="s1">'user/getUserData'</span><span class="p">)</span>
-      <span class="p">.</span><span class="k">catch</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">isLoading</span> <span class="o">=</span> <span class="kc">false</span>
-      <span class="p">})</span>
-  <span class="p">}</span>
-
-  <span class="k">if</span> <span class="p">(</span><span class="nx">jwt</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kr">const</span> <span class="nx">tokens</span> <span class="o">=</span> <span class="nx">jwt</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span>
-    <span class="kr">const</span> <span class="nx">jwtObj</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">atob</span><span class="p">(</span><span class="nx">tokens</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
-    <span class="c1">// save master key to use it for encoding/decoding data</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="s1">'user/setMasterKey'</span><span class="p">,</span> <span class="nx">jwtObj</span><span class="p">.</span><span class="nx">masterKey</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">opener</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">opener</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span> <span class="o">+</span> <span class="s1">'/auth'</span> <span class="o">+</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">search</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">close</span><span class="p">()</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span> <span class="o">+</span> <span class="s1">'/auth'</span> <span class="o">+</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">search</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<p>After successful meshin we are getting back to redirect page, which we specified in button meshin parameters as <code>redirectUri</code>. Url going to have query string with data which we are going to use in our application.</p>
+<p>On Hushsafe.com we&#39;re using approach with popup, because of that we need callback page which can close the popup and redirect to the app auth page (which responsible for the exchange of the code for tokens)</p>
 
-<p><code>https://hushsafe.com/auth?access_token=token_here&amp;id_token=id_token_data</code></p>
+<p>Callback page should be specified as <code>redirectUri</code>. Url going to have query string with exchange code which you should use to exchange code to the tokens.</p>
 
-<p>From this url we are grabbing tokens data and saving it to use later</p>
+<p><code>https://hushsafe.com/auth?access_token=code=your_exchange_code</code></p>
+
+<p>From this url we are grabbing code and providing it to auth page.</p>
+<h2 id='auth-page'>Auth page</h2>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">mounted</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">code</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$route</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">code</span>
+  <span class="kr">const</span> <span class="nx">codeVerifier</span> <span class="o">=</span> <span class="nx">sessionStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">'code_verifier'</span><span class="p">)</span>
+
+  <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="s1">'user/getTokens'</span><span class="p">,</span> <span class="p">{</span> <span class="nx">code</span><span class="p">,</span> <span class="nx">codeVerifier</span> <span class="p">})</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// success, at this point we have tokens</span>
+      <span class="c1">// and can use any Mesh API</span>
+      <span class="c1">// userinfo in this example</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">$store</span><span class="p">.</span><span class="nx">dispatch</span><span class="p">(</span><span class="s1">'user/getUserData'</span><span class="p">)</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// error</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+</code></pre>
+<p>At this point we already have code to exchange it to tokens, so the main goal of the page is to make api call to get tokens and depends on the results go to another route(on success) or show error message on error.</p>
+
+<p>To learn more about token exchange see <a href="https://developer.hushmesh.com/#exchange-code-to-oauth-tokens">Exchange code to oauth tokens</a></p>
 <h2 id='getting-user-39-s-info'>Getting user&#39;s info</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">'axios'</span>
 <span class="kr">import</span> <span class="nx">store</span> <span class="nx">from</span> <span class="s1">'@/store'</span>
 
@@ -732,7 +888,104 @@ As you can see, our data is encrypted with crypto.js</p>
    </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice@hushmesh.net"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h1 id='errors'>Errors</h1>
+</span></code></pre><h1 id='meshout'>Meshout</h1>
+<p>To finish authorized access to the Mesh, you should use meshout API. It is a simple GET call to &#39;/logout&#39; endpoint. Please make sure to provide usual Bearer Authorization header, otherwise it is not going to work.</p>
+
+<blockquote>
+<p>Header example</p>
+</blockquote>
+<pre class="highlight plaintext"><code>axiosConfig.headers = {
+  Authorization: `Bearer [YOUR_TOKEN]`
+}
+</code></pre><h2 id='meshout-api'>Meshout API</h2>
+<blockquote>
+<p>Example</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>  https://api.hshm.sh/v0/logout
+</code></pre>
+<p><code>GET api.hshm.sh/v0/logout</code></p>
+
+<p>Finishes Mesh session</p>
+
+<blockquote>
+<p>Return object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
+   </span><span class="s2">"statusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h1 id='browser-extension'>Browser extension</h1>
+<p>If you&#39;re developing a browser extension most of the information related to web application going to be relevant. The main difference going to be meshin experience. We&#39;re going to cover all differences in this section - we&#39;re going to use Chrome browser as an example.</p>
+<h2 id='meshin-browser-extension'>Meshin browser extension</h2>
+<p>In browser extensions we cannot use the same callback flow as per web applications. Usually your browser extension will have url similar to <code>chrome-extension://npmgajiaihfjibkgojndemlehpalicjc/home.html</code> and we cannot open such url as a callback because of security restrictions.</p>
+
+<p>Instead of the callback we should use browser&#39;s <a href="https://developer.chrome.com/apps/identity">identity API</a> and receive our tokens information in the response.</p>
+
+<p>Let&#39;w walk through the code example:</p>
+
+<ul>
+<li><p>First we create codeChallenge and codeVerifier the same way as per web application - we&#39;re still going to need them</p></li>
+<li><p>We&#39;re getting redirect url using identity.getRedirectURL() method</p></li>
+<li><p>We&#39;re creating url for api call with our application parameters. Make sure to use your real application clientId here from relying party registration tool</p></li>
+<li><p>Then we&#39;re launching auth flow using identity.launchWebAuthFlow() method</p></li>
+<li><p>After successful meshin we&#39;re getting back code which we should exchange to tokens - this logic is exactly the same as for the web and you can find more details about it in <a href="https://developer.hushmesh.com/#oauth-tokens">Oauth tokens section</a></p></li>
+</ul>
+
+<blockquote>
+<p>Identity API :</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+  <span class="kr">const</span> <span class="nx">getAuthUrl</span> <span class="o">=</span> <span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="nx">BASE_URL</span> <span class="o">=</span> <span class="s1">'https://api.hshm.sh/v0/init'</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">responseType</span><span class="p">,</span> <span class="nx">clientId</span><span class="p">,</span> <span class="nx">redirectUri</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">options</span>
+    <span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">`</span><span class="p">${</span><span class="nx">BASE_URL</span><span class="p">}</span><span class="s2">?&amp;response_type=</span><span class="p">${</span><span class="nx">responseType</span><span class="p">}</span><span class="s2">&amp;client_id=</span><span class="p">${</span><span class="nx">clientId</span><span class="p">}</span><span class="s2">&amp;redirect_uri=`</span> <span class="o">+</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">redirectUri</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nx">url</span>
+  <span class="p">}</span>
+
+  <span class="kr">const</span> <span class="nx">meshin</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kr">const</span> <span class="p">{</span> <span class="nx">codeChallenge</span><span class="p">,</span> <span class="nx">codeVerifier</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">generateChallengeData</span><span class="p">()</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="kr">const</span> <span class="nx">redirectUri</span> <span class="o">=</span> <span class="nx">chrome</span><span class="p">.</span><span class="nx">identity</span><span class="p">.</span><span class="nx">getRedirectURL</span><span class="p">()</span>
+      <span class="kr">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">getAuthUrl</span><span class="p">({</span>
+        <span class="na">clientId</span><span class="p">:</span> <span class="s1">'YOUR_APP_CLIENT_ID'</span><span class="p">,</span>
+        <span class="na">responseType</span><span class="p">:</span> <span class="s1">'code'</span><span class="p">,</span>
+        <span class="nx">redirectUri</span><span class="p">,</span>
+        <span class="nx">codeChallenge</span><span class="p">,</span>
+        <span class="na">codeChallengeMethod</span><span class="p">:</span> <span class="s1">'S256'</span><span class="p">,</span>
+      <span class="p">})</span>
+
+      <span class="nx">chrome</span><span class="p">.</span><span class="nx">identity</span><span class="p">.</span><span class="nx">launchWebAuthFlow</span><span class="p">({</span>
+        <span class="nx">url</span><span class="p">,</span>
+        <span class="na">interactive</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="p">},</span> <span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="nx">code</span> <span class="o">=</span> <span class="nx">getUrlParameter</span><span class="p">(</span><span class="s1">'code'</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span>
+
+        <span class="c1">// From there logic is exactly the same as for web app</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">code</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">tokenApi</span><span class="p">.</span><span class="nx">getTokens</span><span class="p">({</span> <span class="nx">code</span><span class="p">,</span> <span class="nx">codeVerifier</span> <span class="p">}).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="kr">const</span> <span class="nx">accessToken</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">access_token</span>
+            <span class="kr">const</span> <span class="nx">jwt</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">id_token</span>
+            <span class="kd">let</span> <span class="nx">masterKey</span> <span class="o">=</span> <span class="s1">''</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">jwt</span><span class="p">)</span> <span class="p">{</span>
+              <span class="kr">const</span> <span class="nx">parts</span> <span class="o">=</span> <span class="nx">jwt</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span>
+              <span class="kr">const</span> <span class="nx">jwtObj</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">atob</span><span class="p">(</span><span class="nx">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+              <span class="nx">masterKey</span> <span class="o">=</span> <span class="nx">jwtObj</span><span class="p">.</span><span class="nx">masterKey</span>
+            <span class="p">}</span>
+            <span class="nx">resolve</span><span class="p">({</span> <span class="nx">accessToken</span><span class="p">,</span> <span class="nx">masterKey</span> <span class="p">})</span>
+          <span class="p">}).</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="nx">reject</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+          <span class="p">})</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">reject</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
+        <span class="p">}</span>
+      <span class="p">})</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre><h2 id='caveats'>Caveats</h2>
+<p>To store tokens and masterKey it&#39;s better to use your extension background. If you&#39;re going to put them in the popup, they&#39;re going to be cleared every time user is closing popup.</p>
+<h1 id='errors'>Errors</h1>
 <p>The HTTP error codes returned:</p>
 
 <table><thead>
