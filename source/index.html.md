@@ -1,5 +1,5 @@
 ---
-title: Twist API Reference
+title: HusmMesh API Documentation
 
 includes:
   - meshin
@@ -8,6 +8,7 @@ includes:
   - storage
   - user
   - meshout
+  - extension
   - errors
 
 search: true
@@ -26,5 +27,3 @@ The mesh is the "trust network". Much like social networks, the mesh enables dig
 ## What you can do as a developer?
 
 You can create applications in the portal and use the mesh for your usecases.
-
-Examples: ...
