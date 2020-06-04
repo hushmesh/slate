@@ -34,13 +34,17 @@ Second part includes tiny meshin library to your application
 
 ```javascript
 <script>
-  window.Meshlib = new Meshlib({
+  const meshApi = new Meshlib({
     clientId: 'YOUR_CLIENT_ID',
     responseType: 'code',
     redirectUri: 'https://beta.hushsafe.com/auth',
     codeChallenge,
     codeChallengeMethod: 'S256',
   })
+  const meshinButton = document.getElementById('meshin-button')
+  meshinButton.onclick = function(event) {
+    meshApi.meshin()
+  }
 </script>
 ```
 
@@ -119,9 +123,11 @@ tokenService.getTokens(payload).then(res => {
 ```javascript
 import Meshlib from '@/assets/js/meshlib'
 const meshApi = new Meshlib({
-  clientId: 'demo',
-  responseType: 'token_id_token',
-  redirectUri: 'https://beta.hushsafe.com/auth'
+  clientId: 'YOUR_CLIENT_ID',
+  responseType: 'code',
+  redirectUri: 'https://beta.hushsafe.com/auth',
+  codeChallenge,
+  codeChallengeMethod: 'S256',
 })
 ```
 
@@ -137,16 +143,10 @@ meshApi.meshin()
 
 After that you just need to use meshin method inside your on click handler:
 
-## The authorization request
+## Meshin without meshlib
 
-In case you don't want to use our meshin button, you can implement meshin experience by yourself.
+In case you don't want to use our meshlib library, you can implement meshin experience by yourself.
 
-Redirect users to the authorization URL at the endpoint `https://api.hshm.sh/v0/init`, with the specified request parameters. After successful authorization, an access_token going to be available as a query parameter and should be used to make API calls to other Mesh endpoints
+As an additional step first you're going to need to redirect users to `https://api.hshm.sh/v0/authorize`, with the specified request parameters. After successful callback the flow is the same as per ususal Meshin experience
 
-Here follow the required parameters:
-
-| Name | Description |
-| --- | --- |
-| client_id | The unique Client ID of the Mesh integration that you registered. |
-| response_type | A comma separated list of permissions that you would like the users to grant to your integration. See below a table with more details about this. |
-| redirect_uri | A unique and unguessable string. It is used to protect you against cross-site request forgery attacks. |
+For code examples see [meshlib source code](https://developer.hushmesh.com/relying-party-registration/meshlib-pkce.js)

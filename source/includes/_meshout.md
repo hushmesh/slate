@@ -4,7 +4,8 @@ To finish authorized access to the Mesh, you should use meshout API. It is a sim
 
 > Header example
 
-```axiosConfig.headers = {
+```
+axiosConfig.headers = {
   Authorization: `Bearer [YOUR_TOKEN]`
 }
 ```

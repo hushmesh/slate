@@ -21,58 +21,78 @@ First step for any mesh application should be app registration in [relying parti
 > Example:
 
 ```javascript
-import Meshlib from '@/assets/js/meshlib'
+import Meshlib from '@/assets/js/meshlib-pkce'
+import crypto from '@/services/crypto'
+
+const { codeChallenge, codeVerifier } = crypto.generateChallengeData()
+
 const meshApi = new Meshlib({
-  clientId: 'demo',
-  responseType: 'token_id_token',
-  redirectUri: 'https://beta.hushsafe.com/auth'
+  clientId: '9h2fhfUVuS9jZ8uVbhV3vC5AWX39IVUW',
+  responseType: 'code',
+  redirectUri: window.location.origin + '/callback',
+  codeChallenge,
+  codeChallengeMethod: 'S256',
+  isPopup: true
 })
 
 // Inside click handler
 meshApi.meshin()
 ```
 
-After successful app registration we can copy Meshin button code from our application page in [relying parties tool](http://developer.hushmesh.com/relying-party-registration)
+After successful app registration we can copy Meshin button code from our application page in [relying parties tool](https://developer.hushmesh.com/relying-party-registration)
 
 You can find all information about meshin button in [meshin section](http://developer.hushmesh.com/#meshin)
 
-On Hushsafe.com we are using approach from "JavaScript frameworks compatibility" section
+On Hushsafe.com we are using exactly the approach from the meshin section
 
-## Redirect page
+## Callback page
 
 > Example
 
 ```javascript
 mounted () {
-  // getting tokens data
-  const accessToken = this.$route.query.access_token
-  const jwt = this.$route.query.id_token
-
-  if (accessToken) {
-    this.isLoading = true
-    // save access token
-    this.$store.dispatch('user/setAccessToken', accessToken)
-    // now with the token we can get user data
-    this.$store.dispatch('user/getUserData')
-      .catch(() => {
-        this.isLoading = false
-      })
-  }
-
-  if (jwt) {
-    const tokens = jwt.split('.')
-    const jwtObj = JSON.parse(atob(tokens[1]))
-    // save master key to use it for encoding/decoding data
-    this.$store.dispatch('user/setMasterKey', jwtObj.masterKey)
+  if (window.opener) {
+    window.opener.location.href = window.location.origin + '/auth' + window.location.search
+    window.close()
+  } else {
+    window.location.href = window.location.origin + '/auth' + window.location.search
   }
 }
 ```
 
-After successful meshin we are getting back to redirect page, which we specified in button meshin parameters as `redirectUri`. Url going to have query string with data which we are going to use in our application.
+On Hushsafe.com we're using approach with popup, because of that we need callback page which can close the popup and redirect to the app auth page (which responsible for the exchange of the code for tokens)
 
-`https://hushsafe.com/auth?access_token=token_here&id_token=id_token_data`
+Callback page should be specified as `redirectUri`. Url going to have query string with exchange code which you should use to exchange code to the tokens.
 
-From this url we are grabbing tokens data and saving it to use later
+`https://hushsafe.com/auth?access_token=code=your_exchange_code`
+
+From this url we are grabbing code and providing it to auth page.
+
+## Auth page
+
+> Example
+
+```javascript
+mounted () {
+  const code = this.$route.query.code
+  const codeVerifier = sessionStorage.getItem('code_verifier')
+
+  this.$store.dispatch('user/getTokens', { code, codeVerifier })
+    .then(() => {
+      // success, at this point we have tokens
+      // and can use any Mesh API
+      // userinfo in this example
+      this.$store.dispatch('user/getUserData')
+    })
+    .catch((err) => {
+      // error
+    })
+}
+```
+
+At this point we already have code to exchange it to tokens, so the main goal of the page is to make api call to get tokens and depends on the results go to another route(on success) or show error message on error.
+
+To learn more about token exchange see [Exchange code to oauth tokens](https://developer.hushmesh.com/#exchange-code-to-oauth-tokens)
 
 ## Getting user's info
 

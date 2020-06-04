@@ -22,7 +22,7 @@ Let'w walk through the code example:
 
 
 
-> Third part:
+> Identity API :
 
 ```javascript
 <script>
