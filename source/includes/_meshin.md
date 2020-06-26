@@ -1,21 +1,21 @@
-# Meshin
+# Mesh in
 
 In order to make authorized calls to the Mesh, you must first obtain an access token. This section describes how to obtain such a token.
 
 Before getting started, you need to [create an app](http://developer.hushmesh.com/relying-party-registration) and configure a valid redirect URL. A registered HushMesh integration is assigned a unique Client ID and Client Secret which are needed for the OAuth2 flow.
 
-To autorize user to the mesh as a developer you have two options: use API endpoint directly as explained in authentication section or use our meshin button.
+To autorize user to the mesh as a developer you have two options: use API endpoint directly as explained in authentication section or use our mesh in button.
 
-If you're going to use meshlib, you're going to have better mobile device meshin experience out of the box (direct Meshin application opening on mobile devices instead of QR code)
+If you're going to use meshlib, you're going to have better mobile device mesh in experience out of the box (direct Mesh in application opening on mobile devices instead of QR code)
 
-## Meshin button
+## Mesh in button
 
 You can find generated button code for your application on [your application page](http://developer.hushmesh.com/relying-party-registration)
 
 > First part:
 
 ```html
-<button id="meshin-button" class="meshin-button">meshin</button>
+<button id="meshin-button" class="meshin-button">mesh in</button>
 ```
 
 Button code contains three parts:
@@ -28,7 +28,7 @@ First part is HTML for your button. You can add your own CSS or apply any CSS cl
 <script src="https://developer.hushmesh.com/relying-party-registration/meshlib-pkce.js"></script>
 ```
 
-Second part includes tiny meshin library to your application
+Second part includes tiny meshlib library to your application
 
 > Third part:
 
@@ -133,7 +133,7 @@ const meshApi = new Meshlib({
 
 If you are using any modern JavaScript framework, you may want to use slightly different approach.
 
-You can create meshin button component and inside the component include and initialize meshin library. You can [download meshlib](https://developer.hushmesh.com/relying-party-registration/meshlib-pkce.js) and include it in your project.
+You can create mesh in button component and inside the component include and initialize mesh in library. You can [download meshlib](https://developer.hushmesh.com/relying-party-registration/meshlib-pkce.js) and include it in your project.
 
 > Inside handler:
 
@@ -141,12 +141,12 @@ You can create meshin button component and inside the component include and init
 meshApi.meshin()
 ```
 
-After that you just need to use meshin method inside your on click handler:
+After that you just need to use mesh in method inside your on click handler:
 
-## Meshin without meshlib
+## Mesh in without meshlib
 
-In case you don't want to use our meshlib library, you can implement meshin experience by yourself.
+In case you don't want to use our meshlib library, you can implement mesh in experience by yourself.
 
-As an additional step first you're going to need to redirect users to `https://api.hshm.sh/v0/authorize`, with the specified request parameters. After successful callback the flow is the same as per ususal Meshin experience
+As an additional step first you're going to need to redirect users to `https://api.hshm.sh/v0/authorize`, with the specified request parameters. After successful callback the flow is the same as per ususal Mesh in experience
 
 For code examples see [meshlib source code](https://developer.hushmesh.com/relying-party-registration/meshlib-pkce.js)

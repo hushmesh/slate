@@ -1,8 +1,8 @@
 # Browser extension
 
-If you're developing a browser extension most of the information related to web application going to be relevant. The main difference going to be meshin experience. We're going to cover all differences in this section - we're going to use Chrome browser as an example.
+If you're developing a browser extension most of the information related to web application going to be relevant. The main difference going to be mesh in experience. We're going to cover all differences in this section - we're going to use Chrome browser as an example.
 
-## Meshin browser extension
+## Mesh in browser extension
 
 In browser extensions we cannot use the same callback flow as per web applications. Usually your browser extension will have url similar to `chrome-extension://npmgajiaihfjibkgojndemlehpalicjc/home.html` and we cannot open such url as a callback because of security restrictions.
 
@@ -18,7 +18,7 @@ Let'w walk through the code example:
 
 * Then we're launching auth flow using identity.launchWebAuthFlow() method
 
-* After successful meshin we're getting back code which we should exchange to tokens - this logic is exactly the same as for the web and you can find more details about it in [Oauth tokens section](https://developer.hushmesh.com/#oauth-tokens)
+* After successful mesh in we're getting back code which we should exchange to tokens - this logic is exactly the same as for the web and you can find more details about it in [Oauth tokens section](https://developer.hushmesh.com/#oauth-tokens)
 
 
 
