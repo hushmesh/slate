@@ -1,4 +1,4 @@
-# Alpplication example
+# Application example
 
 In this section we are going to explore simple application  [hushsafe.com](https://hushsafe.com/) that demonstrates the unique security capabilities enabled by the mesh.
 
@@ -21,12 +21,12 @@ First step for any mesh application should be app registration in [relying parti
 > Example:
 
 ```javascript
-import Meshlib from '@/assets/js/meshlib-pkce'
+import { Auth } from '@hushmesh/meshlib'
 import crypto from '@/services/crypto'
 
 const { codeChallenge, codeVerifier } = crypto.generateChallengeData()
 
-const meshApi = new Meshlib({
+const meshApi = new Auth({
   clientId: '9h2fhfUVuS9jZ8uVbhV3vC5AWX39IVUW',
   responseType: 'code',
   redirectUri: window.location.origin + '/callback',
@@ -153,7 +153,7 @@ export default {
 }
 ```
 
-We don't want to send unencrypted data, so we should prepare a solytion to encrypt/decrypt data. Here we're using crypto.js library and our masterkey as a secret.
+We don't want to send unencrypted data, so we should prepare a solution to encrypt/decrypt data. Here we're using crypto.js library and our masterkey as a secret.
 
 ## Storage API
 

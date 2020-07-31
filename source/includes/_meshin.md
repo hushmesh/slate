@@ -4,7 +4,7 @@ In order to make authorized calls to the Mesh, you must first obtain an access t
 
 Before getting started, you need to [create an app](http://developer.hushmesh.com/relying-party-registration) and configure a valid redirect URL. A registered HushMesh integration is assigned a unique Client ID and Client Secret which are needed for the OAuth2 flow.
 
-To autorize user to the mesh as a developer you have two options: use API endpoint directly as explained in authentication section or use our mesh in button.
+Recommended way to autorize user to the mesh as a developer is by using our [meshlib](https://www.npmjs.com/package/@hushmesh/meshlib) library
 
 If you're going to use meshlib, you're going to have better mobile device mesh in experience out of the box (direct Mesh in application opening on mobile devices instead of QR code)
 
@@ -25,7 +25,7 @@ First part is HTML for your button. You can add your own CSS or apply any CSS cl
 > Second part:
 
 ```html
-<script src="https://developer.hushmesh.com/relying-party-registration/meshlib-pkce.js"></script>
+<script src="https://unpkg.com/@hushmesh/meshlib/dist/meshlib.js"></script>
 ```
 
 Second part includes tiny meshlib library to your application
@@ -34,7 +34,7 @@ Second part includes tiny meshlib library to your application
 
 ```javascript
 <script>
-  const meshApi = new Meshlib({
+  const meshApi = new Meshlib.Auth({
     clientId: 'YOUR_CLIENT_ID',
     responseType: 'code',
     redirectUri: 'https://beta.hushsafe.com/auth',
@@ -121,8 +121,9 @@ tokenService.getTokens(payload).then(res => {
 > Include an init:
 
 ```javascript
-import Meshlib from '@/assets/js/meshlib'
-const meshApi = new Meshlib({
+import { Auth } from '@hushmesh/meshlib'
+
+const meshApi = new Auth({
   clientId: 'YOUR_CLIENT_ID',
   responseType: 'code',
   redirectUri: 'https://beta.hushsafe.com/auth',
@@ -133,7 +134,7 @@ const meshApi = new Meshlib({
 
 If you are using any modern JavaScript framework, you may want to use slightly different approach.
 
-You can create mesh in button component and inside the component include and initialize mesh in library. You can [download meshlib](https://developer.hushmesh.com/relying-party-registration/meshlib-pkce.js) and include it in your project.
+You can create mesh in button component and inside the component include and initialize mesh in library. You can [install meshlib](https://www.npmjs.com/package/@hushmesh/meshlib) from npm and include it in your project.
 
 > Inside handler:
 
@@ -142,11 +143,3 @@ meshApi.meshin()
 ```
 
 After that you just need to use mesh in method inside your on click handler:
-
-## Mesh in without meshlib
-
-In case you don't want to use our meshlib library, you can implement mesh in experience by yourself.
-
-As an additional step first you're going to need to redirect users to `https://api.hshm.sh/v0/authorize`, with the specified request parameters. After successful callback the flow is the same as per ususal Mesh in experience
-
-For code examples see [meshlib source code](https://developer.hushmesh.com/relying-party-registration/meshlib-pkce.js)
