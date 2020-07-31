@@ -6,6 +6,7 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>HusmMesh API Documentation</title>
+    <link href="images/favicon.ico" rel="icon" type="image/ico" />
 
     <style>
       .highlight table td { padding: 5px; }
@@ -205,7 +206,7 @@
 
     <header class="site-header">
       <a href="/" class="site-logo">
-        <img src="images/logo-6e2835f0.png" alt="Logo" />
+        <img src="images/logo-e79d2a3e.svg" alt="Logo" />
       </a>
       <nav class="site-nav index">
         <a href="https://developer.hushmesh.com/relying-party-registration">Manage your apps</a>
@@ -251,9 +252,6 @@
                   <li>
                     <a href="#javascript-frameworks-compatibility" class="toc-h2 toc-link" data-title="JavaScript frameworks compatibility">JavaScript frameworks compatibility</a>
                   </li>
-                  <li>
-                    <a href="#mesh-in-without-meshlib" class="toc-h2 toc-link" data-title="Mesh in without meshlib">Mesh in without meshlib</a>
-                  </li>
               </ul>
           </li>
           <li>
@@ -265,7 +263,7 @@
               </ul>
           </li>
           <li>
-            <a href="#alpplication-example" class="toc-h1 toc-link" data-title="Alpplication example">Alpplication example</a>
+            <a href="#application-example" class="toc-h1 toc-link" data-title="Application example">Application example</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#application-stack" class="toc-h2 toc-link" data-title="Application stack">Application stack</a>
@@ -323,8 +321,11 @@
             <a href="#user-info" class="toc-h1 toc-link" data-title="User info">User info</a>
           </li>
           <li>
-            <a href="#meshout" class="toc-h1 toc-link" data-title="Meshout">Meshout</a>
+            <a href="#mesh-out" class="toc-h1 toc-link" data-title="Mesh out">Mesh out</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#meshlib" class="toc-h2 toc-link" data-title="Meshlib">Meshlib</a>
+                  </li>
                   <li>
                     <a href="#meshout-api" class="toc-h2 toc-link" data-title="Meshout API">Meshout API</a>
                   </li>
@@ -360,7 +361,7 @@
 
 <p>Before getting started, you need to <a href="http://developer.hushmesh.com/relying-party-registration">create an app</a> and configure a valid redirect URL. A registered HushMesh integration is assigned a unique Client ID and Client Secret which are needed for the OAuth2 flow.</p>
 
-<p>To autorize user to the mesh as a developer you have two options: use API endpoint directly as explained in authentication section or use our mesh in button.</p>
+<p>Recommended way to autorize user to the mesh as a developer is by using our <a href="https://www.npmjs.com/package/@hushmesh/meshlib">meshlib</a> library</p>
 
 <p>If you&#39;re going to use meshlib, you&#39;re going to have better mobile device mesh in experience out of the box (direct Mesh in application opening on mobile devices instead of QR code)</p>
 <h2 id='mesh-in-button'>Mesh in button</h2>
@@ -378,7 +379,7 @@
 <blockquote>
 <p>Second part:</p>
 </blockquote>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://developer.hushmesh.com/relying-party-registration/meshlib-pkce.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://unpkg.com/@hushmesh/meshlib/dist/meshlib.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 </code></pre>
 <p>Second part includes tiny meshlib library to your application</p>
 
@@ -386,7 +387,7 @@
 <p>Third part:</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
-  <span class="kr">const</span> <span class="nx">meshApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Meshlib</span><span class="p">({</span>
+  <span class="kr">const</span> <span class="nx">meshApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Meshlib</span><span class="p">.</span><span class="nx">Auth</span><span class="p">({</span>
     <span class="na">clientId</span><span class="p">:</span> <span class="s1">'YOUR_CLIENT_ID'</span><span class="p">,</span>
     <span class="na">responseType</span><span class="p">:</span> <span class="s1">'code'</span><span class="p">,</span>
     <span class="na">redirectUri</span><span class="p">:</span> <span class="s1">'https://beta.hushsafe.com/auth'</span><span class="p">,</span>
@@ -463,8 +464,9 @@
 <blockquote>
 <p>Include an init:</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="nx">Meshlib</span> <span class="nx">from</span> <span class="s1">'@/assets/js/meshlib'</span>
-<span class="kr">const</span> <span class="nx">meshApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Meshlib</span><span class="p">({</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Auth</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@hushmesh/meshlib'</span>
+
+<span class="kr">const</span> <span class="nx">meshApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Auth</span><span class="p">({</span>
   <span class="na">clientId</span><span class="p">:</span> <span class="s1">'YOUR_CLIENT_ID'</span><span class="p">,</span>
   <span class="na">responseType</span><span class="p">:</span> <span class="s1">'code'</span><span class="p">,</span>
   <span class="na">redirectUri</span><span class="p">:</span> <span class="s1">'https://beta.hushsafe.com/auth'</span><span class="p">,</span>
@@ -474,7 +476,7 @@
 </code></pre>
 <p>If you are using any modern JavaScript framework, you may want to use slightly different approach.</p>
 
-<p>You can create mesh in button component and inside the component include and initialize mesh in library. You can <a href="https://developer.hushmesh.com/relying-party-registration/meshlib-pkce.js">download meshlib</a> and include it in your project.</p>
+<p>You can create mesh in button component and inside the component include and initialize mesh in library. You can <a href="https://www.npmjs.com/package/@hushmesh/meshlib">install meshlib</a> from npm and include it in your project.</p>
 
 <blockquote>
 <p>Inside handler:</p>
@@ -482,12 +484,6 @@
 <pre class="highlight javascript tab-javascript"><code><span class="nx">meshApi</span><span class="p">.</span><span class="nx">meshin</span><span class="p">()</span>
 </code></pre>
 <p>After that you just need to use mesh in method inside your on click handler:</p>
-<h2 id='mesh-in-without-meshlib'>Mesh in without meshlib</h2>
-<p>In case you don&#39;t want to use our meshlib library, you can implement mesh in experience by yourself.</p>
-
-<p>As an additional step first you&#39;re going to need to redirect users to <code>https://api.hshm.sh/v0/authorize</code>, with the specified request parameters. After successful callback the flow is the same as per ususal Mesh in experience</p>
-
-<p>For code examples see <a href="https://developer.hushmesh.com/relying-party-registration/meshlib-pkce.js">meshlib source code</a></p>
 <h1 id='oauth-tokens'>Oauth tokens</h1>
 <p>After the exchange your authorization code and code verifier for tokens you&#39;re going to receive an object with few fields:</p>
 
@@ -546,7 +542,7 @@
 <span class="kr">const</span> <span class="nx">parts</span> <span class="o">=</span> <span class="nx">idToken</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span>
 <span class="kr">const</span> <span class="nx">jwtObj</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">atob</span><span class="p">(</span><span class="nx">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 <span class="kr">const</span> <span class="nx">masterKey</span> <span class="o">=</span> <span class="nx">jwtObj</span><span class="p">.</span><span class="nx">masterKey</span>
-</code></pre><h1 id='alpplication-example'>Alpplication example</h1>
+</code></pre><h1 id='application-example'>Application example</h1>
 <p>In this section we are going to explore simple application  <a href="https://hushsafe.com/">hushsafe.com</a> that demonstrates the unique security capabilities enabled by the mesh.</p>
 
 <p>We are going to use mesh in button and auth experience, getting user&#39;s data and to use storage API.</p>
@@ -562,12 +558,12 @@
 <blockquote>
 <p>Example:</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="nx">Meshlib</span> <span class="nx">from</span> <span class="s1">'@/assets/js/meshlib-pkce'</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">Auth</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'@hushmesh/meshlib'</span>
 <span class="kr">import</span> <span class="nx">crypto</span> <span class="nx">from</span> <span class="s1">'@/services/crypto'</span>
 
 <span class="kr">const</span> <span class="p">{</span> <span class="nx">codeChallenge</span><span class="p">,</span> <span class="nx">codeVerifier</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">generateChallengeData</span><span class="p">()</span>
 
-<span class="kr">const</span> <span class="nx">meshApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Meshlib</span><span class="p">({</span>
+<span class="kr">const</span> <span class="nx">meshApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Auth</span><span class="p">({</span>
   <span class="na">clientId</span><span class="p">:</span> <span class="s1">'9h2fhfUVuS9jZ8uVbhV3vC5AWX39IVUW'</span><span class="p">,</span>
   <span class="na">responseType</span><span class="p">:</span> <span class="s1">'code'</span><span class="p">,</span>
   <span class="na">redirectUri</span><span class="p">:</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">origin</span> <span class="o">+</span> <span class="s1">'/callback'</span><span class="p">,</span>
@@ -679,7 +675,7 @@
   <span class="nx">decrypt</span>
 <span class="p">}</span>
 </code></pre>
-<p>We don&#39;t want to send unencrypted data, so we should prepare a solytion to encrypt/decrypt data. Here we&#39;re using crypto.js library and our masterkey as a secret.</p>
+<p>We don&#39;t want to send unencrypted data, so we should prepare a solution to encrypt/decrypt data. Here we&#39;re using crypto.js library and our masterkey as a secret.</p>
 <h2 id='storage-api'>Storage API</h2>
 <blockquote>
 <p>Storage api usage</p>
@@ -888,8 +884,8 @@ As you can see, our data is encrypted with crypto.js</p>
    </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice@hushmesh.net"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h1 id='meshout'>Meshout</h1>
-<p>To finish authorized access to the Mesh, you should use meshout API. It is a simple GET call to &#39;/logout&#39; endpoint. Please make sure to provide usual Bearer Authorization header, otherwise it is not going to work.</p>
+</span></code></pre><h1 id='mesh-out'>Mesh out</h1>
+<p>To finish authorized access to the Mesh, you should use mesh out API. It is a simple GET call to &#39;/logout&#39; endpoint. Please make sure to provide usual Bearer Authorization header, otherwise it is not going to work.</p>
 
 <blockquote>
 <p>Header example</p>
@@ -897,6 +893,17 @@ As you can see, our data is encrypted with crypto.js</p>
 <pre class="highlight plaintext"><code>axiosConfig.headers = {
   Authorization: `Bearer [YOUR_TOKEN]`
 }
+</code></pre><h2 id='meshlib'>Meshlib</h2>
+<p>If you are already using our <a href="https://www.npmjs.com/package/@hushmesh/meshlib">meshlib library</a>, you can just use <code>meshout</code> method out of the box. Don&#39;t forget to provide a valid access token as an argument.</p>
+
+<blockquote>
+<p>Mesh out with meshlib</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code>  <span class="kr">import</span> <span class="nx">meshlib</span> <span class="nx">from</span> <span class="s1">'@hushmesh/meshlib'</span>
+
+  <span class="c1">// in the handler:</span>
+  <span class="nx">meshlib</span><span class="p">.</span><span class="nx">meshout</span><span class="p">(</span><span class="nx">accessToken</span><span class="p">)</span>
+
 </code></pre><h2 id='meshout-api'>Meshout API</h2>
 <blockquote>
 <p>Example</p>
