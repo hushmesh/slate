@@ -1,5 +1,5 @@
 ---
-title: HusmMesh API Documentation
+title: Hushmesh API Documentation
 
 includes:
   - meshin
@@ -16,7 +16,7 @@ search: true
 
 # Introduction
 
-This is the official documentation of the HushMesh API.
+This is the official documentation of the Hushmesh API.
 
 
 ## What is the Mesh?
