@@ -6,49 +6,34 @@ Before getting started, you need to [create an app](http://developer.hushmesh.co
 
 Recommended way to autorize user to the mesh as a developer is by using our [meshlib](https://www.npmjs.com/package/@hushmesh/meshlib) library
 
-If you're going to use meshlib, you're going to have better mobile device mesh in experience out of the box (direct Mesh in application opening on mobile devices instead of QR code)
-
 ## Mesh in button
 
-You can find generated button code for your application on [your application page](http://developer.hushmesh.com/relying-party-registration)
-
-> First part:
-
-```html
-<button id="meshin-button" class="meshin-button">mesh in</button>
-```
-
-Button code contains three parts:
-
-First part is HTML for your button. You can add your own CSS or apply any CSS classes from your framework
-
-> Second part:
-
-```html
-<script src="https://unpkg.com/@hushmesh/meshlib/dist/meshlib.js"></script>
-```
-
-Second part includes tiny meshlib library to your application
-
-> Third part:
+> Include an init:
 
 ```javascript
-<script>
-  const meshApi = new Meshlib.Auth({
-    clientId: 'YOUR_CLIENT_ID',
-    responseType: 'code',
-    redirectUri: 'https://beta.hushsafe.com/auth',
-    codeChallenge,
-    codeChallengeMethod: 'S256',
-  })
-  const meshinButton = document.getElementById('meshin-button')
-  meshinButton.onclick = function(event) {
-    meshApi.meshin()
-  }
-</script>
+import { Auth } from '@hushmesh/meshlib'
+
+const meshApi = new Auth({
+  clientId: 'YOUR_CLIENT_ID',
+  responseType: 'code',
+  redirectUri: 'https://beta.hushsafe.com/auth',
+  codeChallenge,
+  codeChallengeMethod: 'S256',
+  isPopup: true
+})
 ```
 
-Third part is library initialization with your application parameters
+If you are using any modern JavaScript framework, you can create mesh in button component and inside the component include and initialize mesh in library. You can [install meshlib](https://www.npmjs.com/package/@hushmesh/meshlib) from npm and include it in your project.
+
+> Inside handler:
+
+```javascript
+meshApi.meshin()
+```
+
+After that you just need to use mesh in method inside your on click handler
+
+After successful mesh in you're going to be redirected to the page, specified in the redirectUri
 
 ## How to generate code challenge and code verifier
 
@@ -116,30 +101,44 @@ tokenService.getTokens(payload).then(res => {
 })
 ```
 
-## JavaScript frameworks compatibility
+## Mesh in example for a simple HTML/JS page
 
-> Include an init:
+You can find generated button code example for your application on [your application page](http://developer.hushmesh.com/relying-party-registration)
 
-```javascript
-import { Auth } from '@hushmesh/meshlib'
+> First part:
 
-const meshApi = new Auth({
-  clientId: 'YOUR_CLIENT_ID',
-  responseType: 'code',
-  redirectUri: 'https://beta.hushsafe.com/auth',
-  codeChallenge,
-  codeChallengeMethod: 'S256',
-})
+```html
+<button id="meshin-button" class="meshin-button">mesh in</button>
 ```
 
-If you are using any modern JavaScript framework, you may want to use slightly different approach.
+Button code contains three parts:
 
-You can create mesh in button component and inside the component include and initialize mesh in library. You can [install meshlib](https://www.npmjs.com/package/@hushmesh/meshlib) from npm and include it in your project.
+First part is HTML for your button. You can add your own CSS or apply any CSS classes from your framework
 
-> Inside handler:
+> Second part:
 
-```javascript
-meshApi.meshin()
+```html
+<script src="https://unpkg.com/@hushmesh/meshlib/dist/meshlib.js"></script>
 ```
 
-After that you just need to use mesh in method inside your on click handler:
+Second part includes tiny meshlib library to your application
+
+> Third part:
+
+```javascript
+<script>
+  const meshApi = new Meshlib.Auth({
+    clientId: 'YOUR_CLIENT_ID',
+    responseType: 'code',
+    redirectUri: 'https://beta.hushsafe.com/auth',
+    codeChallenge,
+    codeChallengeMethod: 'S256',
+  })
+  const meshinButton = document.getElementById('meshin-button')
+  meshinButton.onclick = function(event) {
+    meshApi.meshin()
+  }
+</script>
+```
+
+Third part is library initialization with your application parameters

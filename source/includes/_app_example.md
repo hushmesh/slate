@@ -39,7 +39,7 @@ const meshApi = new Auth({
 meshApi.meshin()
 ```
 
-After successful app registration we can copy Mesh in button code from our application page in [relying parties tool](https://developer.hushmesh.com/relying-party-registration)
+After successful app registration we can copy Mesh in button code example from our application page in [relying parties tool](https://developer.hushmesh.com/relying-party-registration)
 
 You can find all information about mesh in button in [mesh in section](http://developer.hushmesh.com/#meshin)
 
@@ -60,7 +60,7 @@ mounted () {
 }
 ```
 
-On Hushsafe.com we're using approach with popup, because of that we need callback page which can close the popup and redirect to the app auth page (which responsible for the exchange of the code for tokens)
+On Hushsafe.com we're using our default mesh in experience with QR code popup, because of that we need callback page which can close the popup and redirect to the app auth page (which responsible for the exchange of the code for tokens)
 
 Callback page should be specified as `redirectUri`. Url going to have query string with exchange code which you should use to exchange code to the tokens.
 
