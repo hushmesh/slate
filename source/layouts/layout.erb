@@ -42,6 +42,7 @@ under the License.
     <% else %>
       <%= javascript_include_tag  "all_nosearch" %>
     <% end %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
   </head>
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
@@ -51,10 +52,15 @@ under the License.
         <%= image_tag "logo.svg" %>
       </a>
       <nav class="site-nav <%= page_classes %>">
-        <a href="https://developer.hushmesh.com/relying-party-registration">Manage Apps</a>
-        <a href="https://developer.hushmesh.com/token-viewer">View Token Structure</a>
-        <a href="https://www.npmjs.com/package/@hushmesh/meshlib" target="_blank">meshlib Library</a>
-        <a href="https://www.hushmesh.com" target="_blank">Hushmesh</a>
+        <div>
+          <a href="https://developer.hushmesh.com" class="nav-active">Documentation</a>
+          <a href="https://developer.hushmesh.com/relying-party-registration">Manage Apps</a>
+          <a href="https://developer.hushmesh.com/token-viewer">View Token Structure</a>
+        </div>
+        <div class="nav-right">
+          <a href="https://www.npmjs.com/package/@hushmesh/meshlib" target="_blank">meshlib Library</a>
+          <a href="https://www.hushmesh.com" target="_blank">Hushmesh.com →</a>
+        </div>
       </nav>
     </header>
 

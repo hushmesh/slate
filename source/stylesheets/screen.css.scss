@@ -63,12 +63,15 @@ html, body {
 }
 
 .site-nav {
-  float: left;
-  vertical-align: middle;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 7px;
+  font-weight: 500;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
 
   a {
-    color: #a2a5a6;
+    color: #2d3436;
     margin-right: 2em;
     font-size: 14px;
     font-weight: normal;
@@ -76,6 +79,9 @@ html, body {
 
     &:hover {
       color: #474746;
+    }
+    &.nav-active {
+      color: #0000c0;
     }
   }
 

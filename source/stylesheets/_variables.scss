@@ -75,7 +75,7 @@ $phone-width: $tablet-width - $nav-width !default; // min width before reverting
 }
 
 %header-font {
-  @extend %default-font;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
   font-weight: bold;
 }
 
