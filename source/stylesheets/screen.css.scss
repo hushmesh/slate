@@ -36,27 +36,24 @@ html, body {
 
 .site-header {
   box-sizing: border-box;
-  padding: 15px 10px 10px 10px;
+  padding: 10px 32px 10px;
   background-color: white;
   position: fixed;
   z-index: 100;
   width: 100%;
   height: $top-nav-height;
-
-  border-bottom: 1px solid #EBEBEC;
+  box-shadow: 0 2px 10px -6px rgba(0,0,0,.2);
 }
 
 .site-logo {
   display: block;
   float: left;
-  text-align: right;
-  margin-right: 50px;
-  margin-left: 20px;
+  width: 230px;
+  margin: -1px 0 0 -8px;
 
   img {
-    height: 35px;
-    margin-right: 5px;
-    display: inline-block;
+    height: 40px;
+    display: block;
   }
 }
 
@@ -69,17 +66,17 @@ html, body {
   font-family: Montserrat, Helvetica, Arial, sans-serif;
 
   a {
-    color: #2d3436;
+    color: $primary-text;
     margin-right: 2em;
     font-size: 14px;
     font-weight: normal;
     text-decoration: none;
 
     &:hover {
-      color: #474746;
+      color: $primary;
     }
     &.nav-active {
-      color: #0000c0;
+      color: $primary;
     }
   }
 
@@ -114,7 +111,7 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  padding-top: 60px;
+  padding: 60px 16px 40px;
 
   // language selector for mobile devices
   .lang-selector {
@@ -137,22 +134,29 @@ html, body {
 
     input {
       background: $nav-bg;
-      border-width: 0 0 1px 0;
-      border-color: $search-box-border-color;
-      padding: 6px 0 6px 20px;
+      border-width: 0;
+      box-shadow: 0 1px 0 $search-box-border-color;
+      padding: 8px 0 10px 24px;
       box-sizing: border-box;
-      margin: $nav-v-padding $nav-padding;
+      margin: $nav-padding ($nav-padding - 4) 0 ($nav-padding - 4);
       width: $nav-width - ($nav-padding*2);
       outline: none;
       color: $nav-text;
+      font-size: 14px;;
       border-radius: 0; /* ios has a default border radius */
+      transition: all .2s;
+
+      &:focus {
+        box-shadow: 0 2px 0 $primary;
+      }
     }
 
     &:before {
       position: absolute;
-      top: 17px;
+      top: 24px;
       left: $nav-padding;
       color: $nav-text;
+      opacity: .3;
       @extend %icon-search;
     }
   }
@@ -166,15 +170,22 @@ html, body {
     transition-property: height, margin;
     transition-duration: 180ms;
     transition-timing-function: ease-in-out;
-    background: $nav-subitem-bg;
+    background: white;
+
     &.visible {
       height: 30%;
       margin-bottom: 1em;
+
+      box-shadow: 0 5px 5px -2px #0000001f;
+      border-radius: 2px;
+      margin-top: 0px;
+      border-top: 2px solid;
     }
 
     li {
       margin: 1em $nav-padding;
-      line-height: 1;
+      line-height: 1.35;
+      font-size: 14px;
     }
 
     a {
@@ -182,7 +193,7 @@ html, body {
       text-decoration: none;
 
       &:hover {
-        text-decoration: underline;
+        color: $primary;
       }
     }
   }
@@ -191,15 +202,16 @@ html, body {
   // The Table of Contents is composed of multiple nested
   // unordered lists.  These styles remove the default
   // styling of an unordered list because it is ugly.
-  ul, li {
+  ul {
     list-style: none;
-    margin: 0;
+    margin: 0 0 16px;
     padding: 0;
-    line-height: 28px;
   }
 
   li {
+    padding: 0;
     color: $nav-text;
+    line-height: 1.35;
     transition-property: background;
     transition-timing-function: linear;
     transition-duration: 200ms;
@@ -220,7 +232,10 @@ html, body {
   .toc-list-h2 {
     display: none;
     background-color: $nav-subitem-bg;
-    font-weight: 500;
+
+    li {
+      margin: 0;
+    }
   }
 
   .toc-h2 {
@@ -248,12 +263,10 @@ html, body {
 }
 
 .toc-link, .toc-footer li {
-  padding: 0 $nav-padding 0 $nav-padding;
+  padding: $nav-v-padding $nav-padding;
   display: block;
-  overflow-x: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
   text-decoration: none;
+  font-size: 14px;
   color: $nav-text;
   transition-property: background;
   transition-timing-function: linear;
