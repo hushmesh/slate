@@ -48,7 +48,7 @@ html, body {
 .site-logo {
   display: block;
   float: left;
-  width: 230px;
+  width: 264px;
   margin: -1px 0 0 -8px;
 
   img {
@@ -61,16 +61,15 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 7px;
-  font-weight: 500;
-  font-family: Montserrat, Helvetica, Arial, sans-serif;
+  margin-top: -10px;
 
   a {
     color: $primary-text;
     margin-right: 2em;
-    font-size: 14px;
-    font-weight: normal;
     text-decoration: none;
+    height: 60px;
+    line-height: 54px;
+    display: inline-block;
 
     &:hover {
       color: $primary;
@@ -312,12 +311,12 @@ html, body {
 ////////////////////////////////////////////////////////////////////////////////
 
 .page-wrapper {
-  margin-left: $nav-width;
+  margin-left: $nav-width + $nav-padding*4;
   position: relative;
   z-index: 10;
   background-color: $main-bg;
   min-height: 100%;
-  padding-top: 20px;
+  padding-top: 54px;
 
   padding-bottom: 1px; // prevent margin overflow
 
@@ -393,7 +392,7 @@ html, body {
 
   &>h1, &>h2, &>h3, &>h4, &>h5, &>h6, &>p, &>table, &>ul, &>ol, &>aside, &>dl {
     margin-right: $examples-width;
-    padding: 0 $main-padding;
+    padding: 0 $main-padding*2 0 $main-padding;
     box-sizing: border-box;
     display: block;
 
@@ -414,8 +413,10 @@ html, body {
     font-size: 32px;
     padding-top: 65px;
     padding-bottom: 0.5em;
-    margin-bottom: $h1-margin-bottom;
+    margin-bottom: 24px;
     margin-top: 2em;
+    border-bottom: 1px solid #eee;
+    width: calc(50% - 32px);
   }
 
   h1:first-child, div:first-child + h1 {
@@ -426,7 +427,6 @@ html, body {
   h2 {
     @extend %header-font;
     font-size: 20px;
-    margin-top: 4em;
     margin-bottom: 0;
     padding-top: 65px;
     padding-bottom: 1.2em;
@@ -597,16 +597,17 @@ html, body {
 
   pre {
     @extend %code-font;
-    padding-top: 2em;
-    padding-bottom: 2em;
-    padding: 2em $main-padding;
+    padding: 16px 16px;
+    border: 24px solid $examples-bg;
+    border-width: 0 24px 24px;
   }
 
   blockquote {
     &>p {
       background-color: $code-annotation-bg;
-      padding: $code-annotation-padding 2em;
-      color: #eee;
+      padding: 16px 24px 8px;
+      color: #929292;
+      margin: -16px 0 0;
     }
   }
 }
