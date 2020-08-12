@@ -28,8 +28,6 @@ html, body {
   color: $main-text;
   padding: 0;
   margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   @extend %default-font;
   background-color: $main-bg;
   height: 100%;
@@ -116,8 +114,6 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 13px;
-  font-weight: bold;
   padding-top: 60px;
 
   // language selector for mobile devices
@@ -229,7 +225,6 @@ html, body {
 
   .toc-h2 {
     padding-left: $nav-padding + $nav-indent;
-    font-size: 12px;
   }
 
   .toc-footer {
@@ -247,8 +242,6 @@ html, body {
     }
 
     li {
-      font-size: 0.8em;
-      line-height: 1.7;
       text-decoration: none;
     }
   }
@@ -405,14 +398,11 @@ html, body {
 
   h1 {
     @extend %header-font;
-    font-size: 25px;
+    font-size: 32px;
     padding-top: 65px;
     padding-bottom: 0.5em;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    background-color: #fdfdfd;
   }
 
   h1:first-child, div:first-child + h1 {
@@ -422,13 +412,11 @@ html, body {
 
   h2 {
     @extend %header-font;
-    font-size: 19px;
+    font-size: 20px;
     margin-top: 4em;
     margin-bottom: 0;
-    border-top: 1px solid #ccc;
     padding-top: 65px;
     padding-bottom: 1.2em;
-    background-image: linear-gradient(to bottom, rgba(#fff, 0.2), rgba(#fff, 0));
   }
 
   // h2s right after h1s should bump right up
@@ -440,7 +428,8 @@ html, body {
 
   h3, h4, h5, h6 {
     @extend %header-font;
-    font-size: 15px;
+    font-size: 18px;
+    font-weight: 700;
     margin-top: 2.5em;
     margin-bottom: 0.8em;
   }
