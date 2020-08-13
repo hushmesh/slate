@@ -77,6 +77,10 @@ html, body {
     &.nav-active {
       color: $primary;
     }
+    &.link-external:after {
+      top: 23px;
+      margin: 0 0 0 -5px;
+    }
   }
 
   &.index {
@@ -85,6 +89,29 @@ html, body {
       cursor: default;
     }
   }
+}
+
+a.link-external {
+  padding-right: 8px;
+  position: relative;
+  display: inline-block;
+}
+
+a.link-external:after {
+  content: '\2192';
+  font-size: 15px;
+  font-weight: 300;
+  position: absolute;
+  left: 100%;
+  top: 4px;
+  width: 10px;
+  height: 8px;
+  overflow: hidden;
+  text-align: right;
+  line-height: 6px;
+  text-indent: -11px;
+  margin: 0;
+  transform: rotate(-45deg);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
