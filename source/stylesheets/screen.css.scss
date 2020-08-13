@@ -439,8 +439,8 @@ a.link-external:after {
   h1 {
     @extend %header-font;
     font-size: 40px;
-    padding: 64px 54px 0.5em;
-    margin: 32px 0 24px  -32px;
+    padding: 64px 54px 0;
+    margin: 32px 0 16px  -32px;
     border-top: 1px solid #9a9a9a38;
   }
 
@@ -478,9 +478,9 @@ a.link-external:after {
   }
 
   hr {
-    margin: 2em 0;
-    border-top: 2px solid $examples-bg;
-    border-bottom: 2px solid $main-bg;
+    margin: 32px 0 32px  -32px;
+    border-width: 1px 0 0;
+    border-top: 1px solid #9a9a9a38;
   }
 
   table {
