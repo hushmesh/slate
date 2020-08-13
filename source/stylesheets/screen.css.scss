@@ -439,12 +439,9 @@ a.link-external:after {
   h1 {
     @extend %header-font;
     font-size: 40px;
-    padding-top: 65px;
-    padding-bottom: 0.5em;
-    margin-bottom: 24px;
-    margin-top: 2em;
-    border-bottom: 1px solid #eee;
-    width: calc(50% - 32px);
+    padding: 64px 54px 0.5em;
+    margin: 32px 0 24px  -32px;
+    border-top: 1px solid #9a9a9a38;
   }
 
   h1:first-child, div:first-child + h1 {
