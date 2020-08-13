@@ -1,12 +1,12 @@
-# Mesh in
+# Mesh&nbsp;in
 
-In order to make authorized calls to the Mesh, you must first obtain an access token. This section describes how to obtain such a token.
+In&nbsp;order to&nbsp;make authorized calls to&nbsp;the Mesh, you must first obtain an&nbsp;access token. This section describes how to&nbsp;obtain such a&nbsp;token.
 
-Before getting started, you need to [create an app](http://developer.hushmesh.com/relying-party-registration) and configure a valid redirect URL. A registered HushMesh integration is assigned a unique Client ID and Client Secret which are needed for the OAuth2 flow.
+Before getting started, you need&nbsp;to [create an&nbsp;app](http://developer.hushmesh.com/relying-party-registration) and configure a&nbsp;valid redirect URL. A&nbsp;registered HushMesh integration is&nbsp;assigned a&nbsp;unique Client ID&nbsp;and Client Secret which are needed for the OAuth2&nbsp;flow.
 
-Recommended way to autorize user to the mesh as a developer is by using our [meshlib](https://www.npmjs.com/package/@hushmesh/meshlib) library
+Recommended way to&nbsp;autorize user to&nbsp;the mesh as&nbsp;a&nbsp;developer is&nbsp;by&nbsp;using our npm [meshlib](https://www.npmjs.com/package/@hushmesh/meshlib) library.
 
-## Mesh in button
+## Mesh&nbsp;in button
 
 > Include an init:
 
@@ -23,7 +23,7 @@ const meshApi = new Auth({
 })
 ```
 
-If you are using any modern JavaScript framework, you can create mesh in button component and inside the component include and initialize mesh in library. You can [install meshlib](https://www.npmjs.com/package/@hushmesh/meshlib) from npm and include it in your project.
+If&nbsp;you are using any modern JavaScript framework, you can create mesh in&nbsp;button component and inside the component include and initialize mesh in&nbsp;library. You can [install meshlib](https://www.npmjs.com/package/@hushmesh/meshlib) from npm and include it&nbsp;in&nbsp;your project.
 
 > Inside handler:
 
@@ -31,13 +31,11 @@ If you are using any modern JavaScript framework, you can create mesh in button 
 meshApi.meshin()
 ```
 
-After that you just need to use mesh in method inside your on click handler
+After that you just need to&nbsp;use mesh in&nbsp;method inside your `onClick` handler.
 
-After successful mesh in you're going to be redirected to the page, specified in the redirectUri
+After successful mesh in&nbsp;you&rsquo;re going to&nbsp;be&nbsp;redirected to&nbsp;the page, specified in&nbsp;the `redirectUri`.
 
-## How to generate code challenge and code verifier
-
-In order to get user tokens first you have to obtain the authorization code. Next you can exchange your authorization code and code verifier for tokens.
+## How to&nbsp;generate code challenge and code verifier
 
 > Generate challenge data example
 
@@ -51,9 +49,9 @@ const generateChallengeData = () => {
 }
 ```
 
-## Exchange code to oauth tokens
+In&nbsp;order to&nbsp;get user tokens first you have to&nbsp;obtain the authorization code. Next you can exchange your authorization code and code verifier for tokens.
 
-The last step is to exchange the code which you're going to get back as query parameter in the url and your initial code verifier to oauth tokens
+## Exchange code to&nbsp;OAuth&nbsp;tokens
 
 > Token service example
 
@@ -82,6 +80,8 @@ export default {
 }
 ```
 
+The last step is&nbsp;to&nbsp;exchange the code which you&rsquo;re going to&nbsp;get back as&nbsp;query parameter in&nbsp;the URL and your initial code verifier to&nbsp;OAuth tokens.
+
 > Use token service
 
 ```javascript
@@ -101,44 +101,36 @@ tokenService.getTokens(payload).then(res => {
 })
 ```
 
-## Mesh in example for a simple HTML/JS page
+## Mesh&nbsp;in example for a&nbsp;simple HTML/JS&nbsp;page
 
-You can find generated button code example for your application on [your application page](http://developer.hushmesh.com/relying-party-registration)
-
-> First part:
+> Generate button
 
 ```html
 <button id="meshin-button" class="meshin-button">mesh in</button>
 ```
 
-Button code contains three parts:
-
-First part is HTML for your button. You can add your own CSS or apply any CSS classes from your framework
-
-> Second part:
-
 ```html
 <script src="https://unpkg.com/@hushmesh/meshlib/dist/meshlib.js"></script>
 ```
 
-Second part includes tiny meshlib library to your application
-
-> Third part:
-
 ```javascript
-<script>
-  const meshApi = new Meshlib.Auth({
-    clientId: 'YOUR_CLIENT_ID',
-    responseType: 'code',
-    redirectUri: 'https://beta.hushsafe.com/auth',
-    codeChallenge,
-    codeChallengeMethod: 'S256',
-  })
-  const meshinButton = document.getElementById('meshin-button')
-  meshinButton.onclick = function(event) {
-    meshApi.meshin()
-  }
-</script>
+const meshApi = new Meshlib.Auth({
+  clientId: 'YOUR_CLIENT_ID',
+  responseType: 'code',
+  redirectUri: 'https://beta.hushsafe.com/auth',
+  codeChallenge,
+  codeChallengeMethod: 'S256',
+})
+const meshinButton = document.getElementById('meshin-button')
+meshinButton.onclick = function(event) {
+  meshApi.meshin()
+}
 ```
 
-Third part is library initialization with your application parameters
+You can find generated button code example for your application&nbsp;on [your application page](http://developer.hushmesh.com/relying-party-registration).
+
+Button code contains three parts:
+
+1. HTML for your button. You can add your own CSS or&nbsp;apply any CSS classes from your framework.
+2. Script including tiny meshlib library to&nbsp;your application.
+3. Library initialization with your application parameters.

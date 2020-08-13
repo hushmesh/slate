@@ -23,6 +23,7 @@ under the License.
 
 $primary: #0000C0 !default;
 $primary-text: #2D3436 !default;
+$secondary-text: #919EA6 !default;
 $neutral-bg: #F6F7FB !default;
 
 
@@ -98,6 +99,11 @@ $nav-font-size: $base-font-size;
   line-height: 1.5;
 }
 
+%caption-font {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 12px;
+}
 
 
 

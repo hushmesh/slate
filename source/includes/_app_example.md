@@ -1,20 +1,21 @@
 # Application example
 
-In this section we are going to explore simple application  [hushsafe.com](https://hushsafe.com/) that demonstrates the unique security capabilities enabled by the mesh.
+In&nbsp;this section we&nbsp;are going to&nbsp;explore simple application [hushsafe.com](https://hushsafe.com/) that demonstrates the unique security capabilities enabled by&nbsp;the mesh.
 
-We are going to use mesh in button and auth experience, getting user's data and to use storage API.
+We&nbsp;are going to&nbsp;use mesh in&nbsp;button and auth experience, getting user&rsquo;s data and to&nbsp;use storage API.
 
 ## Application stack
 
-Hushsafe is single page application, stack we are using:
-* Vue.js framework
-* Vue router as application router
-* Vuex as state management
-* axios to make API calls
+Hushsafe is&nbsp;single page application, stack we&nbsp;are using:
+
+- Vue.js framework
+- Vue router as application router
+- Vuex as state management
+- axios to make API calls
 
 ## App registration
 
-First step for any mesh application should be app registration in [relying parties tool](http://developer.hushmesh.com/relying-party-registration). Mesh in in the tool and you're going be able to create and manage your applications.
+First step for any mesh application should be&nbsp;app registration&nbsp;in [relying parties tool](http://developer.hushmesh.com/relying-party-registration). Mesh in&nbsp;in&nbsp;the tool and you&rsquo;re going be&nbsp;able to&nbsp;create and manage your applications.
 
 ## Mesh in button
 
@@ -39,11 +40,11 @@ const meshApi = new Auth({
 meshApi.meshin()
 ```
 
-After successful app registration we can copy Mesh in button code example from our application page in [relying parties tool](https://developer.hushmesh.com/relying-party-registration)
+After successful app registration we&nbsp;can copy Mesh in&nbsp;button code example from our application page&nbsp;in [relying parties&nbsp;tool](https://developer.hushmesh.com/relying-party-registration).
 
-You can find all information about mesh in button in [mesh in section](http://developer.hushmesh.com/#meshin)
+You can find all information about mesh in&nbsp;button&nbsp;in [mesh in&nbsp;section](http://developer.hushmesh.com/#meshin).
 
-On Hushsafe.com we are using exactly the approach from the mesh in section
+On&nbsp;Hushsafe.com we&nbsp;are using exactly the approach from the mesh in&nbsp;section.
 
 ## Callback page
 
@@ -60,13 +61,13 @@ mounted () {
 }
 ```
 
-On Hushsafe.com we're using our default mesh in experience with QR code popup, because of that we need callback page which can close the popup and redirect to the app auth page (which responsible for the exchange of the code for tokens)
+On&nbsp;Hushsafe.com we&rsquo;re using our default mesh in&nbsp;experience with&nbsp;QR code popup, because of&nbsp;that we&nbsp;need callback page which can close the popup and redirect to&nbsp;the app auth page (which responsible for the exchange of&nbsp;the code for tokens).
 
-Callback page should be specified as `redirectUri`. Url going to have query string with exchange code which you should use to exchange code to the tokens.
+Callback page should be&nbsp;specified as `redirectUri`. Url going to&nbsp;have query string with exchange code which you should use to&nbsp;exchange code to&nbsp;the tokens.
 
 `https://hushsafe.com/auth?access_token=code=your_exchange_code`
 
-From this url we are grabbing code and providing it to auth page.
+From this url we&nbsp;are grabbing code and providing it&nbsp;to&nbsp;auth page.
 
 ## Auth page
 
@@ -90,9 +91,9 @@ mounted () {
 }
 ```
 
-At this point we already have code to exchange it to tokens, so the main goal of the page is to make api call to get tokens and depends on the results go to another route(on success) or show error message on error.
+At&nbsp;this point we&nbsp;already have code to&nbsp;exchange it&nbsp;to&nbsp;tokens, so&nbsp;the main goal of&nbsp;the page is&nbsp;to&nbsp;make api call to&nbsp;get tokens and depends on&nbsp;the results go&nbsp;to&nbsp;another route(on success) or&nbsp;show error message on&nbsp;error.
 
-To learn more about token exchange see [Exchange code to oauth tokens](https://developer.hushmesh.com/#exchange-code-to-oauth-tokens)
+To&nbsp;learn more about token exchange see [Exchange code to OAuth&nbsp;tokens](https://developer.hushmesh.com/#exchange-code-to-oauth-tokens).
 
 ## Getting user's info
 
@@ -125,7 +126,7 @@ export default {
 
 ```
 
-If nesessary, at this point we can get meshid in user's info with [userinfo](http://developer.hushmesh.com/#user) api. This step is optional and you may skip it if you don't need user's info but only would like to use storage api.
+If&nbsp;nesessary, at&nbsp;this point we&nbsp;can get meshid in&nbsp;user&rsquo;s info with [userinfo](http://developer.hushmesh.com/#user) api. This step is&nbsp;optional and you may skip it&nbsp;if&nbsp;you don&rsquo;t need user&rsquo;s info but only would like to&nbsp;use storage api.
 
 ## Encryption
 
@@ -153,11 +154,11 @@ export default {
 }
 ```
 
-We don't want to send unencrypted data, so we should prepare a solution to encrypt/decrypt data. Here we're using crypto.js library and our masterkey as a secret.
+We&nbsp;don&rsquo;t want to&nbsp;send unencrypted data, so&nbsp;we&nbsp;should prepare a&nbsp;solution to&nbsp;encrypt/decrypt data. Here we&rsquo;re using crypto.js library and our masterkey as&nbsp;a&nbsp;secret.
 
 ## Storage API
 
-> Storage api usage
+> Storage API usage
 
 ```javascript
 import axios from 'axios'
@@ -198,7 +199,7 @@ export default {
 }
 ```
 
-Now we can use storage api to save and fetch data
+Now we&nbsp;can use Storage API to&nbsp;save and fetch data.
 
 ## Save data
 
@@ -213,21 +214,21 @@ Now we can use storage api to save and fetch data
 }
 ```
 
-To save data we should provide object id. In case of hushsafe we want to store user's keycards, so let's call it 'keycards'.
-Our full endpoint going to be
+To&nbsp;save data we&nbsp;should provide object&nbsp;id. In&nbsp;case of&nbsp;hushsafe we&nbsp;want to&nbsp;store user&rsquo;s keycards, so&nbsp;let&rsquo;s call it "keycards". Our full endpoint going to&nbsp;be
 `https://api.hshm.sh/v0/storage/keycards`
 
-You free to decide what format do you want to use. In our case each keycard has four fields: id, title, data, createdAt.
-As you can see, our data is encrypted with crypto.js
+You free to&nbsp;decide what format do&nbsp;you want to&nbsp;use. In&nbsp;our case each keycard has four fields: `id`, `title`, `data`, `createdAt`. 
 
-## Fetch and Delete data
+As you can see, our data is&nbsp;encrypted with crypto.js.
 
-To fetch data back we're going to use the same endpoint but GET request, to delete - DELETE request
+## Fetch and delete&nbsp;data
+
+To&nbsp;fetch data back we&rsquo;re going to&nbsp;use the same endpoint but `GET` request, or&nbsp;`DELETE`&nbsp;request for deleting
 `https://api.hshm.sh/v0/storage/keycards`
 
-[Storage api docs](http://developer.hushmesh.com/#storage)
+[Storage API docs](http://developer.hushmesh.com/#storage)
 
-## Object Ids available to user
+## Object&nbsp;IDs available to&nbsp;a&nbsp;user
 
 > Example
 
@@ -235,6 +236,6 @@ To fetch data back we're going to use the same endpoint but GET request, to dele
   GET https://api.hshm.sh/v0/storage
 ```
 
-In case you want to get all object ids meshedin user has an access, you can do it by sending request to
+In&nbsp;case you want to&nbsp;get all object ids meshedin user has an&nbsp;access, you can do&nbsp;it&nbsp;by&nbsp;sending request&nbsp;to:
 
 `GET api.hshm.sh/v0/storage`

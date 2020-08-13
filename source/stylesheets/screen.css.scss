@@ -422,6 +422,7 @@ a.link-external:after {
     padding: 0 $main-padding*2 0 $main-padding;
     box-sizing: border-box;
     display: block;
+    max-width: 70ch;
 
     @extend %left-col;
   }
@@ -437,7 +438,7 @@ a.link-external:after {
 
   h1 {
     @extend %header-font;
-    font-size: 32px;
+    font-size: 40px;
     padding-top: 65px;
     padding-bottom: 0.5em;
     margin-bottom: 24px;
@@ -454,6 +455,7 @@ a.link-external:after {
   h2 {
     @extend %header-font;
     font-size: 20px;
+    font-weight: 700;
     margin-bottom: 0;
     padding-top: 65px;
     padding-bottom: 1.2em;
@@ -485,29 +487,39 @@ a.link-external:after {
   }
 
   table {
-    margin-bottom: 1em;
+    margin-bottom: 32px;
     overflow: auto;
-    th,td {
+    transform: translateX(-16px);
+
+    th, td {
       text-align: left;
       vertical-align: top;
       line-height: 1.6;
+      padding: 8px 16px;
+
       code {
         white-space: nowrap;
       }
     }
 
     th {
-      padding: 5px 10px;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid #eee;
       vertical-align: bottom;
+      @extend %caption-font;
+      color: $secondary-text;
     }
 
     td {
-      padding: 10px;
+
     }
 
-    tr:last-child {
-      border-bottom: 1px solid #ccc;
+    tr:first-child td {
+      padding-top: 24px;
+    }
+
+    tr:last-child td {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 24px;
     }
 
     tr:nth-child(odd)>td {

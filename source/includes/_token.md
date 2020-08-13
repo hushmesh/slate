@@ -1,14 +1,6 @@
-# Oauth tokens
+# OAuth tokens
 
-After the exchange your authorization code and code verifier for tokens you're going to receive an object with few fields:
-
-| Field | Description |
-| ----------- | ----------- |
-| access_token | Access token to use to access Mesh API |
-| expires_in | When current token going to be expired |
-| id_token | JWT token which contains your masterKey  |
-| refresh_token | Refresh token can be used for tokens update without additional login |
-| token_type | Token type. Currently Bearer only. |
+## Object fields
 
 > Return object
 
@@ -24,13 +16,25 @@ After the exchange your authorization code and code verifier for tokens you're g
 
 ```
 
-Two most important pieces of information here are:
+After the exchange your authorization code and code verifier for tokens you&rsquo;re going to&nbsp;receive an&nbsp;object with few fields:
 
-* access_token - token which you have to use to access any Mesh API in the authorization header (without it you're going to have 401 error - anautorized)
+| Field | Description |
+| ----------- | ----------- |
+| `access_token` | Access token to use to access Mesh API. |
+| `expires_in` | When current token going to be expired. |
+| `id_token` | JWT token which contains your masterKey.  |
+| `refresh_token` | Refresh token can be used for tokens update without additional login. |
+| `token_type` | Token type. Currently Bearer only. |
 
-* id_token - it's JWT token, which contains information in it's body. The most important part is unique masterKey, which can be used for different usecases (for example, as a key for your encryption/decryption process). To learn more about id_token structure you may want to take a look at our [token viewer](https://developer.hushmesh.com/token-viewer)
 
-## How to parse masterKey from id_token:
+
+Two most important pieces of&nbsp;information here are:
+
+`access_token` &mdash; token which you have to&nbsp;use to&nbsp;access any Mesh API in&nbsp;the authorization header (without it&nbsp;you&rsquo;re going to&nbsp;have 401 error&nbsp;&mdash; anautorized).
+
+`id_token` &mdash; it&rsquo;s JWT token, which contains information in&nbsp;it&rsquo;s body. The most important part is&nbsp;unique masterKey, which can be&nbsp;used for different usecases (for example, as&nbsp;a&nbsp;key for your encryption/decryption process). To&nbsp;learn more about id_token structure you may want to&nbsp;take a&nbsp;look at&nbsp;our [token viewer](https://developer.hushmesh.com/token-viewer).
+
+## Parsing masterKey
 
 > parse masterKey
 
@@ -40,3 +44,5 @@ const parts = idToken.split('.')
 const jwtObj = JSON.parse(atob(parts[1]))
 const masterKey = jwtObj.masterKey
 ```
+
+This sample shows how to&nbsp;parse `masterKey` from `id_token`:

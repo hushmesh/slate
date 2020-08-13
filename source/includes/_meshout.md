@@ -1,6 +1,6 @@
 # Mesh out
 
-To finish authorized access to the Mesh, you should use mesh out API. It is a simple GET call to '/logout' endpoint. Please make sure to provide usual Bearer Authorization header, otherwise it is not going to work.
+## Header example
 
 > Header example
 
@@ -10,9 +10,13 @@ axiosConfig.headers = {
 }
 ```
 
-## Meshlib
+To&nbsp;finish authorized access to&nbsp;the Mesh, you should use mesh out API. It&nbsp;is&nbsp;a&nbsp;simple `GET` call to `/logout` endpoint.
 
-If you are already using our [meshlib library](https://www.npmjs.com/package/@hushmesh/meshlib), you can just use `meshout` method out of the box. Don't forget to provide a valid access token as an argument.
+Please make sure to&nbsp;provide usual Bearer Authorization header, otherwise it&nbsp;is&nbsp;not going to&nbsp;work.
+
+
+
+## Meshlib
 
 > Mesh out with meshlib
 
@@ -24,6 +28,12 @@ If you are already using our [meshlib library](https://www.npmjs.com/package/@hu
 
 ```
 
+If&nbsp;you are already using our [meshlib library](https://www.npmjs.com/package/@hushmesh/meshlib), you can just use `meshout` method out of&nbsp;the box.
+
+Don&rsquo;t forget to&nbsp;provide a&nbsp;valid access token as&nbsp;an&nbsp;argument.
+
+
+
 ## Meshout API
 
 > Example
@@ -34,7 +44,7 @@ If you are already using our [meshlib library](https://www.npmjs.com/package/@hu
 
 `GET api.hshm.sh/v0/logout`
 
-Finishes Mesh session
+— finishes Mesh session.
 
 > Return object
 
