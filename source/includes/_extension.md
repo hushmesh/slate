@@ -1,28 +1,10 @@
 # Browser extension
 
-If you're developing a browser extension most of the information related to web application going to be relevant. The main difference going to be mesh in experience. We're going to cover all differences in this section - we're going to use Chrome browser as an example.
+If&nbsp;you&rsquo;re developing a&nbsp;browser extension most of&nbsp;the information related to&nbsp;web application going to&nbsp;be&nbsp;relevant. The main difference going to&nbsp;be&nbsp;mesh in&nbsp;experience. We&rsquo;re going to&nbsp;cover all differences in&nbsp;this section&nbsp;&mdash; we&rsquo;re going to&nbsp;use Chrome browser as&nbsp;an&nbsp;example.
 
-## Mesh in browser extension
+## Identity API
 
-In browser extensions we cannot use the same callback flow as per web applications. Usually your browser extension will have url similar to `chrome-extension://npmgajiaihfjibkgojndemlehpalicjc/home.html` and we cannot open such url as a callback because of security restrictions.
-
-Instead of the callback we should use browser's [identity API](https://developer.chrome.com/apps/identity) and receive our tokens information in the response.
-
-Let'w walk through the code example:
-
-* First we create codeChallenge and codeVerifier the same way as per web application - we're still going to need them
-
-* We're getting redirect url using identity.getRedirectURL() method
-
-* We're creating url for api call with our application parameters. Make sure to use your real application clientId here from relying party registration tool
-
-* Then we're launching auth flow using identity.launchWebAuthFlow() method
-
-* After successful mesh in we're getting back code which we should exchange to tokens - this logic is exactly the same as for the web and you can find more details about it in [Oauth tokens section](https://developer.hushmesh.com/#oauth-tokens)
-
-
-
-> Identity API :
+> Identity API:
 
 ```javascript
 <script>
@@ -75,6 +57,24 @@ Let'w walk through the code example:
 </script>
 ```
 
+
+In&nbsp;browser extensions we&nbsp;cannot use the same callback flow as&nbsp;per web applications. Usually your browser extension will have url similar to `chrome-extension://npmgajiaihfjibkgojndemlehpalicjc/home.html` and we&nbsp;cannot open such url as&nbsp;a&nbsp;callback because of&nbsp;security restrictions.
+
+Instead of&nbsp;the callback we&nbsp;should use browser&rsquo;s [identity API](https://developer.chrome.com/apps/identity) and receive our tokens information in&nbsp;the response.
+
+Let&rsquo;w walk through the code example:
+
+* First we&nbsp;create `codeChallenge` and `codeVerifier` the same way as&nbsp;per web application&nbsp;&mdash; we&rsquo;re still going to&nbsp;need them.
+
+* We&rsquo;re getting redirect url using `identity.getRedirectURL()` method.
+
+* We&rsquo;re creating url for API call with our application parameters. Make sure to&nbsp;use your real application `clientId` here from relying party registration tool.
+
+* Then we&rsquo;re launching auth flow using `identity.launchWebAuthFlow()` method.
+
+* After successful mesh in&nbsp;we&rsquo;re getting back code which we&nbsp;should exchange to&nbsp;tokens&nbsp;&mdash; this logic is&nbsp;exactly the same as&nbsp;for the web and you can find more details about it&nbsp;in [OAuth tokens](https://developer.hushmesh.com/#oauth-tokens) section.
+
+
 ## Caveats
 
-To store tokens and masterKey it's better to use your extension background. If you're going to put them in the popup, they're going to be cleared every time user is closing popup.
+To&nbsp;store tokens and `masterKey` it&rsquo;s better to&nbsp;use your extension background. If&nbsp;you&rsquo;re going to&nbsp;put them in&nbsp;the popup, they&rsquo;re going to&nbsp;be&nbsp;cleared every time user is&nbsp;closing popup.

@@ -42,7 +42,7 @@ under the License.
     <% else %>
       <%= javascript_include_tag  "all_nosearch" %>
     <% end %>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
   </head>
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
@@ -58,8 +58,8 @@ under the License.
           <a href="https://developer.hushmesh.com/token-viewer">View Token Structure</a>
         </div>
         <div class="nav-right">
-          <a href="https://www.npmjs.com/package/@hushmesh/meshlib" target="_blank">meshlib Library</a>
-          <a href="https://www.hushmesh.com" target="_blank">Hushmesh.com →</a>
+          <a href="https://www.npmjs.com/package/@hushmesh/meshlib" target="_blank" class="link-external">meshlib Library</a>
+          <a href="https://www.hushmesh.com" target="_blank" class="link-external">Hushmesh.com</a>
         </div>
       </nav>
     </header>
@@ -116,6 +116,22 @@ under the License.
       <div class="dark-box"></div>
       <div class="content">
         <%= page_content %>
+
+
+        <div class="contact">
+          <h2 class="text-primary">
+            Not finding the information you need?
+          </h2>
+          <p>
+            Contact us <a href="mailto:info@mesh.in" class="link-external">info@mesh.in</a>
+          </p>
+        </div>
+        <footer>
+          <p class="update-notice">
+            Last updated Aug 13, 2020
+          </p>
+          © 2019–2020 Hushmesh Inc., a Delaware Public Benefit Corporation
+        </footer>
       </div>
       <div class="dark-box">
         <% if language_tabs.any? %>

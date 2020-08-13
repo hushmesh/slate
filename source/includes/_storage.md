@@ -1,6 +1,6 @@
 # Storage API
 
-## Get Object Ids
+## Get object IDs
 
 > Example
 
@@ -10,7 +10,7 @@
 
 `GET api.hshm.sh/v0/storage`
 
-Lists object ids for the meshed in user
+— lists object IDs for the meshed in user.
 
 > Return object
 
@@ -33,7 +33,7 @@ Lists object ids for the meshed in user
 
 `POST api.hshm.sh/v0/storage/{object_id}`
 
-Store arbitrary data for the meshed in user
+— store arbitrary data for the meshed in user.
 
 > Return object
 
@@ -44,10 +44,9 @@ Store arbitrary data for the meshed in user
 }
 ```
 
-### Parameters
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
-| object_id | String | Yes | The id of the stored data |
+| `object_id` | String | Yes | The ID of the stored data |
 
 ## Get stored data
 
@@ -59,16 +58,13 @@ Store arbitrary data for the meshed in user
 
 `GET api.hshm.sh/v0/storage/{object_id}`
 
-Fetch data that was stored for the meshed in user
+— fetches data that was stored for the meshed in user.
 
-> Return object
+The data in the same format user stored previously.
 
-The data in the same format user stored previously
-
-### Parameters
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
-| object_id | String | Yes | The id of the stored data |
+| `object_id` | String | Yes | The ID of the stored data |
 
 ## Delete stored data
 
@@ -80,7 +76,7 @@ The data in the same format user stored previously
 
 `DELETE api.hshm.sh/v0/storage/{object_id}`
 
-Delete data that was stored for the meshed in user.
+— deletes data that was stored for the meshed in user.
 
 > Return object
 
@@ -91,7 +87,6 @@ Delete data that was stored for the meshed in user.
 }
 ```
 
-### Parameters
 | Name | Type | Required | Description |
 | --- | --- | --- | --- |
-| object_id | String | Yes | The id of the stored data |
+| `object_id` | String | Yes | The ID of the stored data |

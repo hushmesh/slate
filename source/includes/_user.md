@@ -8,7 +8,7 @@
 
 `GET api.hshm.sh/v0/userinfo`
 
-Retrieves user info for the access token
+— retrieves user info for the access token.
 
 > Return object
 
