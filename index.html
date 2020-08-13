@@ -197,10 +197,10 @@
   color: #f92672;
 }
     </style>
-    <link href="stylesheets/screen-5f65e016.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print-b13dd283.css" rel="stylesheet" media="print" />
+    <link href="stylesheets/screen-c88eae67.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-a709b7b0.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-c5541673.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
   </head>
 
   <body class="index" data-languages="[]">
@@ -216,8 +216,8 @@
           <a href="https://developer.hushmesh.com/token-viewer">View Token Structure</a>
         </div>
         <div class="nav-right">
-          <a href="https://www.npmjs.com/package/@hushmesh/meshlib" target="_blank">meshlib Library</a>
-          <a href="https://www.hushmesh.com" target="_blank">Hushmesh.com →</a>
+          <a href="https://www.npmjs.com/package/@hushmesh/meshlib" target="_blank" class="link-external">meshlib Library</a>
+          <a href="https://www.hushmesh.com" target="_blank" class="link-external">Hushmesh.com</a>
         </div>
       </nav>
     </header>
@@ -238,35 +238,38 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#what-is-the-mesh" class="toc-h2 toc-link" data-title="What is the Mesh?">What is the Mesh?</a>
+                    <a href="#what-is-the-nbsp-mesh" class="toc-h2 toc-link" data-title="What is the Mesh?">What is the Mesh?</a>
                   </li>
                   <li>
-                    <a href="#what-you-can-do-as-a-developer" class="toc-h2 toc-link" data-title="What you can do as a developer?">What you can do as a developer?</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#mesh-in" class="toc-h1 toc-link" data-title="Mesh in">Mesh in</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#mesh-in-button" class="toc-h2 toc-link" data-title="Mesh in button">Mesh in button</a>
-                  </li>
-                  <li>
-                    <a href="#how-to-generate-code-challenge-and-code-verifier" class="toc-h2 toc-link" data-title="How to generate code challenge and code verifier">How to generate code challenge and code verifier</a>
-                  </li>
-                  <li>
-                    <a href="#exchange-code-to-oauth-tokens" class="toc-h2 toc-link" data-title="Exchange code to oauth tokens">Exchange code to oauth tokens</a>
-                  </li>
-                  <li>
-                    <a href="#mesh-in-example-for-a-simple-html-js-page" class="toc-h2 toc-link" data-title="Mesh in example for a simple HTML/JS page">Mesh in example for a simple HTML/JS page</a>
+                    <a href="#what-you-can-do-as-nbsp-a-nbsp-developer" class="toc-h2 toc-link" data-title="What you can do as a developer?">What you can do as a developer?</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#oauth-tokens" class="toc-h1 toc-link" data-title="Oauth tokens">Oauth tokens</a>
+            <a href="#mesh-nbsp-in" class="toc-h1 toc-link" data-title="Mesh in">Mesh in</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#how-to-parse-masterkey-from-id_token" class="toc-h2 toc-link" data-title="How to parse masterKey from id_token:">How to parse masterKey from id_token:</a>
+                    <a href="#mesh-nbsp-in-button" class="toc-h2 toc-link" data-title="Mesh in button">Mesh in button</a>
+                  </li>
+                  <li>
+                    <a href="#how-to-nbsp-generate-code-challenge-and-code-verifier" class="toc-h2 toc-link" data-title="How to generate code challenge and code verifier">How to generate code challenge and code verifier</a>
+                  </li>
+                  <li>
+                    <a href="#exchange-code-to-nbsp-oauth-nbsp-tokens" class="toc-h2 toc-link" data-title="Exchange code to OAuth tokens">Exchange code to OAuth tokens</a>
+                  </li>
+                  <li>
+                    <a href="#mesh-nbsp-in-example-for-a-nbsp-simple-html-js-nbsp-page" class="toc-h2 toc-link" data-title="Mesh in example for a simple HTML/JS page">Mesh in example for a simple HTML/JS page</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#oauth-tokens" class="toc-h1 toc-link" data-title="OAuth tokens">OAuth tokens</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#object-fields" class="toc-h2 toc-link" data-title="Object fields">Object fields</a>
+                  </li>
+                  <li>
+                    <a href="#parsing-masterkey" class="toc-h2 toc-link" data-title="Parsing masterKey">Parsing masterKey</a>
                   </li>
               </ul>
           </li>
@@ -295,16 +298,16 @@
                     <a href="#encryption" class="toc-h2 toc-link" data-title="Encryption">Encryption</a>
                   </li>
                   <li>
-                    <a href="#storage-api" class="toc-h2 toc-link" data-title="Storage API">Storage API</a>
+                    <a href="#fetch-and-store-data" class="toc-h2 toc-link" data-title="Fetch and store data">Fetch and store data</a>
                   </li>
                   <li>
                     <a href="#save-data" class="toc-h2 toc-link" data-title="Save data">Save data</a>
                   </li>
                   <li>
-                    <a href="#fetch-and-delete-data" class="toc-h2 toc-link" data-title="Fetch and Delete data">Fetch and Delete data</a>
+                    <a href="#fetch-and-delete-nbsp-data" class="toc-h2 toc-link" data-title="Fetch and delete data">Fetch and delete data</a>
                   </li>
                   <li>
-                    <a href="#object-ids-available-to-user" class="toc-h2 toc-link" data-title="Object Ids available to user">Object Ids available to user</a>
+                    <a href="#object-nbsp-ids-available-to-nbsp-a-nbsp-user" class="toc-h2 toc-link" data-title="Object IDs available to a user">Object IDs available to a user</a>
                   </li>
               </ul>
           </li>
@@ -312,7 +315,7 @@
             <a href="#storage-api" class="toc-h1 toc-link" data-title="Storage API">Storage API</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-object-ids" class="toc-h2 toc-link" data-title="Get Object Ids">Get Object Ids</a>
+                    <a href="#get-object-ids" class="toc-h2 toc-link" data-title="Get object IDs">Get object IDs</a>
                   </li>
                   <li>
                     <a href="#store-data" class="toc-h2 toc-link" data-title="Store data">Store data</a>
@@ -332,6 +335,9 @@
             <a href="#mesh-out" class="toc-h1 toc-link" data-title="Mesh out">Mesh out</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#header-example" class="toc-h2 toc-link" data-title="Header example">Header example</a>
+                  </li>
+                  <li>
                     <a href="#meshlib" class="toc-h2 toc-link" data-title="Meshlib">Meshlib</a>
                   </li>
                   <li>
@@ -343,7 +349,7 @@
             <a href="#browser-extension" class="toc-h1 toc-link" data-title="Browser extension">Browser extension</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#mesh-in-browser-extension" class="toc-h2 toc-link" data-title="Mesh in browser extension">Mesh in browser extension</a>
+                    <a href="#identity-api" class="toc-h2 toc-link" data-title="Identity API">Identity API</a>
                   </li>
                   <li>
                     <a href="#caveats" class="toc-h2 toc-link" data-title="Caveats">Caveats</a>
@@ -359,18 +365,18 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>This is the official documentation of the Hushmesh API.</p>
-<h2 id='what-is-the-mesh'>What is the Mesh?</h2>
-<p>The mesh is the &quot;trust network&quot;. Much like social networks, the mesh enables digital interactions between people and organizations. But unlike traditional social networks, the mesh does not target a specific application or mode of communication. Rather, it is designed from the ground up as a neutral platform to enable digital trust and privacy as a service to all other applications, websites, services and devices, for everyone and every organization.</p>
-<h2 id='what-you-can-do-as-a-developer'>What you can do as a developer?</h2>
-<p>You can create applications in the portal and use the mesh for your usecases.</p>
-<h1 id='mesh-in'>Mesh in</h1>
-<p>In order to make authorized calls to the Mesh, you must first obtain an access token. This section describes how to obtain such a token.</p>
+<p>This is&nbsp;the official documentation of&nbsp;the Hushmesh API.</p>
+<h2 id='what-is-the-nbsp-mesh'>What is the&nbsp;Mesh?</h2>
+<p>The mesh is&nbsp;the &quot;trust network&quot;. Much like social networks, the mesh enables digital interactions between people and organizations. But unlike traditional social networks, the mesh does not target a&nbsp;specific application or&nbsp;mode of&nbsp;communication. Rather, it&nbsp;is&nbsp;designed from the ground up&nbsp;as&nbsp;a&nbsp;neutral platform to&nbsp;enable digital trust and privacy as&nbsp;a&nbsp;service to&nbsp;all other applications, websites, services and devices, for everyone and every organization.</p>
+<h2 id='what-you-can-do-as-nbsp-a-nbsp-developer'>What you can do as&nbsp;a&nbsp;developer?</h2>
+<p>You can create applications in&nbsp;the portal and use the mesh for your usecases.</p>
+<h1 id='mesh-nbsp-in'>Mesh&nbsp;in</h1>
+<p>In&nbsp;order to&nbsp;make authorized calls to&nbsp;the Mesh, you must first obtain an&nbsp;access token. This section describes how to&nbsp;obtain such a&nbsp;token.</p>
 
-<p>Before getting started, you need to <a href="http://developer.hushmesh.com/relying-party-registration">create an app</a> and configure a valid redirect URL. A registered HushMesh integration is assigned a unique Client ID and Client Secret which are needed for the OAuth2 flow.</p>
+<p>Before getting started, you need&nbsp;to <a href="http://developer.hushmesh.com/relying-party-registration">create an&nbsp;app</a> and configure a&nbsp;valid redirect URL. A&nbsp;registered HushMesh integration is&nbsp;assigned a&nbsp;unique Client ID&nbsp;and Client Secret which are needed for the OAuth2&nbsp;flow.</p>
 
-<p>Recommended way to autorize user to the mesh as a developer is by using our <a href="https://www.npmjs.com/package/@hushmesh/meshlib">meshlib</a> library</p>
-<h2 id='mesh-in-button'>Mesh in button</h2>
+<p>Recommended way to&nbsp;autorize user to&nbsp;the mesh as&nbsp;a&nbsp;developer is&nbsp;by&nbsp;using our npm <a href="https://www.npmjs.com/package/@hushmesh/meshlib">meshlib</a> library.</p>
+<h2 id='mesh-nbsp-in-button'>Mesh&nbsp;in button</h2>
 <blockquote>
 <p>Include an init:</p>
 </blockquote>
@@ -385,19 +391,17 @@
   <span class="na">isPopup</span><span class="p">:</span> <span class="kc">true</span>
 <span class="p">})</span>
 </code></pre>
-<p>If you are using any modern JavaScript framework, you can create mesh in button component and inside the component include and initialize mesh in library. You can <a href="https://www.npmjs.com/package/@hushmesh/meshlib">install meshlib</a> from npm and include it in your project.</p>
+<p>If&nbsp;you are using any modern JavaScript framework, you can create mesh in&nbsp;button component and inside the component include and initialize mesh in&nbsp;library. You can <a href="https://www.npmjs.com/package/@hushmesh/meshlib">install meshlib</a> from npm and include it&nbsp;in&nbsp;your project.</p>
 
 <blockquote>
 <p>Inside handler:</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">meshApi</span><span class="p">.</span><span class="nx">meshin</span><span class="p">()</span>
 </code></pre>
-<p>After that you just need to use mesh in method inside your on click handler</p>
+<p>After that you just need to&nbsp;use mesh in&nbsp;method inside your <code>onClick</code> handler.</p>
 
-<p>After successful mesh in you&#39;re going to be redirected to the page, specified in the redirectUri</p>
-<h2 id='how-to-generate-code-challenge-and-code-verifier'>How to generate code challenge and code verifier</h2>
-<p>In order to get user tokens first you have to obtain the authorization code. Next you can exchange your authorization code and code verifier for tokens.</p>
-
+<p>After successful mesh in&nbsp;you&rsquo;re going to&nbsp;be&nbsp;redirected to&nbsp;the page, specified in&nbsp;the <code>redirectUri</code>.</p>
+<h2 id='how-to-nbsp-generate-code-challenge-and-code-verifier'>How to&nbsp;generate code challenge and code verifier</h2>
 <blockquote>
 <p>Generate challenge data example</p>
 </blockquote>
@@ -408,9 +412,9 @@
   <span class="kr">const</span> <span class="nx">codeChallenge</span> <span class="o">=</span> <span class="nx">CryptoJS</span><span class="p">.</span><span class="nx">enc</span><span class="p">.</span><span class="nx">Base64</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">sha256</span><span class="p">(</span><span class="nx">codeVerifier</span><span class="p">)).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/=/g</span><span class="p">,</span> <span class="s1">''</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\+</span><span class="sr">/g</span><span class="p">,</span> <span class="s1">'-'</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/</span><span class="se">\/</span><span class="sr">/g</span><span class="p">,</span> <span class="s1">'_'</span><span class="p">)</span>
   <span class="k">return</span> <span class="p">{</span> <span class="nx">codeVerifier</span><span class="p">,</span> <span class="nx">codeChallenge</span> <span class="p">}</span>
 <span class="p">}</span>
-</code></pre><h2 id='exchange-code-to-oauth-tokens'>Exchange code to oauth tokens</h2>
-<p>The last step is to exchange the code which you&#39;re going to get back as query parameter in the url and your initial code verifier to oauth tokens</p>
-
+</code></pre>
+<p>In&nbsp;order to&nbsp;get user tokens first you have to&nbsp;obtain the authorization code. Next you can exchange your authorization code and code verifier for tokens.</p>
+<h2 id='exchange-code-to-nbsp-oauth-nbsp-tokens'>Exchange code to&nbsp;OAuth&nbsp;tokens</h2>
 <blockquote>
 <p>Token service example</p>
 </blockquote>
@@ -437,6 +441,8 @@
   <span class="nx">getTokens</span>
 <span class="p">}</span>
 </code></pre>
+<p>The last step is&nbsp;to&nbsp;exchange the code which you&rsquo;re going to&nbsp;get back as&nbsp;query parameter in&nbsp;the URL and your initial code verifier to&nbsp;OAuth tokens.</p>
+
 <blockquote>
 <p>Use token service</p>
 </blockquote>
@@ -454,74 +460,34 @@
   <span class="c1">// which should be used in Bearer authorization header</span>
   <span class="c1">// to access other Mesh API endpoints</span>
 <span class="p">})</span>
-</code></pre><h2 id='mesh-in-example-for-a-simple-html-js-page'>Mesh in example for a simple HTML/JS page</h2>
-<p>You can find generated button code example for your application on <a href="http://developer.hushmesh.com/relying-party-registration">your application page</a></p>
-
+</code></pre><h2 id='mesh-nbsp-in-example-for-a-nbsp-simple-html-js-nbsp-page'>Mesh&nbsp;in example for a&nbsp;simple HTML/JS&nbsp;page</h2>
 <blockquote>
-<p>First part:</p>
+<p>Generate button</p>
 </blockquote>
 <pre class="highlight html tab-html"><code><span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"meshin-button"</span> <span class="na">class=</span><span class="s">"meshin-button"</span><span class="nt">&gt;</span>mesh in<span class="nt">&lt;/button&gt;</span>
+</code></pre><pre class="highlight html tab-html"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://unpkg.com/@hushmesh/meshlib/dist/meshlib.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">meshApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Meshlib</span><span class="p">.</span><span class="nx">Auth</span><span class="p">({</span>
+  <span class="na">clientId</span><span class="p">:</span> <span class="s1">'YOUR_CLIENT_ID'</span><span class="p">,</span>
+  <span class="na">responseType</span><span class="p">:</span> <span class="s1">'code'</span><span class="p">,</span>
+  <span class="na">redirectUri</span><span class="p">:</span> <span class="s1">'https://beta.hushsafe.com/auth'</span><span class="p">,</span>
+  <span class="nx">codeChallenge</span><span class="p">,</span>
+  <span class="na">codeChallengeMethod</span><span class="p">:</span> <span class="s1">'S256'</span><span class="p">,</span>
+<span class="p">})</span>
+<span class="kr">const</span> <span class="nx">meshinButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'meshin-button'</span><span class="p">)</span>
+<span class="nx">meshinButton</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">meshApi</span><span class="p">.</span><span class="nx">meshin</span><span class="p">()</span>
+<span class="p">}</span>
 </code></pre>
+<p>You can find generated button code example for your application&nbsp;on <a href="http://developer.hushmesh.com/relying-party-registration">your application page</a>.</p>
+
 <p>Button code contains three parts:</p>
 
-<p>First part is HTML for your button. You can add your own CSS or apply any CSS classes from your framework</p>
-
-<blockquote>
-<p>Second part:</p>
-</blockquote>
-<pre class="highlight html tab-html"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://unpkg.com/@hushmesh/meshlib/dist/meshlib.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre>
-<p>Second part includes tiny meshlib library to your application</p>
-
-<blockquote>
-<p>Third part:</p>
-</blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
-  <span class="kr">const</span> <span class="nx">meshApi</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Meshlib</span><span class="p">.</span><span class="nx">Auth</span><span class="p">({</span>
-    <span class="na">clientId</span><span class="p">:</span> <span class="s1">'YOUR_CLIENT_ID'</span><span class="p">,</span>
-    <span class="na">responseType</span><span class="p">:</span> <span class="s1">'code'</span><span class="p">,</span>
-    <span class="na">redirectUri</span><span class="p">:</span> <span class="s1">'https://beta.hushsafe.com/auth'</span><span class="p">,</span>
-    <span class="nx">codeChallenge</span><span class="p">,</span>
-    <span class="na">codeChallengeMethod</span><span class="p">:</span> <span class="s1">'S256'</span><span class="p">,</span>
-  <span class="p">})</span>
-  <span class="kr">const</span> <span class="nx">meshinButton</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">'meshin-button'</span><span class="p">)</span>
-  <span class="nx">meshinButton</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">meshApi</span><span class="p">.</span><span class="nx">meshin</span><span class="p">()</span>
-  <span class="p">}</span>
-<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre>
-<p>Third part is library initialization with your application parameters</p>
-<h1 id='oauth-tokens'>Oauth tokens</h1>
-<p>After the exchange your authorization code and code verifier for tokens you&#39;re going to receive an object with few fields:</p>
-
-<table><thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>access_token</td>
-<td>Access token to use to access Mesh API</td>
-</tr>
-<tr>
-<td>expires_in</td>
-<td>When current token going to be expired</td>
-</tr>
-<tr>
-<td>id_token</td>
-<td>JWT token which contains your masterKey</td>
-</tr>
-<tr>
-<td>refresh_token</td>
-<td>Refresh token can be used for tokens update without additional login</td>
-</tr>
-<tr>
-<td>token_type</td>
-<td>Token type. Currently Bearer only.</td>
-</tr>
-</tbody></table>
-
+<ol>
+<li>HTML for your button. You can add your own CSS or&nbsp;apply any CSS classes from your framework.</li>
+<li>Script including tiny meshlib library to&nbsp;your application.</li>
+<li>Library initialization with your application parameters.</li>
+</ol>
+<h1 id='oauth-tokens'>OAuth tokens</h1><h2 id='object-fields'>Object fields</h2>
 <blockquote>
 <p>Return object</p>
 </blockquote>
@@ -535,13 +501,42 @@
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>Two most important pieces of information here are:</p>
+<p>After the exchange your authorization code and code verifier for tokens you&rsquo;re going to&nbsp;receive an&nbsp;object with few fields:</p>
 
-<ul>
-<li><p>access_token - token which you have to use to access any Mesh API in the authorization header (without it you&#39;re going to have 401 error - anautorized)</p></li>
-<li><p>id_token - it&#39;s JWT token, which contains information in it&#39;s body. The most important part is unique masterKey, which can be used for different usecases (for example, as a key for your encryption/decryption process). To learn more about id_token structure you may want to take a look at our <a href="https://developer.hushmesh.com/token-viewer">token viewer</a></p></li>
-</ul>
-<h2 id='how-to-parse-masterkey-from-id_token'>How to parse masterKey from id_token:</h2>
+<table><thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>access_token</code></td>
+<td>Access token to use to access Mesh API.</td>
+</tr>
+<tr>
+<td><code>expires_in</code></td>
+<td>When current token going to be expired.</td>
+</tr>
+<tr>
+<td><code>id_token</code></td>
+<td>JWT token which contains your masterKey.</td>
+</tr>
+<tr>
+<td><code>refresh_token</code></td>
+<td>Refresh token can be used for tokens update without additional login.</td>
+</tr>
+<tr>
+<td><code>token_type</code></td>
+<td>Token type. Currently Bearer only.</td>
+</tr>
+</tbody></table>
+
+<p>Two most important pieces of&nbsp;information here are:</p>
+
+<p><code>access_token</code> &mdash; token which you have to&nbsp;use to&nbsp;access any Mesh API in&nbsp;the authorization header (without it&nbsp;you&rsquo;re going to&nbsp;have 401 error&nbsp;&mdash; anautorized).</p>
+
+<p><code>id_token</code> &mdash; it&rsquo;s JWT token, which contains information in&nbsp;it&rsquo;s body. The most important part is&nbsp;unique masterKey, which can be&nbsp;used for different usecases (for example, as&nbsp;a&nbsp;key for your encryption/decryption process). To&nbsp;learn more about id_token structure you may want to&nbsp;take a&nbsp;look at&nbsp;our <a href="https://developer.hushmesh.com/token-viewer">token viewer</a>.</p>
+<h2 id='parsing-masterkey'>Parsing masterKey</h2>
 <blockquote>
 <p>parse masterKey</p>
 </blockquote>
@@ -549,18 +544,23 @@
 <span class="kr">const</span> <span class="nx">parts</span> <span class="o">=</span> <span class="nx">idToken</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)</span>
 <span class="kr">const</span> <span class="nx">jwtObj</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">atob</span><span class="p">(</span><span class="nx">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 <span class="kr">const</span> <span class="nx">masterKey</span> <span class="o">=</span> <span class="nx">jwtObj</span><span class="p">.</span><span class="nx">masterKey</span>
-</code></pre><h1 id='application-example'>Application example</h1>
-<p>In this section we are going to explore simple application  <a href="https://hushsafe.com/">hushsafe.com</a> that demonstrates the unique security capabilities enabled by the mesh.</p>
+</code></pre>
+<p>This sample shows how to&nbsp;parse <code>masterKey</code> from <code>id_token</code>:</p>
+<h1 id='application-example'>Application example</h1>
+<p>In&nbsp;this section we&nbsp;are going to&nbsp;explore simple application <a href="https://hushsafe.com/">hushsafe.com</a> that demonstrates the unique security capabilities enabled by&nbsp;the mesh.</p>
 
-<p>We are going to use mesh in button and auth experience, getting user&#39;s data and to use storage API.</p>
+<p>We&nbsp;are going to&nbsp;use mesh in&nbsp;button and auth experience, getting user&rsquo;s data and to&nbsp;use storage API.</p>
 <h2 id='application-stack'>Application stack</h2>
-<p>Hushsafe is single page application, stack we are using:
-* Vue.js framework
-* Vue router as application router
-* Vuex as state management
-* axios to make API calls</p>
+<p>Hushsafe is&nbsp;single page application, stack we&nbsp;are using:</p>
+
+<ul>
+<li>Vue.js framework</li>
+<li>Vue router as application router</li>
+<li>Vuex as state management</li>
+<li>axios to make API calls</li>
+</ul>
 <h2 id='app-registration'>App registration</h2>
-<p>First step for any mesh application should be app registration in <a href="http://developer.hushmesh.com/relying-party-registration">relying parties tool</a>. Mesh in in the tool and you&#39;re going be able to create and manage your applications.</p>
+<p>First step for any mesh application should be&nbsp;app registration&nbsp;in <a href="http://developer.hushmesh.com/relying-party-registration">relying parties tool</a>. Mesh in&nbsp;in&nbsp;the tool and you&rsquo;re going be&nbsp;able to&nbsp;create and manage your applications.</p>
 <h2 id='mesh-in-button'>Mesh in button</h2>
 <blockquote>
 <p>Example:</p>
@@ -582,11 +582,11 @@
 <span class="c1">// Inside click handler</span>
 <span class="nx">meshApi</span><span class="p">.</span><span class="nx">meshin</span><span class="p">()</span>
 </code></pre>
-<p>After successful app registration we can copy Mesh in button code example from our application page in <a href="https://developer.hushmesh.com/relying-party-registration">relying parties tool</a></p>
+<p>After successful app registration we&nbsp;can copy Mesh in&nbsp;button code example from our application page&nbsp;in <a href="https://developer.hushmesh.com/relying-party-registration">relying parties&nbsp;tool</a>.</p>
 
-<p>You can find all information about mesh in button in <a href="http://developer.hushmesh.com/#meshin">mesh in section</a></p>
+<p>You can find all information about mesh in&nbsp;button&nbsp;in <a href="http://developer.hushmesh.com/#meshin">mesh in&nbsp;section</a>.</p>
 
-<p>On Hushsafe.com we are using exactly the approach from the mesh in section</p>
+<p>On&nbsp;Hushsafe.com we&nbsp;are using exactly the approach from the mesh in&nbsp;section.</p>
 <h2 id='callback-page'>Callback page</h2>
 <blockquote>
 <p>Example</p>
@@ -600,13 +600,13 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<p>On Hushsafe.com we&#39;re using our default mesh in experience with QR code popup, because of that we need callback page which can close the popup and redirect to the app auth page (which responsible for the exchange of the code for tokens)</p>
+<p>On&nbsp;Hushsafe.com we&rsquo;re using our default mesh in&nbsp;experience with&nbsp;QR code popup, because of&nbsp;that we&nbsp;need callback page which can close the popup and redirect to&nbsp;the app auth page (which responsible for the exchange of&nbsp;the code for tokens).</p>
 
-<p>Callback page should be specified as <code>redirectUri</code>. Url going to have query string with exchange code which you should use to exchange code to the tokens.</p>
+<p>Callback page should be&nbsp;specified as <code>redirectUri</code>. Url going to&nbsp;have query string with exchange code which you should use to&nbsp;exchange code to&nbsp;the tokens.</p>
 
 <p><code>https://hushsafe.com/auth?access_token=code=your_exchange_code</code></p>
 
-<p>From this url we are grabbing code and providing it to auth page.</p>
+<p>From this url we&nbsp;are grabbing code and providing it&nbsp;to&nbsp;auth page.</p>
 <h2 id='auth-page'>Auth page</h2>
 <blockquote>
 <p>Example</p>
@@ -627,9 +627,9 @@
     <span class="p">})</span>
 <span class="p">}</span>
 </code></pre>
-<p>At this point we already have code to exchange it to tokens, so the main goal of the page is to make api call to get tokens and depends on the results go to another route(on success) or show error message on error.</p>
+<p>At&nbsp;this point we&nbsp;already have code to&nbsp;exchange it&nbsp;to&nbsp;tokens, so&nbsp;the main goal of&nbsp;the page is&nbsp;to&nbsp;make api call to&nbsp;get tokens and depends on&nbsp;the results go&nbsp;to&nbsp;another route(on success) or&nbsp;show error message on&nbsp;error.</p>
 
-<p>To learn more about token exchange see <a href="https://developer.hushmesh.com/#exchange-code-to-oauth-tokens">Exchange code to oauth tokens</a></p>
+<p>To&nbsp;learn more about token exchange see <a href="https://developer.hushmesh.com/#exchange-code-to-oauth-tokens">Exchange code to OAuth&nbsp;tokens</a>.</p>
 <h2 id='getting-user-39-s-info'>Getting user&#39;s info</h2><pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">'axios'</span>
 <span class="kr">import</span> <span class="nx">store</span> <span class="nx">from</span> <span class="s1">'@/store'</span>
 
@@ -657,7 +657,7 @@
 <span class="p">}</span>
 
 </code></pre>
-<p>If nesessary, at this point we can get meshid in user&#39;s info with <a href="http://developer.hushmesh.com/#user">userinfo</a> api. This step is optional and you may skip it if you don&#39;t need user&#39;s info but only would like to use storage api.</p>
+<p>If&nbsp;nesessary, at&nbsp;this point we&nbsp;can get meshid in&nbsp;user&rsquo;s info with <a href="http://developer.hushmesh.com/#user">userinfo</a> api. This step is&nbsp;optional and you may skip it&nbsp;if&nbsp;you don&rsquo;t need user&rsquo;s info but only would like to&nbsp;use storage api.</p>
 <h2 id='encryption'>Encryption</h2>
 <blockquote>
 <p>Crypto.js example</p>
@@ -682,10 +682,10 @@
   <span class="nx">decrypt</span>
 <span class="p">}</span>
 </code></pre>
-<p>We don&#39;t want to send unencrypted data, so we should prepare a solution to encrypt/decrypt data. Here we&#39;re using crypto.js library and our masterkey as a secret.</p>
-<h2 id='storage-api'>Storage API</h2>
+<p>We&nbsp;don&rsquo;t want to&nbsp;send unencrypted data, so&nbsp;we&nbsp;should prepare a&nbsp;solution to&nbsp;encrypt/decrypt data. Here we&rsquo;re using crypto.js library and our masterkey as&nbsp;a&nbsp;secret.</p>
+<h2 id='fetch-and-store-data'>Fetch and store data</h2>
 <blockquote>
-<p>Storage api usage</p>
+<p>Storage API usage</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="nx">axios</span> <span class="nx">from</span> <span class="s1">'axios'</span>
 <span class="kr">import</span> <span class="nx">store</span> <span class="nx">from</span> <span class="s1">'@/store'</span>
@@ -724,7 +724,7 @@
   <span class="nx">storeData</span>
 <span class="p">}</span>
 </code></pre>
-<p>Now we can use storage api to save and fetch data</p>
+<p>Now we&nbsp;can use Storage API to&nbsp;save and fetch data.</p>
 <h2 id='save-data'>Save data</h2>
 <blockquote>
 <p>Keycard example</p>
@@ -736,27 +736,27 @@
   </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-03-12T15:33:00.909Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>To save data we should provide object id. In case of hushsafe we want to store user&#39;s keycards, so let&#39;s call it &#39;keycards&#39;.
-Our full endpoint going to be
+<p>To&nbsp;save data we&nbsp;should provide object&nbsp;id. In&nbsp;case of&nbsp;hushsafe we&nbsp;want to&nbsp;store user&rsquo;s keycards, so&nbsp;let&rsquo;s call it &quot;keycards&quot;. Our full endpoint going to&nbsp;be
 <code>https://api.hshm.sh/v0/storage/keycards</code></p>
 
-<p>You free to decide what format do you want to use. In our case each keycard has four fields: id, title, data, createdAt.
-As you can see, our data is encrypted with crypto.js</p>
-<h2 id='fetch-and-delete-data'>Fetch and Delete data</h2>
-<p>To fetch data back we&#39;re going to use the same endpoint but GET request, to delete - DELETE request
+<p>You free to&nbsp;decide what format do&nbsp;you want to&nbsp;use. In&nbsp;our case each keycard has four fields: <code>id</code>, <code>title</code>, <code>data</code>, <code>createdAt</code>. </p>
+
+<p>As you can see, our data is&nbsp;encrypted with crypto.js.</p>
+<h2 id='fetch-and-delete-nbsp-data'>Fetch and delete&nbsp;data</h2>
+<p>To&nbsp;fetch data back we&rsquo;re going to&nbsp;use the same endpoint but <code>GET</code> request, or&nbsp;<code>DELETE</code>&nbsp;request for deleting
 <code>https://api.hshm.sh/v0/storage/keycards</code></p>
 
-<p><a href="http://developer.hushmesh.com/#storage">Storage api docs</a></p>
-<h2 id='object-ids-available-to-user'>Object Ids available to user</h2>
+<p><a href="http://developer.hushmesh.com/#storage">Storage API docs</a></p>
+<h2 id='object-nbsp-ids-available-to-nbsp-a-nbsp-user'>Object&nbsp;IDs available to&nbsp;a&nbsp;user</h2>
 <blockquote>
 <p>Example</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>  GET https://api.hshm.sh/v0/storage
 </code></pre>
-<p>In case you want to get all object ids meshedin user has an access, you can do it by sending request to</p>
+<p>In&nbsp;case you want to&nbsp;get all object ids meshedin user has an&nbsp;access, you can do&nbsp;it&nbsp;by&nbsp;sending request&nbsp;to:</p>
 
 <p><code>GET api.hshm.sh/v0/storage</code></p>
-<h1 id='storage-api'>Storage API</h1><h2 id='get-object-ids'>Get Object Ids</h2>
+<h1 id='storage-api'>Storage API</h1><h2 id='get-object-ids'>Get object IDs</h2>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -764,7 +764,7 @@ As you can see, our data is encrypted with crypto.js</p>
 </code></pre>
 <p><code>GET api.hshm.sh/v0/storage</code></p>
 
-<p>Lists object ids for the meshed in user</p>
+<p>— lists object IDs for the meshed in user.</p>
 
 <blockquote>
 <p>Return object</p>
@@ -783,7 +783,7 @@ As you can see, our data is encrypted with crypto.js</p>
 </code></pre>
 <p><code>POST api.hshm.sh/v0/storage/{object_id}</code></p>
 
-<p>Store arbitrary data for the meshed in user</p>
+<p>— store arbitrary data for the meshed in user.</p>
 
 <blockquote>
 <p>Return object</p>
@@ -792,7 +792,7 @@ As you can see, our data is encrypted with crypto.js</p>
    </span><span class="s2">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
    </span><span class="s2">"statusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='parameters'>Parameters</h3>
+</span></code></pre>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -802,10 +802,10 @@ As you can see, our data is encrypted with crypto.js</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>object_id</td>
+<td><code>object_id</code></td>
 <td>String</td>
 <td>Yes</td>
-<td>The id of the stored data</td>
+<td>The ID of the stored data</td>
 </tr>
 </tbody></table>
 <h2 id='get-stored-data'>Get stored data</h2>
@@ -816,14 +816,10 @@ As you can see, our data is encrypted with crypto.js</p>
 </code></pre>
 <p><code>GET api.hshm.sh/v0/storage/{object_id}</code></p>
 
-<p>Fetch data that was stored for the meshed in user</p>
+<p>— fetches data that was stored for the meshed in user.</p>
 
-<blockquote>
-<p>Return object</p>
-</blockquote>
+<p>The data in the same format user stored previously.</p>
 
-<p>The data in the same format user stored previously</p>
-<h3 id='parameters-2'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -833,10 +829,10 @@ As you can see, our data is encrypted with crypto.js</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>object_id</td>
+<td><code>object_id</code></td>
 <td>String</td>
 <td>Yes</td>
-<td>The id of the stored data</td>
+<td>The ID of the stored data</td>
 </tr>
 </tbody></table>
 <h2 id='delete-stored-data'>Delete stored data</h2>
@@ -847,7 +843,7 @@ As you can see, our data is encrypted with crypto.js</p>
 </code></pre>
 <p><code>DELETE api.hshm.sh/v0/storage/{object_id}</code></p>
 
-<p>Delete data that was stored for the meshed in user.</p>
+<p>— deletes data that was stored for the meshed in user.</p>
 
 <blockquote>
 <p>Return object</p>
@@ -856,7 +852,7 @@ As you can see, our data is encrypted with crypto.js</p>
    </span><span class="s2">"statusCode"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w">
    </span><span class="s2">"statusDescription"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='parameters-3'>Parameters</h3>
+</span></code></pre>
 <table><thead>
 <tr>
 <th>Name</th>
@@ -866,10 +862,10 @@ As you can see, our data is encrypted with crypto.js</p>
 </tr>
 </thead><tbody>
 <tr>
-<td>object_id</td>
+<td><code>object_id</code></td>
 <td>String</td>
 <td>Yes</td>
-<td>The id of the stored data</td>
+<td>The ID of the stored data</td>
 </tr>
 </tbody></table>
 <h1 id='user-info'>User info</h1>
@@ -880,7 +876,7 @@ As you can see, our data is encrypted with crypto.js</p>
 </code></pre>
 <p><code>GET api.hshm.sh/v0/userinfo</code></p>
 
-<p>Retrieves user info for the access token</p>
+<p>— retrieves user info for the access token.</p>
 
 <blockquote>
 <p>Return object</p>
@@ -891,18 +887,18 @@ As you can see, our data is encrypted with crypto.js</p>
    </span><span class="s2">"Email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alice@hushmesh.net"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
-</span></code></pre><h1 id='mesh-out'>Mesh out</h1>
-<p>To finish authorized access to the Mesh, you should use mesh out API. It is a simple GET call to &#39;/logout&#39; endpoint. Please make sure to provide usual Bearer Authorization header, otherwise it is not going to work.</p>
-
+</span></code></pre><h1 id='mesh-out'>Mesh out</h1><h2 id='header-example'>Header example</h2>
 <blockquote>
 <p>Header example</p>
 </blockquote>
 <pre class="highlight plaintext"><code>axiosConfig.headers = {
   Authorization: `Bearer [YOUR_TOKEN]`
 }
-</code></pre><h2 id='meshlib'>Meshlib</h2>
-<p>If you are already using our <a href="https://www.npmjs.com/package/@hushmesh/meshlib">meshlib library</a>, you can just use <code>meshout</code> method out of the box. Don&#39;t forget to provide a valid access token as an argument.</p>
+</code></pre>
+<p>To&nbsp;finish authorized access to&nbsp;the Mesh, you should use mesh out API. It&nbsp;is&nbsp;a&nbsp;simple <code>GET</code> call to <code>/logout</code> endpoint.</p>
 
+<p>Please make sure to&nbsp;provide usual Bearer Authorization header, otherwise it&nbsp;is&nbsp;not going to&nbsp;work.</p>
+<h2 id='meshlib'>Meshlib</h2>
 <blockquote>
 <p>Mesh out with meshlib</p>
 </blockquote>
@@ -911,7 +907,11 @@ As you can see, our data is encrypted with crypto.js</p>
   <span class="c1">// in the handler:</span>
   <span class="nx">meshlib</span><span class="p">.</span><span class="nx">meshout</span><span class="p">(</span><span class="nx">accessToken</span><span class="p">)</span>
 
-</code></pre><h2 id='meshout-api'>Meshout API</h2>
+</code></pre>
+<p>If&nbsp;you are already using our <a href="https://www.npmjs.com/package/@hushmesh/meshlib">meshlib library</a>, you can just use <code>meshout</code> method out of&nbsp;the box.</p>
+
+<p>Don&rsquo;t forget to&nbsp;provide a&nbsp;valid access token as&nbsp;an&nbsp;argument.</p>
+<h2 id='meshout-api'>Meshout API</h2>
 <blockquote>
 <p>Example</p>
 </blockquote>
@@ -919,7 +919,7 @@ As you can see, our data is encrypted with crypto.js</p>
 </code></pre>
 <p><code>GET api.hshm.sh/v0/logout</code></p>
 
-<p>Finishes Mesh session</p>
+<p>— finishes Mesh session.</p>
 
 <blockquote>
 <p>Return object</p>
@@ -930,24 +930,10 @@ As you can see, our data is encrypted with crypto.js</p>
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre><h1 id='browser-extension'>Browser extension</h1>
-<p>If you&#39;re developing a browser extension most of the information related to web application going to be relevant. The main difference going to be mesh in experience. We&#39;re going to cover all differences in this section - we&#39;re going to use Chrome browser as an example.</p>
-<h2 id='mesh-in-browser-extension'>Mesh in browser extension</h2>
-<p>In browser extensions we cannot use the same callback flow as per web applications. Usually your browser extension will have url similar to <code>chrome-extension://npmgajiaihfjibkgojndemlehpalicjc/home.html</code> and we cannot open such url as a callback because of security restrictions.</p>
-
-<p>Instead of the callback we should use browser&#39;s <a href="https://developer.chrome.com/apps/identity">identity API</a> and receive our tokens information in the response.</p>
-
-<p>Let&#39;w walk through the code example:</p>
-
-<ul>
-<li><p>First we create codeChallenge and codeVerifier the same way as per web application - we&#39;re still going to need them</p></li>
-<li><p>We&#39;re getting redirect url using identity.getRedirectURL() method</p></li>
-<li><p>We&#39;re creating url for api call with our application parameters. Make sure to use your real application clientId here from relying party registration tool</p></li>
-<li><p>Then we&#39;re launching auth flow using identity.launchWebAuthFlow() method</p></li>
-<li><p>After successful mesh in we&#39;re getting back code which we should exchange to tokens - this logic is exactly the same as for the web and you can find more details about it in <a href="https://developer.hushmesh.com/#oauth-tokens">Oauth tokens section</a></p></li>
-</ul>
-
+<p>If&nbsp;you&rsquo;re developing a&nbsp;browser extension most of&nbsp;the information related to&nbsp;web application going to&nbsp;be&nbsp;relevant. The main difference going to&nbsp;be&nbsp;mesh in&nbsp;experience. We&rsquo;re going to&nbsp;cover all differences in&nbsp;this section&nbsp;&mdash; we&rsquo;re going to&nbsp;use Chrome browser as&nbsp;an&nbsp;example.</p>
+<h2 id='identity-api'>Identity API</h2>
 <blockquote>
-<p>Identity API :</p>
+<p>Identity API:</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
   <span class="kr">const</span> <span class="nx">getAuthUrl</span> <span class="o">=</span> <span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -997,20 +983,34 @@ As you can see, our data is encrypted with crypto.js</p>
     <span class="p">})</span>
   <span class="p">}</span>
 <span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
-</span></code></pre><h2 id='caveats'>Caveats</h2>
-<p>To store tokens and masterKey it&#39;s better to use your extension background. If you&#39;re going to put them in the popup, they&#39;re going to be cleared every time user is closing popup.</p>
+</span></code></pre>
+<p>In&nbsp;browser extensions we&nbsp;cannot use the same callback flow as&nbsp;per web applications. Usually your browser extension will have url similar to <code>chrome-extension://npmgajiaihfjibkgojndemlehpalicjc/home.html</code> and we&nbsp;cannot open such url as&nbsp;a&nbsp;callback because of&nbsp;security restrictions.</p>
+
+<p>Instead of&nbsp;the callback we&nbsp;should use browser&rsquo;s <a href="https://developer.chrome.com/apps/identity">identity API</a> and receive our tokens information in&nbsp;the response.</p>
+
+<p>Let&rsquo;w walk through the code example:</p>
+
+<ul>
+<li><p>First we&nbsp;create <code>codeChallenge</code> and <code>codeVerifier</code> the same way as&nbsp;per web application&nbsp;&mdash; we&rsquo;re still going to&nbsp;need them.</p></li>
+<li><p>We&rsquo;re getting redirect url using <code>identity.getRedirectURL()</code> method.</p></li>
+<li><p>We&rsquo;re creating url for API call with our application parameters. Make sure to&nbsp;use your real application <code>clientId</code> here from relying party registration tool.</p></li>
+<li><p>Then we&rsquo;re launching auth flow using <code>identity.launchWebAuthFlow()</code> method.</p></li>
+<li><p>After successful mesh in&nbsp;we&rsquo;re getting back code which we&nbsp;should exchange to&nbsp;tokens&nbsp;&mdash; this logic is&nbsp;exactly the same as&nbsp;for the web and you can find more details about it&nbsp;in <a href="https://developer.hushmesh.com/#oauth-tokens">OAuth tokens</a> section.</p></li>
+</ul>
+<h2 id='caveats'>Caveats</h2>
+<p>To&nbsp;store tokens and <code>masterKey</code> it&rsquo;s better to&nbsp;use your extension background. If&nbsp;you&rsquo;re going to&nbsp;put them in&nbsp;the popup, they&rsquo;re going to&nbsp;be&nbsp;cleared every time user is&nbsp;closing popup.</p>
 <h1 id='errors'>Errors</h1>
 <p>The HTTP error codes returned:</p>
 
 <table><thead>
 <tr>
-<th>Status code</th>
+<th>Code</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Missing/Invalid fields in the request</td>
+<td>Missing/invalid fields in the request</td>
 </tr>
 <tr>
 <td>401</td>
@@ -1018,11 +1018,11 @@ As you can see, our data is encrypted with crypto.js</p>
 </tr>
 <tr>
 <td>403</td>
-<td>Permission Denied</td>
+<td>Permission denied</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Resource Not Found</td>
+<td>Resource not found</td>
 </tr>
 <tr>
 <td>406</td>
@@ -1034,10 +1034,26 @@ As you can see, our data is encrypted with crypto.js</p>
 </tr>
 <tr>
 <td>500</td>
-<td>Internal Server Error</td>
+<td>Internal server error</td>
 </tr>
 </tbody></table>
 
+
+
+        <div class="contact">
+          <h2 class="text-primary">
+            Not finding the information you need?
+          </h2>
+          <p>
+            Contact us <a href="mailto:info@mesh.in" class="link-external">info@mesh.in</a>
+          </p>
+        </div>
+        <footer>
+          <p class="update-notice">
+            Last updated Aug 13, 2020
+          </p>
+          © 2019–2020 Hushmesh Inc., a Delaware Public Benefit Corporation
+        </footer>
       </div>
       <div class="dark-box">
       </div>
