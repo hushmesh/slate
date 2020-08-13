@@ -156,7 +156,7 @@ export default {
 
 We&nbsp;don&rsquo;t want to&nbsp;send unencrypted data, so&nbsp;we&nbsp;should prepare a&nbsp;solution to&nbsp;encrypt/decrypt data. Here we&rsquo;re using crypto.js library and our masterkey as&nbsp;a&nbsp;secret.
 
-## Storage API
+## Fetch and store data
 
 > Storage API usage
 
