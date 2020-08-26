@@ -3,7 +3,8 @@
 
 .site-header {
   @extend %default-font;
-  -webkit-text-size-adjust: none; /* Never autoresize text */
+  -webkit-font-smoothing: auto;
+  -webkit-text-size-adjust: none;
   box-sizing: border-box;
   padding: 10px 32px 10px;
   background-color: white;
