@@ -52,24 +52,25 @@ under the License.
       <a href="/" class="site-logo">
         <%= image_tag "logo.svg" %>
       </a>
-      <nav class="site-nav <%= page_classes %>">
+      <nav class="site-nav <%= page_classes %>" id="site-nav">
         <div class="nav-portal">
-          <a href="https://developer.hushmesh.com" class="nav-active"><span class="full">Documentation</span> <span class="short">Docs</span></a>
-          <a href="https://developer.hushmesh.com/relying-party-registration"><span class="full">Manage Apps</span> <span class="short">Apps</span></a>
-          <a href="https://developer.hushmesh.com/token-viewer"><span class="full">View Token Structure</span> <span class="short">Tokens</span></a>
+          <a href="https://developer.hushmesh.com" class="nav-active">Documentation</a>
+          <a href="https://developer.hushmesh.com/relying-party-registration">Manage Apps</a>
+          <a href="https://developer.hushmesh.com/token-viewer">View Token Structure</a>
         </div>
         <aside class="nav-external">
           <a href="https://www.npmjs.com/package/@hushmesh/meshlib" target="_blank" class="link-external">meshlib Library</a>
           <a href="https://www.hushmesh.com" target="_blank" class="link-external">Hushmesh.com</a>
         </aside>
+        <button class="site-nav-toggle" id="site-nav-toggle" title="Show site navigation"><span></span></button>
       </nav>
     </header>
 
-    <a href="#" id="nav-button">
+    <button id="nav-button" title="Show and search table of contents">
       <span>
-        <%= image_tag('navbar.png') %>
+        Search
       </span>
-    </a>
+    </button>
 
     <div class="toc-wrapper">
       <% if language_tabs.any? %>

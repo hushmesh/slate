@@ -46,7 +46,7 @@ html, body {
 }
 
 .toc-wrapper {
-  transition: left 0.3s ease-in-out;
+  transition: all .3s ease-in-out;
 
   overflow-y: auto;
   overflow-x: hidden;
@@ -82,10 +82,10 @@ html, body {
       background: $nav-bg;
       border-width: 0;
       box-shadow: 0 1px 0 $search-box-border-color;
-      padding: 8px 0 10px 24px;
+      padding: 8px 0 10px $main-padding;
       box-sizing: border-box;
       margin: $nav-padding ($nav-padding - 4) 0 ($nav-padding - 4);
-      width: $nav-width - ($nav-padding*2);
+      width: 90%;
       outline: none;
       color: $nav-text;
       font-size: 14px;;
@@ -126,17 +126,18 @@ html, body {
       border-radius: 2px;
       margin-top: 0px;
       border-top: 2px solid;
+      padding: 16px 0 0;
     }
 
     li {
-      margin: 1em $nav-padding;
       line-height: 1.35;
-      font-size: 14px;
     }
 
     a {
+      padding: $nav-v-padding $nav-padding;
       color: $nav-text;
       text-decoration: none;
+      display: block;
 
       &:hover {
         color: $primary;
@@ -221,25 +222,58 @@ html, body {
 
 // button to show navigation on mobile devices
 #nav-button {
-  span {
-    display: block;
-    padding: 22px 15px 22px 24px;
-    background: white;
-  }
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 102;
+  bottom: 0;
+  right: 0;
+  z-index: 101;
 
-  img {
-    height: 16px;
-    vertical-align: bottom;
-    transform: rotate(90deg);
+  width: 100%;
+  padding: 16px 15px 18px 24px;
+  background: rgba(white, 95%);
+  backdrop-filter: blur(10px);
+  border: none;
+  color: $secondary-text;
+
+  text-align: left;
+  transition: right .1s ease-in, bottom .1s ease-in, box-shadow .3s ease-in .4s;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+
+  span {
+    display: block;
+    position: relative;
+    padding-left: 20px;
+
+    &:before {
+      position: absolute;
+      top: 2px;
+      left: 0;
+      opacity: .3;
+      @extend %icon-search;
+      transition: color .3s ease-in .1s;
+    }
   }
 
   &.open {
-    padding: 0 100% 0 0; // click on all area to hide ToC
+    width: 51px;
+    color: transparent;
+    border-radius: 50%;
+    right: 16px;
+    bottom: 16px;
+    box-shadow: 0 8px 16px -4px rgba(#426a86, 20%);
+
+    span:before {
+      content: "×";
+      font-size: 24px;
+      opacity: 1;
+      color: $primary;
+      top: -6px;
+      left: -5px;
+    }
   }
 }
 
@@ -606,14 +640,10 @@ html, body {
   .toc-wrapper {
     width: $nav-width-mobile;
     padding: 60px 0px 40px;
-
-    & > .search input {
-      width: 146px;
-    }
   }
 
   .page-wrapper {
-    margin-left: 170px;
+    margin-left: $nav-width;
   }
 
   .content .contact {
@@ -629,11 +659,16 @@ html, body {
 
 @media (max-width: $tablet-width) {
   .toc-wrapper {
-    left: -$nav-width;
+    left: 0;
+    top: 200px;
+    opacity: 0;
+    z-index: 9;
 
     &.open {
-      left: 0;
-      box-shadow: 10px 0 10px -6px rgba(0, 0, 0, 0.1);
+      top: 0;
+      opacity: 1;
+      z-index: 11;
+      //box-shadow: 10px 0 10px -6px rgba(0, 0, 0, 0.1);
     }
   }
 
@@ -645,10 +680,24 @@ html, body {
     display: block;
   }
 
-  .toc-link {
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
+  .toc-wrapper .search-results.visible {
+    height: 60%;
   }
+
+  .toc-link,
+  .toc-wrapper .search-results a {
+    padding: $nav-v-padding $main-padding;
+  }
+
+  .toc-wrapper > .search {
+    input {
+      padding-left: 40px;
+    }
+    &:before {
+      left: 26px;
+    }
+  }
+
 }
 
 @media (max-width: $phone-width) {
