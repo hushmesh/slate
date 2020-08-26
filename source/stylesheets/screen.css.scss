@@ -223,37 +223,23 @@ html, body {
 #nav-button {
   span {
     display: block;
-    padding: 17px 20px 20px;
-    border-radius: 0 4px 0 0;
-    background: rgba(255, 255, 255, .8);
-    backdrop-filter: blur(10px);
+    padding: 22px 15px 22px 24px;
+    background: white;
   }
-  padding: 2em 1.5em 0 0; // increase touch size area
   display: none;
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 102;
 
   img {
-    height: 24px;
+    height: 16px;
     vertical-align: bottom;
     transform: rotate(90deg);
   }
 
-  transition: left 0.3s ease-in-out;
-
-  &:hover { opacity: 1; }
   &.open {
-    left: $nav-width-mobile;
-    padding: 100vh 100% 0 0; // click on all area to hide ToC
-    background: rgba(255, 255, 255, .8);
-    backdrop-filter: blur(10px);
-
-    span {
-      background: none;
-      backdrop-filter: none;
-    }
+    padding: 0 100% 0 0; // click on all area to hide ToC
   }
 }
 

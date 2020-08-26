@@ -105,5 +105,10 @@ a.link-external:after {
 
 @media (max-width: $phone-width) {
 
+
+  .site-logo img {
+    height: 32px;
+    margin: 6px 0 0 3px;
+  }
 }
 
