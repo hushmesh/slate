@@ -35,6 +35,7 @@ under the License.
     <style>
       <%= Rouge::Themes::MonokaiSublime.render(:scope => '.highlight') %>
     </style>
+    <%= stylesheet_link_tag :header, media: :screen %>
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
     <% if current_page.data.search %>
@@ -47,29 +48,29 @@ under the License.
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
 
-    <header class="site-header">
+     <header class="site-header">
       <a href="/" class="site-logo">
         <%= image_tag "logo.svg" %>
       </a>
       <nav class="site-nav <%= page_classes %>">
-        <div>
-          <a href="https://developer.hushmesh.com" class="nav-active">Documentation</a>
-          <a href="https://developer.hushmesh.com/relying-party-registration">Manage Apps</a>
-          <a href="https://developer.hushmesh.com/token-viewer">View Token Structure</a>
+        <div class="nav-portal">
+          <a href="https://developer.hushmesh.com" class="nav-active"><span class="full">Documentation</span> <span class="short">Docs</span></a>
+          <a href="https://developer.hushmesh.com/relying-party-registration"><span class="full">Manage Apps</span> <span class="short">Apps</span></a>
+          <a href="https://developer.hushmesh.com/token-viewer"><span class="full">View Token Structure</span> <span class="short">Tokens</span></a>
         </div>
-        <div class="nav-right">
+        <aside class="nav-external">
           <a href="https://www.npmjs.com/package/@hushmesh/meshlib" target="_blank" class="link-external">meshlib Library</a>
           <a href="https://www.hushmesh.com" target="_blank" class="link-external">Hushmesh.com</a>
-        </div>
+        </aside>
       </nav>
     </header>
 
     <a href="#" id="nav-button">
       <span>
-        NAV
         <%= image_tag('navbar.png') %>
       </span>
     </a>
+
     <div class="toc-wrapper">
       <% if language_tabs.any? %>
         <div class="lang-selector">
