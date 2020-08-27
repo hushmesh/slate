@@ -5,7 +5,7 @@
 
     // open navigation drawer on mobile devices
 
-    var navPanel = document.getElementById('site-nav');
+    var navPanel = document.getElementById('site-header');
     var navButton = document.getElementById('site-nav-toggle');
 
     if(navButton) {

@@ -15,6 +15,13 @@
   height: $top-nav-height;
   box-shadow: 0 2px 10px -6px rgba(0,0,0,.2);
   transition: top .3s;
+
+  &.open {
+    background: white;
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: auto;
+  }
 }
 
 .site-logo {
@@ -72,11 +79,9 @@
     }
   }
 
-  &.index {
-    a.link-index {
-      color: #474746;
-      cursor: default;
-    }
+  &.index a.link-index {
+    color: #474746;
+    cursor: default;
   }
 }
 
@@ -141,7 +146,7 @@ a.link-external:after {
 @media (max-width: $tablet-width) {
 
   .shrink  {
-    .site-header {
+    .site-header:not(.open) {
       top: -$top-nav-height;
     }
 
@@ -166,7 +171,7 @@ a.link-external:after {
   .site-nav {
     transition: all 0.3s ease-in-out;
 
-    &:not(.open) {
+    .site-header:not(.open) & {
       position: absolute;
       right: 0;
       padding-right: 16px;
@@ -199,7 +204,7 @@ a.link-external:after {
       }
     }
 
-    &.open {
+    .site-header.open & {
       justify-content: space-between;
       align-items: stretch;
       flex-direction: column;
@@ -208,12 +213,10 @@ a.link-external:after {
       z-index: 101;
       top: $top-nav-height;
       bottom: 0;
-      background-color: white;
       padding: 16px 0;
 
       right: 0;
       width: 100%;
-      background-color: white;
 
       a {
         display: block;
