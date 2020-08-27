@@ -64,6 +64,7 @@ $lang-select-pressed-text: #fff !default; // color of language tab text when mou
 // SIZES
 ////////////////////
 $nav-width: 200px !default; // width of the navbar
+$nav-width-mobile: 100% !default; // width of the expanded ToC navbar on mobile
 $top-nav-height: 60px;
 $examples-width: 50% !default; // portion of the screen taken up by code examples
 $logo-margin: 0px !default; // margin below logo
@@ -124,21 +125,3 @@ $main-embossed-text-shadow: 0px 1px 0px #fff !default;
     word-break: break-all;
     hyphens: auto;
 }
-
-
-//////////////////////////////////////////////////////////////////////////
-// CUSTOM OVERWRITE
-//////////////////////////////////////////////////////////////////////////
-
-// SIZES
-
-
-/*
-// BACKGROUND COLORS
-$color-red: #316FEB; // not red anymore, but keeping it to avoid many changes
-$aside-notice-bg: #ddd;
-$separator-color: #efefef;
-
-$color-header-grey: #4b4b4c;
-$title-color: $color-header-grey;
-$paragraph-color: #2B2B32;*/

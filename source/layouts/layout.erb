@@ -35,6 +35,7 @@ under the License.
     <style>
       <%= Rouge::Themes::MonokaiSublime.render(:scope => '.highlight') %>
     </style>
+    <%= stylesheet_link_tag :header, media: :screen %>
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
     <% if current_page.data.search %>
@@ -47,29 +48,30 @@ under the License.
 
   <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
 
-    <header class="site-header">
+     <header class="site-header" id="site-header">
       <a href="/" class="site-logo">
         <%= image_tag "logo.svg" %>
       </a>
       <nav class="site-nav <%= page_classes %>">
-        <div>
+        <div class="nav-portal">
           <a href="https://developer.hushmesh.com" class="nav-active">Documentation</a>
           <a href="https://developer.hushmesh.com/relying-party-registration">Manage Apps</a>
           <a href="https://developer.hushmesh.com/token-viewer">View Token Structure</a>
         </div>
-        <div class="nav-right">
+        <aside class="nav-external">
           <a href="https://www.npmjs.com/package/@hushmesh/meshlib" target="_blank" class="link-external">meshlib Library</a>
           <a href="https://www.hushmesh.com" target="_blank" class="link-external">Hushmesh.com</a>
-        </div>
+        </aside>
+        <button class="site-nav-toggle" id="site-nav-toggle" title="Show site navigation"><span></span></button>
       </nav>
     </header>
 
-    <a href="#" id="nav-button">
+    <button id="nav-button" title="Show and search table of contents">
       <span>
-        NAV
-        <%= image_tag('navbar.png') %>
+        Search
       </span>
-    </a>
+    </button>
+
     <div class="toc-wrapper">
       <% if language_tabs.any? %>
         <div class="lang-selector">
@@ -84,7 +86,7 @@ under the License.
       <% end %>
       <% if current_page.data.search %>
         <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
+          <input type="search" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
       <% end %>
