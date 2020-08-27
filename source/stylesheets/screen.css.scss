@@ -126,11 +126,16 @@ html, body {
       border-radius: 2px;
       margin-top: 0px;
       border-top: 2px solid;
-      padding: 16px 0 0;
+      padding: 16px 0;
     }
 
     li {
       line-height: 1.35;
+    }
+
+    .empty {
+      padding: $nav-v-padding $nav-padding;
+      color: $secondary-text;
     }
 
     a {
@@ -672,6 +677,29 @@ html, body {
     }
   }
 
+  .content {
+    h1 {
+      font-size: 32px;
+      padding: 32px 20px 0 54px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 500;
+      padding-bottom: 1em;
+      padding-top: 32px;
+      padding-right: 16px;
+    }
+
+    & > p {
+      padding-right: 24px;
+    }
+
+    blockquote > p {
+      margin: 0;
+    }
+  }
+
   .page-wrapper {
     margin-left: 0;
   }
@@ -681,7 +709,7 @@ html, body {
   }
 
   .toc-wrapper .search-results.visible {
-    height: 60%;
+    height: 40%;
   }
 
   .toc-link,
@@ -697,8 +725,6 @@ html, body {
       left: 26px;
     }
   }
-
-
 
   .dark-box {
     display: none;
