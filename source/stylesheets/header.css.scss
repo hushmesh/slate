@@ -44,23 +44,31 @@
     line-height: 54px;
     display: inline-block;
 
-    .short {
-      display: none;
-    }
 
     &:link,
     &:visited,
     &:active {
       color: $primary-text;
     }
+
     &:hover {
       color: $primary;
     }
+
     &.nav-active {
       color: $primary;
     }
-    &.link-external:after {
-      top: 23px;
+
+    &.link-external {
+      margin-right: 1em;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:after {
+        top: 23px;
+      }
     }
   }
 
@@ -123,6 +131,10 @@ a.link-external:after {
   .site-logo {
     width: 186px;
     margin-left: -2px;
+  }
+
+  .site-nav a {
+    margin-right: 1em;
   }
 }
 
