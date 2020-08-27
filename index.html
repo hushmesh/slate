@@ -197,40 +197,42 @@
   color: #f92672;
 }
     </style>
-    <link href="stylesheets/screen-c88eae67.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print-a709b7b0.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all-c5541673.js"></script>
+    <link href="stylesheets/header-3554a804.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-6fdd040c.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print-b95b5c21.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all-cb13295e.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap" rel="stylesheet">
   </head>
 
   <body class="index" data-languages="[]">
 
-    <header class="site-header">
+     <header class="site-header" id="site-header">
       <a href="/" class="site-logo">
         <img src="images/logo-692d5d49.svg" alt="Logo" />
       </a>
       <nav class="site-nav index">
-        <div>
+        <div class="nav-portal">
           <a href="https://developer.hushmesh.com" class="nav-active">Documentation</a>
           <a href="https://developer.hushmesh.com/relying-party-registration">Manage Apps</a>
           <a href="https://developer.hushmesh.com/token-viewer">View Token Structure</a>
         </div>
-        <div class="nav-right">
+        <aside class="nav-external">
           <a href="https://www.npmjs.com/package/@hushmesh/meshlib" target="_blank" class="link-external">meshlib Library</a>
           <a href="https://www.hushmesh.com" target="_blank" class="link-external">Hushmesh.com</a>
-        </div>
+        </aside>
+        <button class="site-nav-toggle" id="site-nav-toggle" title="Show site navigation"><span></span></button>
       </nav>
     </header>
 
-    <a href="#" id="nav-button">
+    <button id="nav-button" title="Show and search table of contents">
       <span>
-        NAV
-        <img src="images/navbar-cad8cdcb.png" alt="Navbar" />
+        Search
       </span>
-    </a>
+    </button>
+
     <div class="toc-wrapper">
         <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
+          <input type="search" class="search" id="input-search" placeholder="Search">
         </div>
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
