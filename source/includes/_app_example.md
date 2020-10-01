@@ -138,13 +138,13 @@ import AES from 'crypto-js/aes'
 import store from '@/store'
 
 const encrypt = value => {
-  // To encrypt/decrypt values we are using user's master key
-  const secret = store.getters['user/masterKey']
+  // To encrypt/decrypt values we are using user's relationship key
+  const secret = store.getters['user/relationshipKey']
   return AES.encrypt(value, secret).toString()
 }
 
 const decrypt = value => {
-  const secret = store.getters['user/masterKey']
+  const secret = store.getters['user/relationshipKey']
   return AES.decrypt(value, secret).toString(encUTF8)
 }
 
@@ -154,7 +154,7 @@ export default {
 }
 ```
 
-We&nbsp;don&rsquo;t want to&nbsp;send unencrypted data, so&nbsp;we&nbsp;should prepare a&nbsp;solution to&nbsp;encrypt/decrypt data. Here we&rsquo;re using crypto.js library and our masterkey as&nbsp;a&nbsp;secret.
+We&nbsp;don&rsquo;t want to&nbsp;send unencrypted data, so&nbsp;we&nbsp;should prepare a&nbsp;solution to&nbsp;encrypt/decrypt data. Here we&rsquo;re using crypto.js library and our relationship key as&nbsp;a&nbsp;secret.
 
 ## Fetch and store data
 

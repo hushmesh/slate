@@ -22,7 +22,7 @@ After the exchange your authorization code and code verifier for tokens you&rsqu
 | ----------- | ----------- |
 | `access_token` | Access token to use to access Mesh API. |
 | `expires_in` | When current token going to be expired. |
-| `id_token` | JWT token which contains your masterKey.  |
+| `id_token` | JWT token which contains your relationshipKey.  |
 | `refresh_token` | Refresh token can be used for tokens update without additional login. |
 | `token_type` | Token type. Currently Bearer only. |
 
@@ -32,17 +32,17 @@ Two most important pieces of&nbsp;information here are:
 
 `access_token` &mdash; token which you have to&nbsp;use to&nbsp;access any Mesh API in&nbsp;the authorization header (without it&nbsp;you&rsquo;re going to&nbsp;have 401 error&nbsp;&mdash; anautorized).
 
-`id_token` &mdash; it&rsquo;s JWT token, which contains information in&nbsp;it&rsquo;s body. The most important part is&nbsp;unique masterKey, which can be&nbsp;used for different usecases (for example, as&nbsp;a&nbsp;key for your encryption/decryption process). To&nbsp;learn more about id_token structure you may want to&nbsp;take a&nbsp;look at&nbsp;our [token viewer](https://developer.hushmesh.com/token-viewer).
+`id_token` &mdash; it&rsquo;s JWT token, which contains information in&nbsp;it&rsquo;s body. The most important part is&nbsp;unique relationshipKey, which can be&nbsp;used for different usecases (for example, as&nbsp;a&nbsp;key for your encryption/decryption process). To&nbsp;learn more about id_token structure you may want to&nbsp;take a&nbsp;look at&nbsp;our [token viewer](https://developer.hushmesh.com/token-viewer).
 
-## Parsing masterKey
+## Parsing relationshipKey
 
-> parse masterKey
+> parse relationshipKey
 
 ```javascript
 const idToken = 'your_id_token_here'
 const parts = idToken.split('.')
 const jwtObj = JSON.parse(atob(parts[1]))
-const masterKey = jwtObj.masterKey
+const relationshipKey = jwtObj.relationshipKey
 ```
 
-This sample shows how to&nbsp;parse `masterKey` from `id_token`:
+This sample shows how to&nbsp;parse `relationshipKey` from `id_token`:

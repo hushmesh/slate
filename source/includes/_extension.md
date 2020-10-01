@@ -38,13 +38,13 @@ If&nbsp;you&rsquo;re developing a&nbsp;browser extension most of&nbsp;the inform
           tokenApi.getTokens({ code, codeVerifier }).then((res) => {
             const accessToken = res.data.access_token
             const jwt = res.data.id_token
-            let masterKey = ''
+            let relationshipKey = ''
             if (jwt) {
               const parts = jwt.split('.')
               const jwtObj = JSON.parse(atob(parts[1]))
-              masterKey = jwtObj.masterKey
+              relationshipKey = jwtObj.relationshipKey
             }
-            resolve({ accessToken, masterKey })
+            resolve({ accessToken, relationshipKey })
           }).catch((err) => {
             reject(err)
           })
@@ -77,4 +77,4 @@ Let&rsquo;w walk through the code example:
 
 ## Caveats
 
-To&nbsp;store tokens and `masterKey` it&rsquo;s better to&nbsp;use your extension background. If&nbsp;you&rsquo;re going to&nbsp;put them in&nbsp;the popup, they&rsquo;re going to&nbsp;be&nbsp;cleared every time user is&nbsp;closing popup.
+To&nbsp;store tokens and `relationshipKey` it&rsquo;s better to&nbsp;use your extension background. If&nbsp;you&rsquo;re going to&nbsp;put them in&nbsp;the popup, they&rsquo;re going to&nbsp;be&nbsp;cleared every time user is&nbsp;closing the popup.

@@ -88,12 +88,12 @@ The last step is&nbsp;to&nbsp;exchange the code which you&rsquo;re going to&nbsp
 tokenService.getTokens(payload).then(res => {
   const accessToken = res.data.access_token
   const jwt = res.data.id_token
-  let masterKey = ''
+  let relationshipKey = ''
 
   if (jwt) {
     const tokens = jwt.split('.')
     const jwtObj = JSON.parse(atob(tokens[1]))
-    masterKey = jwtObj.masterKey
+    relationshipKey = jwtObj.relationshipKey
   }
   // At this point you have accessToken
   // which should be used in Bearer authorization header
