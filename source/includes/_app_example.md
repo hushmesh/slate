@@ -128,6 +128,80 @@ export default {
 
 If&nbsp;nesessary, at&nbsp;this point we&nbsp;can get meshid in&nbsp;user&rsquo;s info with [userinfo](http://developer.hushmesh.com/#user) api. This step is&nbsp;optional and you may skip it&nbsp;if&nbsp;you don&rsquo;t need user&rsquo;s info but only would like to&nbsp;use storage api.
 
+## Key derivation
+
+> Formulas (pseudocode)
+
+```javascript
+// Keycard 1 Encryption Key
+K1EK = HMAC (relationshipKey, cardId)
+
+// Use our new key to get keycard number
+Keycard 1 Cell Number = HMAC (K1EK, cardId)
+
+// Now we can encrypt our content with our key and store it in our cell
+Cell Content = { Keycard 1 Content } K1EK
+```
+We want to encrypt each keycard with different key. How is it possible? The power of unique relationship key going to help us.
+
+With a unique relationship key, you can derive any number of encryption keys for whatever purpose in whatever context, and then derive cell numbers for each one of them. But if you just have the cell number and its encrypted content, you can not do anything with it.
+
+This is how any Relying Party can cryptographically secure something to a user (as in "attach"). It is great for decentralized access management, secure document storage, digital claims etc.
+
+Let's take a look at a code example:
+
+> Cells service
+
+```javascript
+import CryptoJS from 'crypto-js'
+import crypto from '@/services/crypto'
+import store from '@/store'
+
+// Here we're using our formulas on practice
+// Encryption key:
+const createEncKey = (title) => {
+  // getting our relationshipKey from the store
+  const secret = store.getters['user/relationshipKey']
+  return CryptoJS.HmacSHA256(title, secret).toString(CryptoJS.enc.Hex)
+}
+
+// Then we can calculate cell number
+const createCellNum = (key, title) => {
+  return CryptoJS.HmacSHA256(title, key).toString(CryptoJS.enc.Hex)
+}
+
+// Encypt/decrypt implementation may be different,
+// one simple approach is described in the next section
+const encCellContent = (key, data) => {
+  return crypto.encrypt(data, key)
+}
+
+const decCellContent = (key, data) => {
+  return crypto.decrypt(data, key)
+}
+```
+
+> Create new keycard example
+
+```javascript
+// title and data are the input from a user
+const { title, data } = payload
+// creating unique card id
+const cardId = helpers.makeId()
+// and here we're using our cells service
+const key = cells.createEncKey(cardId)
+const cellNum = cells.createCellNum(key, cardId)
+const cellContent = cells.encCellContent(key, data)
+
+// Keycard is ready and can be stored in any key/value store
+const keycard = {
+  id: cardId,
+  title,
+  data: cellContent,
+  createdAt: new Date()
+}
+```
+
 ## Encryption
 
 > Crypto.js example
@@ -137,14 +211,12 @@ import encUTF8 from 'crypto-js/enc-utf8'
 import AES from 'crypto-js/aes'
 import store from '@/store'
 
-const encrypt = value => {
-  // To encrypt/decrypt values we are using user's relationship key
-  const secret = store.getters['user/relationshipKey']
+const encrypt = (value, secret) => {
+  // Here we're using our derived key as secret
   return AES.encrypt(value, secret).toString()
 }
 
-const decrypt = value => {
-  const secret = store.getters['user/relationshipKey']
+const decrypt = (value, secret) => {
   return AES.decrypt(value, secret).toString(encUTF8)
 }
 
@@ -154,7 +226,7 @@ export default {
 }
 ```
 
-We&nbsp;don&rsquo;t want to&nbsp;send unencrypted data, so&nbsp;we&nbsp;should prepare a&nbsp;solution to&nbsp;encrypt/decrypt data. Here we&rsquo;re using crypto.js library and our relationship key as&nbsp;a&nbsp;secret.
+We&nbsp;don&rsquo;t want to&nbsp;send unencrypted data, so&nbsp;we&nbsp;should prepare a&nbsp;solution to&nbsp;encrypt/decrypt data. Here we&rsquo;re using crypto.js library and a derived key as&nbsp;a&nbsp;secret.
 
 ## Fetch and store data
 
