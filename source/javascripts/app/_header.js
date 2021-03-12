@@ -16,7 +16,7 @@
 
     // hide fixed navigation when scrolling to make more room for text
 
-    var isMobile = window.matchMedia('(max-width: 930px)');
+    var isMobile = window.matchMedia('(max-width: 990px)');
 
     var layout = document.body;
     var prevScrollpos = window.pageYOffset;
